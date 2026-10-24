@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {apiBase,extractionPayload,extractWithLLM,readExtraction,parallelRecognition} from '../dist/llm-ocr.mjs';
+import {apiBase,extractionPayload,extractWithLLM,readExtraction,parallelRecognition,LLM_TIMEOUT_MS} from '../dist/llm-ocr.mjs';
 import {previewPage,serverPageURL,PaperPreview} from '../dist/paper-preview.mjs';
 
 const deferred=()=>{let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return {promise,resolve,reject}};
@@ -33,7 +33,19 @@ test('shared mode never forwards a personal key; static mode uses the exact requ
   assert.throws(()=>apiBase('http://example.com/v1'),/HTTPS/);
 });
 test('LLM timeout aborts its request without involving the OCR engine',async()=>{
-  await assert.rejects(extractWithLLM('image',{server:true,timeoutMs:10,fetcher:(_url,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>reject(new Error('aborted'))))}),/25 秒/);
+  assert.equal(LLM_TIMEOUT_MS,75000);
+  await assert.rejects(extractWithLLM('image',{server:true,timeoutMs:10,fetcher:(_url,options)=>new Promise((resolve,reject)=>options.signal.addEventListener('abort',()=>reject(new Error('aborted'))))}),/等待超时/);
+});
+test('LLM waiting and retry status reach the UI without becoming recognized text',async()=>{
+  const statuses=[],text=[];
+  const body=[{status:'processing',message:'识别处理中 · 30 秒'},{status:'retrying',message:'正在自动重试…'},{delta:'A question'},{done:true,text:'A question'}].map(e=>JSON.stringify(e)).join('\n');
+  assert.equal(await extractWithLLM('image',{server:true,onStatus:s=>statuses.push(s),onProgress:s=>text.push(s),fetcher:async()=>new Response(body,{headers:{'Content-Type':'application/x-ndjson'}})}),'A question');
+  assert.deepEqual(statuses,['识别处理中 · 30 秒','正在自动重试…']);assert.deepEqual(text,['A question']);
+});
+test('LLM errors retain server detail and replace raw gateway HTML',async()=>{
+  await assert.rejects(readExtraction(new Response(JSON.stringify({error:'识别服务账户额度不足。'}),{status:402})),/额度不足/);
+  await assert.rejects(readExtraction(new Response('<html>504 gateway</html>',{status:504})),/^Error: 识别服务响应超时/);
+  await assert.rejects(readExtraction(new Response('{"error":"识别服务等待超时，请稍后重试。","code":504}\n',{headers:{'Content-Type':'application/x-ndjson'}})),/等待超时/);
 });
 test('static relay uses only the visitor key and is limited to its configured provider',async()=>{
   const calls=[],fetcher=async(...args)=>{calls.push(args);return new Response('{"done":true,"text":"question"}\n',{headers:{'Content-Type':'application/x-ndjson'}})};

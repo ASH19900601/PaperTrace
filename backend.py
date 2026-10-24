@@ -3,7 +3,9 @@ import base64
 import binascii
 import importlib.util
 import json
+import logging
 import os
+import queue
 import re
 import threading
 import time
@@ -21,12 +23,17 @@ PROMPT = ('Transcribe the exam question in the image, preserving its original la
 MAX_BODY = 3 * 1024 * 1024
 MAX_PDF = 30 * 1024 * 1024
 USER_AGENT = 'PaperTrace/1.0 (+https://github.com/ASH19900601/PaperTrace)'
+OCR_BUDGET = 65
+OCR_ATTEMPT_TIMEOUT = 40
+OCR_HEARTBEAT = 3
+logger = logging.getLogger('papertrace.ocr')
 
 
 class APIError(Exception):
-    def __init__(self, status, message):
+    def __init__(self, status, message, retryable=False):
         super().__init__(message)
         self.status = status
+        self.retryable = retryable
 
 
 class ByteCache:
@@ -105,39 +112,118 @@ class Backend:
         if not valid:
             raise APIError(400, '图片格式无效。')
 
-    def open_ocr(self, image, ip, personal_key=None):
+    def prepare_ocr(self, image, ip, personal_key=None):
         key = self.key if personal_key is None else personal_key
         if not key:
             raise APIError(503, '请在页面填写自己的 API Key，或使用本机 OCR。')
         self.validate_image(image)
         self.rate_limit(ip)
-        if not self.ocr_slots.acquire(blocking=False):
-            raise APIError(429, 'LLM 正忙，本机 OCR 已继续识别，请稍后重试。')
         payload = {'model': MODEL, 'reasoning_effort': 'low', 'max_completion_tokens': 1600,
                    'store': False, 'stream': True, 'messages': [{'role': 'user', 'content': [
                        {'type': 'text', 'text': PROMPT},
                        {'type': 'image_url', 'image_url': {'url': image, 'detail': 'high'}}]}]}
-        request = urllib.request.Request(self.base + '/chat/completions', data=json.dumps(payload).encode(), headers={
+        return urllib.request.Request(self.base + '/chat/completions', data=json.dumps(payload).encode(), headers={
             'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json', 'User-Agent': USER_AGENT})
+
+    def open_ocr(self, request, timeout):
         try:
-            return urllib.request.urlopen(request, timeout=22)
+            return urllib.request.urlopen(request, timeout=timeout)
         except urllib.error.HTTPError as exc:
-            self.ocr_slots.release()
             code = exc.code
             exc.close()
-            message = {401: 'LLM API Key 无效，请检查服务配置。', 402: 'LLM 账户额度不足。',
-                       403: 'LLM 接口暂时拒绝请求。', 429: 'LLM 接口繁忙，请稍后再试。'}.get(code, 'LLM 接口暂时不可用。')
-            raise APIError(502, message)
-        except Exception:
-            self.ocr_slots.release()
-            raise APIError(504, 'LLM 响应超时，本机 OCR 可继续使用。')
+            message = {401: 'API Key 无效，请检查识别服务配置。', 402: '识别服务账户额度不足。',
+                       403: '识别服务暂时拒绝请求。', 429: '识别服务繁忙，请稍后再试。'}.get(code, '识别服务暂时不可用，请稍后重试。')
+            raise APIError(code if code in (401, 402, 403, 429) else 502, message,
+                           retryable=code in (408, 429, 500, 502, 503, 504)) from None
+        except (urllib.error.URLError, TimeoutError, OSError):
+            raise APIError(504, '识别服务响应超时，请稍后重试。', retryable=True) from None
 
-    def ocr_events(self, response):
-        started, total, found = time.monotonic(), '', False
+    def start_ocr(self, image, ip, personal_key=None):
+        # Validate before returning HTTP 200; upstream latency is then reported in the stream.
+        request = self.prepare_ocr(image, ip, personal_key)
+        messages, cancelled = queue.Queue(), threading.Event()
+        started = time.monotonic()
+        deadline = started + OCR_BUDGET
+
+        def produce():
+            if not self.ocr_slots.acquire(blocking=False):
+                messages.put({'error': '识别服务正忙，请稍后重试。', 'code': 429})
+                messages.put(None)
+                return
+            sent_text = False
+            try:
+                for attempt in range(2):
+                    if cancelled.is_set():
+                        return
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        raise APIError(504, '识别服务等待超时，请稍后重试。')
+                    try:
+                        response = self.open_ocr(request, min(OCR_ATTEMPT_TIMEOUT, remaining))
+                        if cancelled.is_set():
+                            response.close()
+                            return
+                        for event in self.ocr_events(response, deadline=deadline):
+                            if cancelled.is_set():
+                                return
+                            sent_text = sent_text or bool(event.get('delta'))
+                            messages.put(event)
+                        logger.info('completed attempt=%d elapsed=%.1fs', attempt + 1, time.monotonic() - started)
+                        return
+                    except (TimeoutError, OSError):
+                        error = APIError(504, '识别连接暂时中断，请稍后重试。', retryable=True)
+                    except APIError as exc:
+                        error = exc
+                    logger.warning('attempt=%d status=%d elapsed=%.1fs retryable=%s',
+                                   attempt + 1, error.status, time.monotonic() - started, error.retryable)
+                    if attempt == 0 and error.retryable and not sent_text and deadline - time.monotonic() > 3:
+                        messages.put({'status': 'retrying', 'message': '识别服务连接暂时异常，正在自动重试…'})
+                        if cancelled.wait(1):
+                            return
+                    else:
+                        raise error
+            except APIError as error:
+                messages.put({'error': str(error), 'code': error.status})
+            except Exception as error:
+                logger.error('unexpected failure type=%s', type(error).__name__)
+                messages.put({'error': '识别未完成，请稍后重试。'})
+            finally:
+                messages.put(None)
+                self.ocr_slots.release()
+
+        def consume():
+            worker = threading.Thread(target=produce, daemon=True)
+            worker.start()
+            try:
+                yield {'status': 'processing', 'message': '正在提取题干…'}
+                while True:
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        yield {'error': '识别服务等待超时，请稍后重试。', 'code': 504}
+                        return
+                    try:
+                        event = messages.get(timeout=min(OCR_HEARTBEAT, remaining))
+                    except queue.Empty:
+                        elapsed = round(time.monotonic() - started)
+                        yield {'status': 'processing', 'message': f'识别处理中 · {elapsed} 秒'}
+                        continue
+                    if event is None:
+                        return
+                    yield event
+                    if event.get('done') or event.get('error'):
+                        return
+            finally:
+                cancelled.set()
+
+        return consume()
+
+    def ocr_events(self, response, deadline=None):
+        deadline = deadline or time.monotonic() + OCR_BUDGET
+        total, found = '', False
         try:
             for line in response:
-                if time.monotonic() - started > 25:
-                    raise APIError(504, 'LLM 识别超时，请使用已完成的 OCR 结果。')
+                if time.monotonic() > deadline:
+                    raise APIError(504, '识别服务等待超时，请稍后重试。')
                 if not line.startswith(b'data:'):
                     continue
                 raw = line[5:].strip()
@@ -180,7 +266,7 @@ class Backend:
                 elif kind in ('error', 'response.failed', 'response.incomplete'):
                     raise APIError(502, 'LLM 提取未完成，请裁剪题干后重试。')
             if not found or not total.strip():
-                raise APIError(502, 'LLM 未返回完整题干，请使用 OCR 结果。')
+                raise APIError(502, '识别服务返回中断，请稍后重试。', retryable=True)
             yield {'text': total.strip(), 'done': True}
         finally:
             response.close()

@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import mimetypes
+import logging
 import sys
 import socket
 import re
@@ -103,19 +104,19 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
             ip = self.client_address[0]
             if ip in ('127.0.0.1', '::1') and self.headers.get('X-Forwarded-For'):
                 ip = self.headers['X-Forwarded-For'].split(',')[-1].strip()
-            upstream = self.server.backend.open_ocr(data['image'], ip, personal_key=personal_key)
+            events = self.server.backend.start_ocr(data['image'], ip, personal_key=personal_key)
         except (ValueError, UnicodeError):
             return self.json_response(400, {'error': '请求格式无效。'})
         except (TimeoutError, socket.timeout):
             return self.json_response(408, {'error': '图片上传超时。'})
         except APIError as exc:
             return self.json_response(exc.status, {'error': str(exc)})
-        events = self.server.backend.ocr_events(upstream)
         try:
             self.send_response(200)
             self.send_header('Content-Type', 'application/x-ndjson; charset=utf-8')
             self.send_header('X-Content-Type-Options', 'nosniff')
             self.end_headers()
+            self.wfile.flush()
             try:
                 for event in events:
                     self.wfile.write((json.dumps(event, ensure_ascii=False) + '\n').encode())
@@ -126,8 +127,6 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
             pass
         finally:
             events.close()
-            upstream.close()
-            self.server.backend.ocr_slots.release()
 
 def check_package():
     """Check files and declared counts; does not execute search or OCR tests."""
@@ -173,6 +172,7 @@ def check_package():
     return manifest
 
 def main():
+    logging.basicConfig(level=logging.INFO, format='%(name)s %(levelname)s %(message)s')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--host', default='127.0.0.1')
     parser.add_argument('--port', type=int, default=8000)

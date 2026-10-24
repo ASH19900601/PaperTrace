@@ -1,5 +1,5 @@
 import {CorpusLoader,openCorpusCache,prioritizeSubjects} from './corpus-loader.mjs';
-import {LLM_MODEL,DEFAULT_API_BASE,apiBase,extractWithLLM,parallelRecognition} from './llm-ocr.mjs';
+import {LLM_MODEL,DEFAULT_API_BASE,apiBase,extractWithLLM,parallelRecognition} from './llm-ocr.mjs?v=20261024-3';
 import {PaperPreview} from './paper-preview.mjs';
 import {isScieSubject,normalizeScope,scopeCodes} from './subject-scope.mjs';
 import {cleanOCR,readableBlocks,readableExcerpt} from './readability.mjs';
@@ -244,7 +244,7 @@ async function recognize(){
   if($('#llmEnabled').checked){
     if(enhancementConfig.llm.available||llmSettings.key){
       const image=recognitionCanvas(1280).toDataURL('image/jpeg',0.82);$('#llmStatus').textContent='LLM · 正在快速提取…';
-      jobs.llm=()=>extractWithLLM(image,{server:enhancementConfig.llm.available,key:llmSettings.key,base:llmSettings.base,relay:enhancementConfig.personalOcrRelay,signal:job.controller.signal,onProgress:text=>{if(current()){$('#llmProgress').hidden=false;$('#llmProgress').textContent=text}}});
+      jobs.llm=()=>extractWithLLM(image,{server:enhancementConfig.llm.available,key:llmSettings.key,base:llmSettings.base,relay:enhancementConfig.personalOcrRelay,signal:job.controller.signal,onStatus:message=>{if(current())$('#llmStatus').textContent='LLM · '+message},onProgress:text=>{if(current()){$('#llmProgress').hidden=false;$('#llmProgress').textContent=text}}});
     }else $('#llmStatus').textContent='LLM · 请填写并保存 API Key；OCR 已继续。';
   }
   try{await parallelRecognition(jobs,{isCurrent:current,onResult:(source,text,ms)=>{
@@ -252,7 +252,7 @@ async function recognize(){
     $('#'+(source==='ocr'?'useOCR':'useLLM')).disabled=false;
     if(source==='llm')$('#llmProgress').hidden=true;
     if(!job.selected&&!job.edited)applyRecognition(job,source);
-  },onError:(source,error)=>{$('#'+(source==='ocr'?'ocrStatus':'llmStatus')).textContent=(source==='ocr'?'OCR':'LLM')+' · '+error.message;if(source==='llm')$('#llmProgress').hidden=true}})}finally{if(current())$('#recognizeImage').disabled=false}
+  },onError:(source,error)=>{$('#'+(source==='ocr'?'ocrStatus':'llmStatus')).textContent=(source==='ocr'?'OCR':'LLM')+' · '+error.message.replace(/^LLM[ ·：:]*/,'');if(source==='llm')$('#llmProgress').hidden=true}})}finally{if(current())$('#recognizeImage').disabled=false}
 }
 
 function setMode(mode){$$('.search-tab').forEach(b=>{b.classList.toggle('active',b.dataset.mode===mode);b.setAttribute('aria-selected',b.dataset.mode===mode)});$('#photoArea').hidden=mode!=='photo';$('#ocrReview').hidden=mode!=='photo'||!$('#ocrRawText').textContent;$('#queryWrap').hidden=mode==='photo'&&!!$('#ocrRawText').textContent;if(mode==='text')$('#query').focus();else void prepareOCR().catch(()=>{})}

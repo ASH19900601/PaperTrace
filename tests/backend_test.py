@@ -1,4 +1,5 @@
 import io
+import base64
 import json
 import os
 from pathlib import Path
@@ -12,7 +13,7 @@ from functools import partial
 from http.server import ThreadingHTTPServer
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from backend import Backend, APIError, ByteCache
+from backend import Backend, APIError, ByteCache, OCR_ATTEMPT_TIMEOUT, OCR_BUDGET
 from serve import RevalidatingHandler, PUBLIC
 
 
@@ -106,6 +107,79 @@ class BackendTests(unittest.TestCase):
         cache.put('a', b'1234');cache.put('b', b'5678')
         self.assertIsNone(cache.get('a'));self.assertEqual(cache.get('b'), b'5678')
         cache.put('b', b'12');self.assertEqual(cache.size, 2)
+
+    def test_slow_upstream_sends_headers_and_heartbeat_before_result(self):
+        release = threading.Event()
+        image = 'data:image/png;base64,' + base64.b64encode(b'\x89PNG\r\n\x1a\n').decode()
+        def delayed(request, timeout):
+            self.assertGreater(timeout, 22)
+            if not release.wait(2):
+                raise AssertionError('HTTP response waited for upstream')
+            return io.BytesIO(b'data: {"choices":[{"delta":{"content":"A skydiver"},"finish_reason":"stop"}]}\n')
+        with patch.object(self.backend, 'key', 'test-only'), patch.object(self.backend, 'open_ocr', side_effect=delayed), patch('backend.OCR_HEARTBEAT', .02):
+            try:
+                request = urllib.request.Request(self.base + '/api/ocr', data=json.dumps({'image': image}).encode(), headers={'Content-Type': 'application/json'})
+                with urllib.request.urlopen(request, timeout=1) as response:
+                    self.assertEqual(response.status, 200)
+                    self.assertEqual(json.loads(response.readline())['status'], 'processing')
+                    self.assertIn('秒', json.loads(response.readline())['message'])
+                    release.set()
+                    events = [json.loads(line) for line in response]
+                    self.assertEqual(events[-1], {'text': 'A skydiver', 'done': True})
+            finally:
+                release.set()
+
+    def test_transient_failure_retries_once_before_any_text(self):
+        service = Backend(PUBLIC)
+        response = io.BytesIO(b'data: {"choices":[{"delta":{"content":"Question"},"finish_reason":"stop"}]}\n')
+        with patch.object(service, 'prepare_ocr', return_value=object()), patch.object(service, 'open_ocr', side_effect=[APIError(502, 'temporary', retryable=True), response]) as opener:
+            events = list(service.start_ocr('image', 'test'))
+        self.assertEqual(opener.call_count, 2)
+        self.assertTrue(any(e.get('status') == 'retrying' for e in events))
+        self.assertEqual(events[-1], {'text': 'Question', 'done': True})
+
+    def test_auth_error_and_partial_stream_are_not_retried(self):
+        for outcome in (APIError(401, 'Invalid key'), io.BytesIO(b'data: {"choices":[{"delta":{"content":"partial"}}]}\n')):
+            with self.subTest(outcome=type(outcome).__name__):
+                service = Backend(PUBLIC)
+                with patch.object(service, 'prepare_ocr', return_value=object()), patch.object(service, 'open_ocr', side_effect=[outcome]) as opener:
+                    events = list(service.start_ocr('image', 'test'))
+                self.assertEqual(opener.call_count, 1)
+                self.assertIn('error', events[-1])
+                self.assertFalse(any(e.get('done') for e in events))
+
+    def test_deadline_returns_error_and_cancelled_upstream_releases_slot(self):
+        service = Backend(PUBLIC)
+        service.ocr_slots = threading.BoundedSemaphore(1)
+        release, opened, closed = threading.Event(), threading.Event(), threading.Event()
+        class Response(io.BytesIO):
+            def close(self):
+                super().close()
+                closed.set()
+        def delayed(*args):
+            opened.set()
+            release.wait(2)
+            return Response()
+        with patch.object(service, 'prepare_ocr', return_value=object()), patch.object(service, 'open_ocr', side_effect=delayed), patch('backend.OCR_BUDGET', .06), patch('backend.OCR_HEARTBEAT', .01):
+            try:
+                events = list(service.start_ocr('image', 'test'))
+                self.assertTrue(opened.is_set())
+                self.assertEqual(events[-1]['code'], 504)
+            finally:
+                release.set()
+            self.assertTrue(closed.wait(1))
+            self.assertTrue(service.ocr_slots.acquire(timeout=1))
+            service.ocr_slots.release()
+
+    def test_upstream_http_errors_preserve_retry_classification(self):
+        request = urllib.request.Request('https://example.test/chat/completions')
+        for status, retryable in ((503, True), (504, True), (429, True), (401, False), (402, False)):
+            with self.subTest(status=status), patch('backend.urllib.request.urlopen', side_effect=urllib.error.HTTPError(request.full_url, status, 'upstream', {}, io.BytesIO(b'private upstream details'))):
+                with self.assertRaises(APIError) as error:
+                    self.backend.open_ocr(request, OCR_ATTEMPT_TIMEOUT)
+                self.assertEqual(error.exception.retryable, retryable)
+                self.assertNotIn('private upstream details', str(error.exception))
+        self.assertGreater(OCR_BUDGET, OCR_ATTEMPT_TIMEOUT)
 
 
 if __name__ == '__main__':
