@@ -24,7 +24,7 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
         parsed = urlsplit(self.path)
         versioned = parsed.path.startswith('/data/') and parsed.path.endswith('.json') and 'v' in parse_qs(parsed.query)
         self.send_header('Cache-Control', 'public, max-age=31536000, immutable' if versioned else 'no-cache')
-        if urlsplit(self.path).path in ('/api/ocr-personal', '/api/paper-page'):
+        if urlsplit(self.path).path in ('/api/ocr-personal', '/api/paper-page', '/api/paper-preview'):
             origin = self.headers.get('Origin')
             if origin in self.server.backend.static_origins:
                 self.send_header('Access-Control-Allow-Origin', origin)
@@ -32,7 +32,7 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_OPTIONS(self):
-        if (urlsplit(self.path).path not in ('/api/ocr-personal', '/api/paper-page') or
+        if (urlsplit(self.path).path not in ('/api/ocr-personal', '/api/paper-page', '/api/paper-preview') or
                 self.headers.get('Origin') not in self.server.backend.static_origins):
             return self.json_response(403, {'error': '来源站点未启用此接口。'})
         self.send_response(204)
@@ -58,7 +58,8 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
             try:
                 query = parse_qs(path.query)
                 page = int(query.get('page', ['0'])[0])
-                body = self.server.backend.page_image(query.get('paper', [''])[0], page)
+                clip = [float(v) for v in query['clip'][0].split(',')] if 'clip' in query else None
+                body = self.server.backend.page_image(query.get('paper', [''])[0], page, clip)
                 self.send_response(200)
                 self.send_header('Content-Type', 'image/png')
                 self.send_header('Content-Length', str(len(body)))
@@ -78,6 +79,8 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         path = urlsplit(self.path).path
+        if path == '/api/paper-preview':
+            return self.question_preview()
         personal = path == '/api/ocr-personal'
         if path not in ('/api/ocr', '/api/ocr-personal'):
             return self.json_response(404, {'error': '接口不存在。'})
@@ -127,6 +130,30 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
             pass
         finally:
             events.close()
+
+    def question_preview(self):
+        origin = self.headers.get('Origin')
+        if origin and urlsplit(origin).netloc != self.headers.get('Host') and origin not in self.server.backend.static_origins:
+            return self.json_response(403, {'error': '来源站点未启用此接口。'})
+        try:
+            size = int(self.headers.get('Content-Length', '0'))
+            if not 0 < size <= 40000 or self.headers.get_content_type() != 'application/json':
+                raise APIError(400, '预览参数无效。')
+            self.connection.settimeout(30)
+            data = json.loads(self.rfile.read(size))
+            if not isinstance(data, dict) or set(data) - {'record', 'query', 'page', 'full'}:
+                raise APIError(400, '预览参数无效。')
+            page = data.get('page')
+            if page is not None and not isinstance(page, int):
+                raise APIError(400, '页码无效。')
+            result = self.server.backend.question_preview(data.get('record'), data.get('query', ''), page, data.get('full') is True)
+            self.json_response(200, result)
+        except (ValueError, UnicodeError):
+            self.json_response(400, {'error': '预览参数无效。'})
+        except APIError as exc:
+            self.json_response(exc.status, {'error': str(exc)})
+        except (BrokenPipeError, ConnectionResetError):
+            pass
 
 def check_package():
     """Check files and declared counts; does not execute search or OCR tests."""

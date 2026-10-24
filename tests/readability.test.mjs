@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readableBlocks,readableExcerpt,cleanOCR} from '../dist/readability.mjs';
+import {readableBlocks,readableExcerpt,cleanOCR,recognitionPresentation} from '../dist/readability.mjs';
 
 test('joins wrapped questions, including short last lines, but separates parts',()=>{
   const b=readableBlocks('(a) The upthrust on the skydiver is\nnegligible.\n(b) Calculate the acceleration at time\nt = 9.0 s.');
@@ -22,4 +22,23 @@ test('OCR background noise is removed without discarding numerical expressions',
 test('excerpt uses matching prose rather than detached graph labels',()=>{
   const text='A skydiver falls vertically downwards.\nv\n0\nt\n(a) Calculate the acceleration of the skydiver.';
   assert.equal(readableExcerpt(text,['skydiver','vertically']),text.split('\n')[0]);
+});
+
+test('photo review hides diagram and OCR debris but retains exact text for search',()=>{
+  const raw='(b) A small aircraft is flying horizontally at a speed of 42 m s-1.\na, , speed 42ms\nSRE Ce z\n2\n<\n=\n2)\na5\n=z\nw\n63m z\n=\n8\no)\n[a]\nground\nFig. 1.1\nThe aircraft drops a small parcel.\nZz\nF = ma';
+  const result=recognitionPresentation(raw);
+  assert.equal(result.searchText,raw);assert.match(result.text,/A small aircraft/);assert.match(result.text,/aircraft drops/);assert.match(result.text,/F = ma/);
+  for(const noise of ['SRE','63m z','Fig. 1.1','Zz','a5'])assert(!result.text.includes(noise));
+});
+test('unreadable recognition stays searchable without a paragraph of fragments',()=>{
+  const raw='1 2 3 4 5 6\nFE EE EEE EE EEE EE EE EE EE eo oe Te To eT eS EE ET |\nv\n=\nSRE';
+  assert.equal(recognitionPresentation(raw).text,'');assert.equal(recognitionPresentation(raw).searchText,raw);
+});
+test('review joins legitimate short continuations and preserves Chinese prose',()=>{
+  const shown=recognitionPresentation('(b) The upthrust on the skydiver is\nnegligible.\n求小球到达地面时的速度。').text;
+  assert.match(shown,/is negligible/);assert.match(shown,/求小球/);
+});
+test('result excerpt can locate a later part beyond the compact photo review',()=>{
+  const text=['(a) Describe the aircraft motion.','(b) Calculate the vertical acceleration.','(c) Determine the time taken.','(d) State the horizontal distance.','(e) Explain the effect of resistance.','(f) Calculate the final momentum of the parcel.'].join('\n');
+  assert.match(readableExcerpt(text,['momentum']),/final momentum/);
 });

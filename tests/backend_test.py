@@ -75,6 +75,28 @@ class BackendTests(unittest.TestCase):
             with self.assertRaises(APIError):
                 service.validate_image(image)
 
+    def test_part_preview_api_crops_and_preserves_full_page_fallback(self):
+        if not self.backend.pdf_available:
+            self.skipTest('PyMuPDF not installed')
+        import fitz
+        self.backend.pdfs.put('9702_s24_qp_22', (PUBLIC / 'examples/9702_s24_qp_22.pdf').read_bytes())
+        body = {'record': '9702_s24_qp_22-q2', 'query': 'Calculate the acceleration of the skydiver at time t = 9.0 s.'}
+        headers = {'Content-Type': 'application/json', 'Origin': 'https://ash19900601.github.io'}
+        with urllib.request.urlopen(urllib.request.Request(self.base + '/api/paper-preview', data=json.dumps(body).encode(), headers=headers)) as response:
+            plan = json.load(response)
+            self.assertEqual(response.headers['Access-Control-Allow-Origin'], headers['Origin'])
+        self.assertEqual(plan['label'], '2(a)(ii)')
+        with urllib.request.urlopen(self.base + '/' + plan['image']) as response:
+            cropped = fitz.Pixmap(response.read())
+        self.assertLess(cropped.height, 500)
+        body.update(page=6, full=True)
+        with urllib.request.urlopen(urllib.request.Request(self.base + '/api/paper-preview', data=json.dumps(body).encode(), headers=headers)) as response:
+            self.assertIsNone(json.load(response)['clip'])
+        for path in ('/api/paper-page?paper=9702_s24_qp_22&page=6&clip=nan,0,10,20', '/api/paper-page?paper=9702_s24_qp_22&page=6&clip=-10,0,10,20'):
+            with self.assertRaises(urllib.error.HTTPError) as error:
+                urllib.request.urlopen(self.base + path)
+            self.assertEqual(error.exception.code, 400)
+
     def test_static_relay_requires_visitors_key_and_restricts_cors(self):
         request = urllib.request.Request(self.base + '/api/ocr-personal', method='OPTIONS', headers={'Origin': 'https://ash19900601.github.io'})
         with urllib.request.urlopen(request) as response:

@@ -19,8 +19,8 @@ function harness(fetch,storage=new Map()) {
     postMessage(message){if(['build','append'].includes(message.type))queueMicrotask(()=>this.onmessage({data:{id:message.id,ok:true}}));else searches.push({message,reply:results=>this.onmessage({data:{id:message.id,ok:true,results}})});}
     terminate(){}
   }
-  const context=vm.createContext({...corpus,...imports,...readability,...scope,...llm,AbortController,PaperPreview:class{show(){return Promise.resolve()}clear(){}},normalize,tokens,fetch,Worker,URL,Map,Set,Promise,performance,console,localStorage:{getItem(k){return storage.get(k)??null},setItem(k,v){storage.set(k,v)}},document:{querySelector:element,querySelectorAll(){return[]},addEventListener(){}},window:{scrollTo(){}},history:{replaceState(){}},location:{hash:'',href:'http://localhost/'},setTimeout(){return 0},clearTimeout(){}});
-  const source=fs.readFileSync(new URL('../dist/app.mjs',import.meta.url),'utf8').replace(/^import .*;\r?\n/gm,'').replaceAll('import.meta.url',JSON.stringify(new URL('../dist/app.mjs',import.meta.url).href)).replace(/initialize\(\);\s*$/,'globalThis.api={state,initialize,runSearch,rebuild,changeScope,setView};');
+  const context=vm.createContext({...corpus,...imports,...readability,...scope,...llm,AbortController,CSS:{escape:s=>s},PaperPreview:class{show(){return Promise.resolve()}clear(){}},normalize,tokens,fetch,Worker,URL,Map,Set,Promise,performance,console,localStorage:{getItem(k){return storage.get(k)??null},setItem(k,v){storage.set(k,v)}},document:{querySelector:element,querySelectorAll(){return[]},addEventListener(){}},window:{scrollTo(){}},history:{replaceState(){}},location:{hash:'',href:'http://localhost/'},setTimeout(){return 0},clearTimeout(){}});
+  const source=fs.readFileSync(new URL('../dist/app.mjs',import.meta.url),'utf8').replace(/^import .*;\r?\n/gm,'').replaceAll('import.meta.url',JSON.stringify(new URL('../dist/app.mjs',import.meta.url).href)).replace(/initialize\(\);\s*$/,'globalThis.api={state,initialize,runSearch,rebuild,changeScope,setView,applyRecognition,setRecognition:job=>activeRecognition=job};');
   vm.runInContext(source,context);
   return {...context.api,element,searches};
 }
@@ -89,4 +89,20 @@ test('first subject is searchable while a slower common subject is still downloa
  assert.equal(app.state.ready,true);assert.equal(app.state.records.length,1);assert(!calls.some(url=>url.startsWith('data/0417.json')));
  app.element('#query').value='distinctive mathematical';const run=app.runSearch();app.searches[0].reply([physics]);await run;assert.equal(app.state.results.length,1);
  finish([]);await initializing;
+});
+
+
+test('photo search retains hidden OCR noise while rendering only readable prose',async()=>{
+ const physics={...record,id:'9702_s24_qp_22-q2',paperId:'9702_s24_qp_22',code:'9702'};
+ const manifest={subjects:[{code:'9702',level:'AS & A Level'}],papers:[{id:physics.paperId,code:'9702',year:2024,questions:1}]};
+ const app=harness(async url=>({ok:true,json:async()=>url==='data/manifest.json'?manifest:[physics]}));await app.initialize();
+ const raw='A small aircraft is flying horizontally.\nSRE Ce z\n63m z\n[a]\nFig. 1.1';
+ const job={results:{ocr:{text:raw,ms:1000}}};app.setRecognition(job);app.applyRecognition(job,'ocr');
+ assert.equal(app.searches.at(-1).message.query,raw);
+ assert(!app.element('#ocrReadable').innerHTML.includes('SRE'));
+ assert(!app.element('#query').value.includes('SRE'));
+ app.searches.at(-1).reply([physics]);await new Promise(resolve=>setImmediate(resolve));
+ const html=app.element('#resultsList').innerHTML;
+ assert(html.indexOf('data-preview-pane="'+physics.id+'"')<html.indexOf('</article>'));
+ assert(html.includes('data-preview="'+physics.id+'"'));
 });

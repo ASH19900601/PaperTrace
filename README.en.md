@@ -12,8 +12,8 @@ PaperTrace helps international curriculum students find questions from CAIE, Pea
 - **Text search**: English sentences, keywords, common Chinese subject terms, and Chinese or Japanese text fragments.
 - **Photo search**: Upload, drag or paste a screenshot. Rotate and crop the question, recognize its English text and find matching papers.
 - **Parallel extraction**: Run local OCR and GPT-6.1 Sol together. Search with the first completed result and switch between the two transcriptions.
-- **Original page preview**: Automatically load the first candidate's PDF page. Navigate across multi-page questions and open previews for other candidates.
-- **Readable questions**: View recognized text and question previews in paragraphs, edit OCR text, or expand the original text.
+- **Question-part preview**: Each result owns its original-paper preview, labeled with the paper, question and page. Matching parts are cropped automatically, with full-page viewing available.
+- **Readable questions**: Review readable question text while the complete recognition output stays available to search. Edit the displayed text or switch between OCR and LLM results.
 - **Source links**: Open question papers (QP) and mark schemes (MS), copy source references and bookmark questions.
 - **Filters**: Narrow results by subject, qualification, year, session and component. Sort by relevance or year.
 - **Local library**: Import QP/MS PDFs in batches, pair mark schemes, and import or export JSON indexes.
@@ -104,7 +104,7 @@ Install the optional PDF page image renderer:
 python3 -m pip install -r requirements-server.txt
 ```
 
-The server downloads the source PDF, renders the requested page as PNG and briefly caches it for repeat viewing. GitHub Pages uses the same preview service. Configure HTTPS preview and personal-key relay URLs in `dist/hosting.json` for other static deployments. Empty settings use PDF.js with an embedded original-paper reader as a fallback.
+The server downloads the source PDF, locates matching parts using PDF text coordinates and renders the selected region as PNG. Uncertain matches use the full page. Brief caching speeds up repeat viewing. GitHub Pages uses the same preview service. Configure HTTPS preview and personal-key relay URLs in `dist/hosting.json` for other static deployments. Empty settings use PDF.js with an embedded original-paper reader as a fallback.
 
 ## Deployment
 

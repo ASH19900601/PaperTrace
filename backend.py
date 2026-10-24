@@ -4,6 +4,7 @@ import binascii
 import importlib.util
 import json
 import logging
+import math
 import os
 import queue
 import re
@@ -14,6 +15,7 @@ import urllib.parse
 import urllib.request
 from collections import OrderedDict, defaultdict, deque
 from pathlib import Path
+from question_crop import locate_part
 
 MODEL = 'gpt-6.1-sol'
 PROMPT = ('Transcribe the exam question in the image, preserving its original language, '
@@ -271,7 +273,54 @@ class Backend:
         finally:
             response.close()
 
-    def page_image(self, paper_id, page):
+    def pdf_bytes(self, paper_id):
+        data = self.pdfs.get(paper_id)
+        if data is None:
+            url = self.papers[paper_id].get('qp', '')
+            if urllib.parse.urlsplit(url).scheme != 'https':
+                raise APIError(404, '原卷链接暂不可用。')
+            request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+            with urllib.request.urlopen(request, timeout=15) as response:
+                if int(response.headers.get('Content-Length', 0)) > MAX_PDF:
+                    raise APIError(413, '原卷较大，请点击原卷链接阅读。')
+                data = response.read(MAX_PDF + 1)
+            if len(data) > MAX_PDF or not data.startswith(b'%PDF-'):
+                raise APIError(502, '来源网站暂未返回可预览的 PDF。')
+            self.pdfs.put(paper_id, data)
+        return data
+
+    def question_preview(self, record_id, query, page=None, full=False):
+        if not isinstance(record_id, str) or not isinstance(query, str) or len(query) > 8000:
+            raise APIError(400, '预览参数无效。')
+        paper_id = record_id.rsplit('-', 1)[0]
+        paper = self.papers.get(paper_id)
+        if not paper or not self.pdf_available:
+            raise APIError(404, '未找到题目原卷。')
+        records = json.loads((self.public / 'data' / (paper['code'] + '.json')).read_text(encoding='utf-8'))
+        record = next((r for r in records if r['id'] == record_id), None)
+        if not record:
+            raise APIError(404, '未找到这道题。')
+        if not self.pdf_slots.acquire(blocking=False):
+            raise APIError(429, '原卷预览加载中，请稍后再试。')
+        try:
+            data = self.pdf_bytes(paper_id)
+            import fitz
+            with self.render_lock, fitz.open(stream=data, filetype='pdf') as document:
+                result = locate_part(document, record, query, page, full)
+            params = {'paper': paper_id, 'page': result['page']}
+            if result['clip']:
+                params['clip'] = ','.join(map(str, result['clip']))
+            result['image'] = 'api/paper-page?' + urllib.parse.urlencode(params)
+            result['record'] = record_id
+            return result
+        except APIError:
+            raise
+        except Exception:
+            raise APIError(502, '小问定位暂未完成，可查看原卷整页。') from None
+        finally:
+            self.pdf_slots.release()
+
+    def page_image(self, paper_id, page, clip=None):
         paper = self.papers.get(paper_id)
         if not paper or not isinstance(page, int) or not 1 <= page <= 500:
             raise APIError(404, '未找到这份试卷或页码。')
@@ -280,23 +329,16 @@ class Backend:
         url = paper.get('qp', '')
         if urllib.parse.urlsplit(url).scheme != 'https':
             raise APIError(404, '原卷链接暂不可用。')
-        key = (paper_id, page)
+        if clip is not None and (len(clip) != 4 or not all(isinstance(v, (int, float)) and math.isfinite(v) for v in clip)):
+            raise APIError(400, '裁切范围无效。')
+        key = (paper_id, page, tuple(clip) if clip else None)
         cached = self.images.get(key)
         if cached:
             return cached
         if not self.pdf_slots.acquire(blocking=False):
             raise APIError(429, '原卷预览加载中，请稍后再试。')
         try:
-            data = self.pdfs.get(paper_id)
-            if data is None:
-                request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-                with urllib.request.urlopen(request, timeout=15) as response:
-                    if int(response.headers.get('Content-Length', 0)) > MAX_PDF:
-                        raise APIError(413, '原卷较大，请点击原卷链接阅读。')
-                    data = response.read(MAX_PDF + 1)
-                if len(data) > MAX_PDF or not data.startswith(b'%PDF-'):
-                    raise APIError(502, '来源网站暂未返回可预览的 PDF。')
-                self.pdfs.put(paper_id, data)
+            data = self.pdf_bytes(paper_id)
             import fitz
             with self.render_lock:
                 with fitz.open(stream=data, filetype='pdf') as document:
@@ -306,7 +348,10 @@ class Backend:
                     if source.rect.width <= 0 or source.rect.height <= 0:
                         raise APIError(502, '原卷页面尺寸无效。')
                     scale = min(1.7, 1600 / max(source.rect.width, source.rect.height))
-                    image = source.get_pixmap(matrix=fitz.Matrix(scale, scale), alpha=False).tobytes('png')
+                    region = fitz.Rect(clip) if clip else source.rect
+                    if region.is_empty or not source.rect.contains(region):
+                        raise APIError(400, '裁切范围超出原卷页面。')
+                    image = source.get_pixmap(matrix=fitz.Matrix(scale, scale), clip=region, alpha=False).tobytes('png')
             self.images.put(key, image)
             return image
         except APIError:

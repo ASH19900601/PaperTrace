@@ -1,4 +1,26 @@
 // Presentation only. The source index is never rewritten by these helpers.
+export function recognitionPresentation(text,{compact=true}={}){
+  const searchText=String(text),kept=[];let continuing=false;
+  for(let line of searchText.replace(/\r\n?/g,'\n').split('\n')){
+    line=line.replace(/[\t ]+/g,' ').trim().replace(/\s+[|¦£]+$/u,'');
+    const content=line.replace(/^(?:\d{1,2}\s+)?(?:\([a-zivx]+\)\s*)*/i,'');
+    const words=content.match(/[a-z]{2,}/gi)||[],letters=(content.match(/[a-z]/gi)||[]).length;
+    const readable=words.filter(w=>/[aeiouy]/i.test(w)).length/Math.max(1,words.length)>.72;
+    const prose=words.length>=3&&words.some(w=>w.length>=4)&&new Set(words.map(w=>w.toLowerCase())).size/words.length>.45&&readable&&letters/Math.max(1,content.length)>.58;
+    const continuation=continuing&&words.length>=1&&readable&&letters/Math.max(1,content.length)>.6;
+    const formula=/[\p{L}\p{N}][^=→⇌]*[=→⇌]\s*[^=→⇌]*[\p{L}\p{N}]/u.test(content)&&content.length<120&&!/[|¦]{2}/.test(content);
+    const cjk=(content.match(/[\u3400-\u9fff]/gu)||[]).length>=4;
+    const furniture=/DO NOT WRITE|UCLES|Turn over|BLANK PAGE|^\[?Diagram labels?:|^Fig(?:ure)?\.?\s*\d/i.test(content);
+    if(!furniture&&(prose||continuation||formula||cjk)){
+      kept.push(line);continuing=!/[.!?。！？:：\]]$/.test(line)&&!formula;
+    }else{kept.push('');continuing=false}
+  }
+  const blocks=readableBlocks(kept.join('\n')).filter(b=>b.type!=='fragment'||/[=→⇌]/u.test(b.text));
+  // Keep the review compact; all recognized content still participates in search.
+  const display=(compact?blocks.slice(0,5):blocks).map(b=>b.text).join('\n\n');
+  return {text:compact&&display.length>1200?display.slice(0,1200)+'…':display,searchText};
+}
+
 export function cleanOCR(text){
   const removed=[];
   const lines=String(text).replace(/\r\n?/g,'\n').split('\n').filter(line=>{
@@ -37,7 +59,7 @@ export function readableBlocks(text){
 }
 
 export function readableExcerpt(text,hits=[],limit=280){
-  const blocks=readableBlocks(text),prose=blocks.filter(b=>b.type!=='fragment');
+  const blocks=readableBlocks(recognitionPresentation(text,{compact:false}).text),prose=blocks.filter(b=>b.type!=='fragment');
   const candidates=prose.length?prose:blocks;
   if(!candidates.length)return '';
   const words=hits.filter(t=>t.length>=4);
