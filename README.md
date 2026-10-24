@@ -2,14 +2,17 @@
 
 拍照或粘贴题干，找到原卷和评分标准。
 
-**[在线使用](https://ash19900601.github.io/PaperTrace/)** · [English](README.en.md)
+**[在线使用](https://trace.siphot.com/)** · [GitHub Pages](https://ash19900601.github.io/PaperTrace/) · [English](README.en.md)
 
 PaperTrace 是面向国际课程学习者的搜题工具，支持 CAIE、Pearson Edexcel、AQA 和 AP。输入一道题的文字、关键词或试卷编号，即可查找来源，查看年份、考季、卷别、题号与原卷页码，并打开对应的 Mark Scheme。
 
 ## 功能
 
+- **快速开始搜题**：物理、化学、生物和数学优先加载，首个科目就绪即可搜索；其余深国交科目后台继续加载。题库保存在浏览器缓存中，再次打开直接复用，版本更新后自动刷新。
 - **文字搜题**：支持英文原句、关键词、常见中文学科术语，以及中文和日语文本片段。
 - **拍照搜题**：上传、拖入或粘贴截图，旋转和框选题干后识别英文文字，再直接匹配试题。
+- **并行文字提取**：本机 OCR 与 GPT-6.1 Sol 同时运行，先完成的文字立即搜题，可切换采用另一种结果。
+- **原卷页面预览**：搜索后自动加载首条候选对应的 PDF 页面；多页题目支持翻页，其他候选可在题干预览中查看原卷。
 - **清晰阅读**：识别结果和题干按段落展示，支持修改识别文字、展开原始文本。
 - **来源定位**：打开 QP 原卷和 MS 评分标准，复制来源编号，收藏题目。
 - **范围筛选**：按科目、资格类别、年份、考季和卷别筛选，按相关度或年份排序。
@@ -46,6 +49,14 @@ AP-PSY_s24_qp_1-p3
 ```
 
 图片识别使用英文模型。公式、上下标和图表可以在识别后修改文字，或结合原卷阅读。搜索原句时，优先选择包含具体情境或专有词的一句话。
+
+### 使用 LLM 提取文字
+
+在「拍照 / 截图」勾选「同时使用 LLM 提取文字」。LLM 使用 `gpt-6.1-sol`，采用 `low` 推理强度、1280 像素图片和流式输出。两路识别独立运行，先完成的结果自动用于搜题；点击「OCR」或「LLM」可切换文字并重新匹配。
+
+GitHub Pages 版在「设置自己的 API Key」中填写 API 地址与密钥，然后点击「保存并启用」。默认接口为 `https://www.wangshu-api.com/v1`。密钥保留在当前标签页会话中，可随时清除。默认接口通过 PaperTrace 的 HTTPS 服务转发所选图片和本次密钥；自定义接口由浏览器直接调用。
+
+VPS 版由服务端提供 LLM 识别，访客打开网站即可使用。本机 OCR 始终可用。LLM 超时会保留已经完成的 OCR 结果，手动修改的题干会保留。
 
 ## 导入自己的试卷
 
@@ -87,11 +98,23 @@ python3 serve.py
 
 前端、搜索索引、OCR 引擎和英文模型均包含在 `dist/` 中。Python 标准库提供本机 HTTP 服务，浏览器执行搜索、OCR 和 PDF 导入。打开远程原卷和评分标准时需要联网。
 
+安装 PDF 页面图片预览依赖：
+
+```sh
+python3 -m pip install -r requirements-server.txt
+```
+
+服务器根据题库来源链接下载原卷并生成所需页的 PNG，短时缓存用于加速重复阅读。GitHub Pages 使用同一预览服务。其他静态部署可在 `dist/hosting.json` 配置 HTTPS 预览和个人密钥中转地址；留空时使用 PDF.js 读取来源 PDF，并提供原卷阅读器。
+
 ## 部署
 
 本仓库通过 [GitHub Actions 工作流](.github/workflows/pages.yml) 将 `dist/` 发布到 GitHub Pages。推送到 `codex/publish` 分支会自动更新网站，也可以在 Actions 页面手动运行 **Deploy PaperTrace to GitHub Pages**。
 
 部署自己的仓库时，在 **Settings → Pages → Source** 选择 **GitHub Actions**，并让工作流中的分支名与默认分支保持一致。
+
+VPS 可使用 [systemd 配置](deploy/papertrace.service) 常驻运行。将项目放在 `/opt/papertrace/current`，在 `/opt/papertrace/venv` 安装服务端依赖，并把 [配置模板](deploy/papertrace.env.example) 保存为 `/etc/papertrace/papertrace.env`，填写服务端密钥，文件权限设为 `600`。启动后 `/api/config` 自动告知前端当前可用的识别和预览功能。
+
+[Caddy 配置](deploy/Caddyfile) 与 [HTTPS 服务](deploy/papertrace-https.service) 提供公网 IP 的 HTTPS 访问和自动续证。部署自己的实例时修改 IP、`dist/hosting.json` 中的服务地址，以及 `PAPERTRACE_STATIC_ORIGINS` 中允许使用中转的静态站点来源。
 
 其他静态托管服务可直接将 `dist/` 作为站点目录。运行资源使用相对路径，支持仓库子路径部署。远程站点使用 HTTPS。
 

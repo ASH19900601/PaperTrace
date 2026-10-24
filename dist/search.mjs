@@ -9,6 +9,13 @@ export function tokens(s){for(const [a,b] of Object.entries(aliases))s=s.split(a
   return extra.length?[t,...extra]:[t];
 })}
 export function makeIndex(records){const df=new Map();const docs=records.map(r=>{const norm=normalize(r.text);const ts=tokens(norm);const tf=new Map();ts.forEach(t=>tf.set(t,(tf.get(t)||0)+1));for(const t of tf.keys())df.set(t,(df.get(t)||0)+1);return {r,norm,tf,len:ts.length}});const byCode=new Map();for(const d of docs){if(!byCode.has(d.r.code))byCode.set(d.r.code,[]);byCode.get(d.r.code).push(d)}return{docs,byCode,df,avg:docs.reduce((s,d)=>s+d.len,0)/(docs.length||1)}}
+export function appendIndex(index,records){
+  const added=makeIndex(records),total=index.avg*index.docs.length+added.avg*added.docs.length;
+  for(const doc of added.docs)index.docs.push(doc);
+  for(const [code,docs] of added.byCode){if(!index.byCode.has(code))index.byCode.set(code,[]);index.byCode.get(code).push(...docs)}
+  for(const [term,count] of added.df)index.df.set(term,(index.df.get(term)||0)+count);
+  index.avg=total/(index.docs.length||1);return index;
+}
 // Both a downloaded filename and the code printed on the PDF identify a paper.
 // MS references point to the corresponding QP question records.
 function paperReference(query){

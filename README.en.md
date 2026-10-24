@@ -2,14 +2,17 @@
 
 Find the original paper and mark scheme from a photo or a passage of question text.
 
-**[Open PaperTrace](https://ash19900601.github.io/PaperTrace/)** · [简体中文](README.md)
+**[Open PaperTrace](https://trace.siphot.com/)** · [GitHub Pages](https://ash19900601.github.io/PaperTrace/) · [简体中文](README.md)
 
 PaperTrace helps international curriculum students find questions from CAIE, Pearson Edexcel, AQA and AP papers. Search by question text, keywords or a paper reference to find the year, exam session, component, question number and original page, then open the corresponding mark scheme.
 
 ## Features
 
+- **Faster startup**: physics, chemistry, biology and mathematics load first. Search starts as soon as the first subject is ready while other SCIE subjects load in the background. Downloaded subjects persist in the browser and refresh when the corpus version changes.
 - **Text search**: English sentences, keywords, common Chinese subject terms, and Chinese or Japanese text fragments.
 - **Photo search**: Upload, drag or paste a screenshot. Rotate and crop the question, recognize its English text and find matching papers.
+- **Parallel extraction**: Run local OCR and GPT-6.1 Sol together. Search with the first completed result and switch between the two transcriptions.
+- **Original page preview**: Automatically load the first candidate's PDF page. Navigate across multi-page questions and open previews for other candidates.
 - **Readable questions**: View recognized text and question previews in paragraphs, edit OCR text, or expand the original text.
 - **Source links**: Open question papers (QP) and mark schemes (MS), copy source references and bookmark questions.
 - **Filters**: Narrow results by subject, qualification, year, session and component. Sort by relevance or year.
@@ -46,6 +49,14 @@ AP-PSY_s24_qp_1-p3
 ```
 
 Image recognition uses an English model. Edit formulas, superscripts and diagram labels after recognition, or read them in the original paper. For sentence searches, choose a passage with a specific context or distinctive terms.
+
+### Extract text with an LLM
+
+Enable LLM extraction in photo search. It uses `gpt-6.1-sol` with `low` reasoning effort, images resized to 1280 pixels and streaming output. OCR and LLM run independently; the first completed result starts a search. Use the OCR and LLM buttons to switch transcriptions and search again.
+
+On GitHub Pages, enter your API base URL and key under the API settings and save to enable it. The default endpoint is `https://www.wangshu-api.com/v1`. Your key stays in the current tab session and can be cleared at any time. The default provider uses PaperTrace's HTTPS relay to forward the selected image and your key for that request. Custom providers are called directly from the browser.
+
+The VPS edition supplies LLM extraction through the server for all visitors. Local OCR remains available. When the LLM times out, completed OCR results and manually edited question text stay available.
 
 ## Import your papers
 
@@ -87,11 +98,23 @@ Open **http://localhost:8000/**. Leave the terminal running and press `Ctrl+C` t
 
 The frontend, search indexes, OCR engine and English model are bundled in `dist/`. Python's standard library serves the site locally; the browser handles search, OCR and PDF imports. Opening remote papers and mark schemes requires internet access.
 
+Install the optional PDF page image renderer:
+
+```sh
+python3 -m pip install -r requirements-server.txt
+```
+
+The server downloads the source PDF, renders the requested page as PNG and briefly caches it for repeat viewing. GitHub Pages uses the same preview service. Configure HTTPS preview and personal-key relay URLs in `dist/hosting.json` for other static deployments. Empty settings use PDF.js with an embedded original-paper reader as a fallback.
+
 ## Deployment
 
 The included [GitHub Actions workflow](.github/workflows/pages.yml) publishes `dist/` to GitHub Pages. Pushes to `codex/publish` update the site automatically. You can also run **Deploy PaperTrace to GitHub Pages** manually from the Actions tab.
 
 For your own repository, select **GitHub Actions** under **Settings → Pages → Source** and match the branch in the workflow to your default branch.
+
+For a VPS, use the [systemd service](deploy/papertrace.service). Put the application in `/opt/papertrace/current`, install server dependencies in `/opt/papertrace/venv`, and save the [environment template](deploy/papertrace.env.example) as `/etc/papertrace/papertrace.env`. Fill in the server API key and set file permissions to `600`. The frontend discovers available OCR and preview services through `/api/config`.
+
+The [Caddy configuration](deploy/Caddyfile) and [HTTPS service](deploy/papertrace-https.service) provide public-IP HTTPS and automatic certificate renewal. For your deployment, update the IP, service URLs in `dist/hosting.json`, and allowed static-site origins in `PAPERTRACE_STATIC_ORIGINS`.
 
 Other static hosts can serve `dist/` directly. Runtime assets use relative paths and support repository subpaths. Use HTTPS for a remote site.
 

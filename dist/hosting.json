@@ -1,0 +1,4 @@
+{
+  "personalOcrRelay": "https://trace.siphot.com/api/ocr-personal",
+  "pdfPreviewBase": "https://trace.siphot.com"
+}

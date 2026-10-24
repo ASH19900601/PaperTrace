@@ -5,9 +5,13 @@ import hashlib
 import json
 import mimetypes
 import sys
+import socket
+import re
+from urllib.parse import urlsplit, parse_qs
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from backend import Backend, APIError, MAX_BODY
 
 ROOT = Path(__file__).resolve().parent
 PUBLIC = ROOT / 'dist'
@@ -16,13 +20,120 @@ PUBLIC = ROOT / 'dist'
 class RevalidatingHandler(SimpleHTTPRequestHandler):
     """A corpus update must take effect on reload, including worker modules."""
     def end_headers(self):
-        self.send_header('Cache-Control', 'no-cache')
+        parsed = urlsplit(self.path)
+        versioned = parsed.path.startswith('/data/') and parsed.path.endswith('.json') and 'v' in parse_qs(parsed.query)
+        self.send_header('Cache-Control', 'public, max-age=31536000, immutable' if versioned else 'no-cache')
+        if urlsplit(self.path).path in ('/api/ocr-personal', '/api/paper-page'):
+            origin = self.headers.get('Origin')
+            if origin in self.server.backend.static_origins:
+                self.send_header('Access-Control-Allow-Origin', origin)
+                self.send_header('Vary', 'Origin')
         super().end_headers()
+
+    def do_OPTIONS(self):
+        if (urlsplit(self.path).path not in ('/api/ocr-personal', '/api/paper-page') or
+                self.headers.get('Origin') not in self.server.backend.static_origins):
+            return self.json_response(403, {'error': '来源站点未启用此接口。'})
+        self.send_response(204)
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Authorization, Content-Type')
+        self.send_header('Access-Control-Max-Age', '600')
+        self.end_headers()
+
+    def json_response(self, status, data):
+        body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+        self.send_response(status)
+        self.send_header('Content-Type', 'application/json; charset=utf-8')
+        self.send_header('Content-Length', str(len(body)))
+        self.end_headers()
+        if self.command != 'HEAD':
+            self.wfile.write(body)
+
+    def do_GET(self):
+        path = urlsplit(self.path)
+        if path.path == '/api/config':
+            return self.json_response(200, self.server.backend.config())
+        if path.path == '/api/paper-page':
+            try:
+                query = parse_qs(path.query)
+                page = int(query.get('page', ['0'])[0])
+                body = self.server.backend.page_image(query.get('paper', [''])[0], page)
+                self.send_response(200)
+                self.send_header('Content-Type', 'image/png')
+                self.send_header('Content-Length', str(len(body)))
+                self.send_header('X-Content-Type-Options', 'nosniff')
+                self.end_headers()
+                self.wfile.write(body)
+            except ValueError:
+                self.json_response(400, {'error': '页码无效。'})
+            except APIError as exc:
+                self.json_response(exc.status, {'error': str(exc)})
+            except (BrokenPipeError, ConnectionResetError):
+                pass
+            return
+        if path.path.startswith('/api/'):
+            return self.json_response(404, {'error': '接口不存在。'})
+        return super().do_GET()
+
+    def do_POST(self):
+        path = urlsplit(self.path).path
+        personal = path == '/api/ocr-personal'
+        if path not in ('/api/ocr', '/api/ocr-personal'):
+            return self.json_response(404, {'error': '接口不存在。'})
+        # Only the OCR image schema is accepted; browsers on unrelated sites cannot use the shared key.
+        origin = self.headers.get('Origin')
+        if origin and urlsplit(origin).netloc != self.headers.get('Host') and not (personal and origin in self.server.backend.static_origins):
+            return self.json_response(403, {'error': '请在本站使用图片识别。'})
+        personal_key = None
+        if personal:
+            authorization = self.headers.get('Authorization', '')
+            if not re.fullmatch(r'Bearer [A-Za-z0-9_\-]{20,256}', authorization):
+                return self.json_response(401, {'error': '请填写自己的 API Key。'})
+            personal_key = authorization[7:]
+        if self.headers.get_content_type() != 'application/json':
+            return self.json_response(415, {'error': '请发送 JSON 图片数据。'})
+        try:
+            size = int(self.headers.get('Content-Length', '0'))
+            if not 0 < size <= MAX_BODY:
+                raise APIError(413, '图片数据过大，请裁剪题干后重试。')
+            self.connection.settimeout(30)
+            data = json.loads(self.rfile.read(size))
+            if not isinstance(data, dict) or set(data) != {'image'}:
+                raise APIError(400, '请求只支持题目图片。')
+            ip = self.client_address[0]
+            if ip in ('127.0.0.1', '::1') and self.headers.get('X-Forwarded-For'):
+                ip = self.headers['X-Forwarded-For'].split(',')[-1].strip()
+            upstream = self.server.backend.open_ocr(data['image'], ip, personal_key=personal_key)
+        except (ValueError, UnicodeError):
+            return self.json_response(400, {'error': '请求格式无效。'})
+        except (TimeoutError, socket.timeout):
+            return self.json_response(408, {'error': '图片上传超时。'})
+        except APIError as exc:
+            return self.json_response(exc.status, {'error': str(exc)})
+        events = self.server.backend.ocr_events(upstream)
+        try:
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/x-ndjson; charset=utf-8')
+            self.send_header('X-Content-Type-Options', 'nosniff')
+            self.end_headers()
+            try:
+                for event in events:
+                    self.wfile.write((json.dumps(event, ensure_ascii=False) + '\n').encode())
+                    self.wfile.flush()
+            except (APIError, TimeoutError, socket.timeout):
+                self.wfile.write((json.dumps({'error': 'LLM 提取未完成，OCR 结果仍可使用。'}, ensure_ascii=False) + '\n').encode())
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+        finally:
+            events.close()
+            upstream.close()
+            self.server.backend.ocr_slots.release()
 
 def check_package():
     """Check files and declared counts; does not execute search or OCR tests."""
     required = [
         'index.html', 'app.mjs', 'search.mjs', 'index-worker.mjs',
+        'llm-ocr.mjs', 'paper-preview.mjs', 'corpus-loader.mjs',
         'import-utils.mjs', 'style.css', 'data/manifest.json',
         'vendor/tesseract.min.js', 'vendor/worker.min.js',
         'vendor/eng.traineddata.gz', 'vendor/tesseract-core-lstm.wasm.js',
@@ -85,6 +196,7 @@ def main():
     handler = partial(RevalidatingHandler, directory=str(PUBLIC))
     try:
         server = ThreadingHTTPServer((args.host, args.port), handler)
+        server.backend = Backend(PUBLIC)
     except OSError as exc:
         print('Cannot start server: {}. Try --port 8001.'.format(exc), file=sys.stderr)
         return 1
