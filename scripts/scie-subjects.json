@@ -1,0 +1,237 @@
+[
+  {
+    "code": "0400",
+    "name": "Art & Design",
+    "nameZh": "艺术与设计",
+    "level": "IGCSE",
+    "directory": "igcse-art-and-design-0400",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0410",
+    "name": "Music",
+    "nameZh": "音乐",
+    "level": "IGCSE",
+    "directory": "igcse-music-0410",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0413",
+    "name": "Physical Education",
+    "nameZh": "体育",
+    "level": "IGCSE",
+    "directory": "igcse-physical-education-0413",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0457",
+    "name": "Global Perspectives",
+    "nameZh": "全球视野",
+    "level": "IGCSE",
+    "directory": "igcse-global-perspectives-0457",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0460",
+    "name": "Geography",
+    "nameZh": "地理",
+    "level": "IGCSE",
+    "directory": "igcse-geography-0460",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0470",
+    "name": "History",
+    "nameZh": "历史",
+    "level": "IGCSE",
+    "directory": "igcse-history-0470",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0509",
+    "name": "First Language Chinese",
+    "nameZh": "中文（第一语言）",
+    "level": "IGCSE",
+    "directory": "igcse-chinese-0509",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0519",
+    "name": "Japanese (legacy)",
+    "nameZh": "日语（旧大纲）",
+    "level": "IGCSE",
+    "directory": "igcse-japanese-0519",
+    "examBoard": "CAIE",
+    "indexMode": "page",
+    "coverage": "历史参考；学校日语另收录 Edexcel GCSE"
+  },
+  {
+    "code": "0520",
+    "name": "French",
+    "nameZh": "法语",
+    "level": "IGCSE",
+    "directory": "igcse-french-0520",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0530",
+    "name": "Spanish",
+    "nameZh": "西班牙语",
+    "level": "IGCSE",
+    "directory": "igcse-spanish-0530",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9093",
+    "name": "English Language",
+    "nameZh": "英语语言",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-english-9093",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9695",
+    "name": "Literature in English",
+    "nameZh": "英语文学",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-english-literature-9695",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9696",
+    "name": "Geography",
+    "nameZh": "地理",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-geography-9696",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9489",
+    "name": "History",
+    "nameZh": "历史",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-history-9489",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9990",
+    "name": "Psychology",
+    "nameZh": "心理学",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-psychology-9990",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9699",
+    "name": "Sociology",
+    "nameZh": "社会学",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-sociology-9699",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9479",
+    "name": "Art & Design",
+    "nameZh": "艺术与设计",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-art-and-design-9479",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9483",
+    "name": "Music",
+    "nameZh": "音乐",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-music-9483",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9482",
+    "name": "Drama",
+    "nameZh": "戏剧",
+    "level": "AS & A Level",
+    "directory": "as-and-a-level-drama-9482",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "8386",
+    "name": "Sport & Physical Education",
+    "nameZh": "运动与体育",
+    "level": "AS Level",
+    "directory": "as-and-a-level-sportphysical-education-8386",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "8028",
+    "name": "French Language",
+    "nameZh": "法语语言",
+    "level": "AS Level",
+    "directory": "as-and-a-level-french-language-as-level-only-8028",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9898",
+    "name": "French Language & Literature",
+    "nameZh": "法语语言与文学",
+    "level": "A Level",
+    "directory": "as-and-a-level-french-languageliterature-9898",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "8022",
+    "name": "Spanish Language",
+    "nameZh": "西班牙语语言",
+    "level": "AS Level",
+    "directory": "as-and-a-level-spanish-8022",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "9844",
+    "name": "Spanish Language & Literature",
+    "nameZh": "西班牙语语言与文学",
+    "level": "A Level",
+    "directory": "as-and-a-level-spanish-9844",
+    "examBoard": "CAIE",
+    "indexMode": "page"
+  },
+  {
+    "code": "0547",
+    "name": "Mandarin Chinese (Foreign Language)",
+    "nameZh": "中文（外语）",
+    "level": "IGCSE",
+    "examBoard": "CAIE",
+    "indexMode": "page",
+    "directory": "igcse-chinese-0547"
+  },
+  {
+    "code": "8695",
+    "name": "Language and Literature in English",
+    "nameZh": "英语语言与文学",
+    "level": "AS Level",
+    "examBoard": "CAIE",
+    "indexMode": "page",
+    "directory": "as-and-a-level-english-8695"
+  }
+]

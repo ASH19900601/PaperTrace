@@ -1,0 +1,110 @@
+{
+  "papers": [
+    {
+      "paper": "0478_m22_qp_22",
+      "reason": "Code/table row labels were incorrectly treated as main questions. Main-question fonts and original pages were independently checked.",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m22_qp_22.pdf",
+      "previousQuestions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "correctedQuestions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "correctedStartPages": [
+        3,
+        8,
+        9,
+        10,
+        12
+      ],
+      "removedInvalidRecordIds": [
+        "0478_m22_qp_22-q6",
+        "0478_m22_qp_22-q7",
+        "0478_m22_qp_22-q9",
+        "0478_m22_qp_22-q10",
+        "0478_m22_qp_22-q11",
+        "0478_m22_qp_22-q13",
+        "0478_m22_qp_22-q14",
+        "0478_m22_qp_22-q15",
+        "0478_m22_qp_22-q17",
+        "0478_m22_qp_22-q18",
+        "0478_m22_qp_22-q19",
+        "0478_m22_qp_22-q20",
+        "0478_m22_qp_22-q21",
+        "0478_m22_qp_22-q22"
+      ]
+    },
+    {
+      "paper": "0620_s21_qp_61",
+      "reason": "Code/table row labels were incorrectly treated as main questions. Main-question fonts and original pages were independently checked.",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0620_s21_qp_61.pdf",
+      "previousQuestions": [
+        1,
+        2,
+        6
+      ],
+      "correctedQuestions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "correctedStartPages": [
+        2,
+        5,
+        9,
+        11
+      ],
+      "removedInvalidRecordIds": [
+        "0620_s21_qp_61-q6"
+      ]
+    },
+    {
+      "paper": "0620_s26_qp_63",
+      "reason": "Code/table row labels were incorrectly treated as main questions. Main-question fonts and original pages were independently checked.",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0620_s26_qp_63.pdf",
+      "previousQuestions": [
+        1,
+        2,
+        5
+      ],
+      "correctedQuestions": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "correctedStartPages": [
+        2,
+        4,
+        8,
+        10
+      ],
+      "removedInvalidRecordIds": [
+        "0620_s26_qp_63-q5"
+      ]
+    }
+  ]
+}

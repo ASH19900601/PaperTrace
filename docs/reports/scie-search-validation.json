@@ -1,0 +1,854 @@
+{
+  "records": 82310,
+  "newSubjectChecks": 50,
+  "passed": 50,
+  "checks": [
+    {
+      "code": "0400",
+      "paperId": "0400_m24_qp_02",
+      "page": 7,
+      "query": "t their may of × correct equations, Alg their A(their(lg their attempt a use correct ±0.21 = = rule for all for = both their their lg y lg 2",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0400_m24_qp_02.pdf",
+      "filters": {
+        "code": "0400",
+        "year": 2024,
+        "session": "m",
+        "component": "02"
+      },
+      "rank": 1,
+      "first": "0400_m24_qp_02-p7",
+      "passed": true
+    },
+    {
+      "code": "0410",
+      "paperId": "0410_s24_qp_11",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0410_s24_qp_11.pdf",
+      "filters": {
+        "code": "0410",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0410_s24_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "0413",
+      "paperId": "0413_s24_qp_11",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0413_s24_qp_11.pdf",
+      "filters": {
+        "code": "0413",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0413_s24_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "0457",
+      "paperId": "0457_s24_qp_11",
+      "page": 12,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0457_s24_qp_11.pdf",
+      "filters": {
+        "code": "0457",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0457_s24_qp_11-p12",
+      "passed": true
+    },
+    {
+      "code": "0460",
+      "paperId": "0460_s24_qp_11",
+      "page": 28,
+      "query": "official endorsement or acceptance by Cambridge Assessment International Education concerning the legal status of any country, territory, or area or any of its",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0460_s24_qp_11.pdf",
+      "filters": {
+        "code": "0460",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0460_s24_qp_11-p28",
+      "passed": true
+    },
+    {
+      "code": "0470",
+      "paperId": "0470_s24_qp_11",
+      "page": 8,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0470_s24_qp_11.pdf",
+      "filters": {
+        "code": "0470",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0470_s24_qp_11-p8",
+      "passed": true
+    },
+    {
+      "code": "0509",
+      "paperId": "0509_s24_qp_12",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0509_s24_qp_12.pdf",
+      "filters": {
+        "code": "0509",
+        "year": 2024,
+        "session": "s",
+        "component": "12"
+      },
+      "rank": 1,
+      "first": "0509_s24_qp_12-p16",
+      "passed": true
+    },
+    {
+      "code": "0519",
+      "paperId": "0519_w21_qp_02",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of the Cambridge Assessment Group. Cambridge Assessment is the brand name of the University of",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0519_w21_qp_02.pdf",
+      "filters": {
+        "code": "0519",
+        "year": 2021,
+        "session": "w",
+        "component": "02"
+      },
+      "rank": 1,
+      "first": "0519_w21_qp_02-p16",
+      "passed": true
+    },
+    {
+      "code": "0520",
+      "paperId": "0520_s24_qp_11",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0520_s24_qp_11.pdf",
+      "filters": {
+        "code": "0520",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0520_s24_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "0530",
+      "paperId": "0530_s24_qp_11",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0530_s24_qp_11.pdf",
+      "filters": {
+        "code": "0530",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0530_s24_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "0547",
+      "paperId": "0547_s24_qp_11",
+      "page": 12,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0547_s24_qp_11.pdf",
+      "filters": {
+        "code": "0547",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "0547_s24_qp_11-p12",
+      "passed": true
+    },
+    {
+      "code": "1DR0",
+      "paperId": "1DR0_s24_qp_43",
+      "page": 2,
+      "query": "Questions 7a and 7b – Answer BOTH questions in Go to page 33 relation to ONE performance you have seen.",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/GCSE/Drama/2016/Exam-materials/1dr0-3a-que-20240510.pdf",
+      "filters": {
+        "code": "1DR0",
+        "year": 2024,
+        "session": "s",
+        "component": "43"
+      },
+      "rank": 1,
+      "first": "1DR0_s24_qp_43-p2",
+      "passed": true
+    },
+    {
+      "code": "1EN0",
+      "paperId": "1EN0_s24_qp_1",
+      "page": 3,
+      "query": "deep cold of night came on, and that under the holly-trees (black marksWRITE on the hill-side, where no other bush was for miles around) he had found",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/GCSE/English-Language/2015/Exam-materials/1en0-01-que-20240524.pdf",
+      "filters": {
+        "code": "1EN0",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "1EN0_s24_qp_1-p3",
+      "passed": true
+    },
+    {
+      "code": "1JA0",
+      "paperId": "1JA0_s24_qp_21",
+      "page": 7,
+      "query": "AREA (e) The gift for her mother was ............................................................................................. .",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/GCSE/Japanese/2017/Exam-materials/1ja0-1h-que-20240613.pdf",
+      "filters": {
+        "code": "1JA0",
+        "year": 2024,
+        "session": "s",
+        "component": "21"
+      },
+      "rank": 1,
+      "first": "1JA0_s24_qp_21-p7",
+      "passed": true
+    },
+    {
+      "code": "1PE0",
+      "paperId": "1PE0_s24_qp_1",
+      "page": 19,
+      "query": "AREA (a) Justify,his longusingbreakFigurefrom playing.8, why George’s badminton performance will be lower after",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physical-Education/2016/Exam-materials/1pe0-01-que-20240523.pdf",
+      "filters": {
+        "code": "1PE0",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "1PE0_s24_qp_1-p19",
+      "passed": true
+    },
+    {
+      "code": "4EA1",
+      "paperId": "4EA1_s24_qp_1",
+      "page": 14,
+      "query": "Your response will be marked for the accurate and appropriate use of vocabulary, spelling, punctuation and grammar. WRITE",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/English-Language-A/2016/Exam-materials/4ea1-01-que-20240524.pdf",
+      "filters": {
+        "code": "4EA1",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "4EA1_s24_qp_1-p14",
+      "passed": true
+    },
+    {
+      "code": "4ET1",
+      "paperId": "4ET1_s24_qp_1",
+      "page": 28,
+      "query": "Poem at Thirty-Nine by Alice Walker from Horses Make a Landscape Look More Beautiful, reproduced by",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/International-GCSE/English-Literature/2016/Exam-materials/4et1-01-que-20240514.pdf",
+      "filters": {
+        "code": "4ET1",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "4ET1_s24_qp_1-p28",
+      "passed": true
+    },
+    {
+      "code": "8022",
+      "paperId": "8022_s24_qp_11",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/8022_s24_qp_11.pdf",
+      "filters": {
+        "code": "8022",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "8022_s24_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "8028",
+      "paperId": "8028_s26_qp_11",
+      "page": 16,
+      "query": "Cambridge International Education is the name of our awarding body and a part of Cambridge University Press & Assessment, which is a department of the",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/8028_s26_qp_11.pdf",
+      "filters": {
+        "code": "8028",
+        "year": 2026,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "8028_s26_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "8386",
+      "paperId": "8386_s24_qp_11",
+      "page": 12,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/8386_s24_qp_11.pdf",
+      "filters": {
+        "code": "8386",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "8386_s24_qp_11-p12",
+      "passed": true
+    },
+    {
+      "code": "8695",
+      "paperId": "8695_s24_qp_11",
+      "page": 4,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/8695_s24_qp_11.pdf",
+      "filters": {
+        "code": "8695",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "8695_s24_qp_11-p4",
+      "passed": true
+    },
+    {
+      "code": "9093",
+      "paperId": "9093_s24_qp_11",
+      "page": 8,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9093_s24_qp_11.pdf",
+      "filters": {
+        "code": "9093",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9093_s24_qp_11-p8",
+      "passed": true
+    },
+    {
+      "code": "9479",
+      "paperId": "9479_w24_qp_02",
+      "page": 4,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9479_w24_qp_02.pdf",
+      "filters": {
+        "code": "9479",
+        "year": 2024,
+        "session": "w",
+        "component": "02"
+      },
+      "rank": 1,
+      "first": "9479_w24_qp_02-p4",
+      "passed": true
+    },
+    {
+      "code": "9482",
+      "paperId": "9482_s24_qp_11",
+      "page": 8,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9482_s24_qp_11.pdf",
+      "filters": {
+        "code": "9482",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9482_s24_qp_11-p8",
+      "passed": true
+    },
+    {
+      "code": "9483",
+      "paperId": "9483_s24_qp_11",
+      "page": 12,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9483_s24_qp_11.pdf",
+      "filters": {
+        "code": "9483",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9483_s24_qp_11-p12",
+      "passed": true
+    },
+    {
+      "code": "9489",
+      "paperId": "9489_s24_qp_11",
+      "page": 8,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9489_s24_qp_11.pdf",
+      "filters": {
+        "code": "9489",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9489_s24_qp_11-p8",
+      "passed": true
+    },
+    {
+      "code": "9695",
+      "paperId": "9695_s24_qp_11",
+      "page": 16,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9695_s24_qp_11.pdf",
+      "filters": {
+        "code": "9695",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9695_s24_qp_11-p16",
+      "passed": true
+    },
+    {
+      "code": "9696",
+      "paperId": "9696_s24_qp_11",
+      "page": 4,
+      "query": "official endorsement or acceptance by Cambridge Assessment International Education concerning the legal status of any country, territory, or area or any of its",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9696_s24_qp_11.pdf",
+      "filters": {
+        "code": "9696",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9696_s24_qp_11-p4",
+      "passed": true
+    },
+    {
+      "code": "9699",
+      "paperId": "9699_s24_qp_11",
+      "page": 4,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9699_s24_qp_11.pdf",
+      "filters": {
+        "code": "9699",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9699_s24_qp_11-p4",
+      "passed": true
+    },
+    {
+      "code": "9844",
+      "paperId": "9844_s24_qp_11",
+      "page": 8,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9844_s24_qp_11.pdf",
+      "filters": {
+        "code": "9844",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9844_s24_qp_11-p8",
+      "passed": true
+    },
+    {
+      "code": "9898",
+      "paperId": "9898_s26_qp_11",
+      "page": 12,
+      "query": "Cambridge International Education is the name of our awarding body and a part of Cambridge University Press & Assessment, which is a department of the",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9898_s26_qp_11.pdf",
+      "filters": {
+        "code": "9898",
+        "year": 2026,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9898_s26_qp_11-p12",
+      "passed": true
+    },
+    {
+      "code": "9990",
+      "paperId": "9990_s24_qp_11",
+      "page": 12,
+      "query": "Cambridge Assessment International Education is part of Cambridge Assessment. Cambridge Assessment is the brand name of the University of Cambridge",
+      "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9990_s24_qp_11.pdf",
+      "filters": {
+        "code": "9990",
+        "year": 2024,
+        "session": "s",
+        "component": "11"
+      },
+      "rank": 1,
+      "first": "9990_s24_qp_11-p12",
+      "passed": true
+    },
+    {
+      "code": "9DR0",
+      "paperId": "9DR0_s24_qp_3",
+      "page": 21,
+      "query": "IN WRITE • how your practical ideas will work in performanceTHIS NOT • the original performance conditions of your chosen performance text.",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/A-Level/Drama-and-Theatre/2016/Exam-materials/9dr0-03-que-20240703.pdf",
+      "filters": {
+        "code": "9DR0",
+        "year": 2024,
+        "session": "s",
+        "component": "3"
+      },
+      "rank": 1,
+      "first": "9DR0_s24_qp_3-p21",
+      "passed": true
+    },
+    {
+      "code": "9PE0",
+      "paperId": "9PE0_s24_qp_1",
+      "page": 13,
+      "query": "THIS 14 Outline three factors that determine how athletes achieve optimal body weight for performance.",
+      "source": "https://qualifications.pearson.com/content/dam/pdf/A-Level/Physical-Education/2016/Exam-materials/9pe0-01-que-20240525.pdf",
+      "filters": {
+        "code": "9PE0",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "9PE0_s24_qp_1-p13",
+      "passed": true
+    },
+    {
+      "code": "AP-ARTH",
+      "paperId": "AP-ARTH_s24_qp_1",
+      "page": 5,
+      "query": "designation, artist, culture of origin, date of creation, and materials. You will earn credit for the identification if",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-art-history.pdf",
+      "filters": {
+        "code": "AP-ARTH",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-ARTH_s24_qp_1-p5",
+      "passed": true
+    },
+    {
+      "code": "AP-BIO",
+      "paperId": "AP-BIO_s24_qp_1",
+      "page": 3,
+      "query": "D = death rate ps i subequalssolute potential dN = B - D dt N = population size The water potential will be equal to the",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-biology.pdf",
+      "filters": {
+        "code": "AP-BIO",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-BIO_s24_qp_1-p3",
+      "passed": true
+    },
+    {
+      "code": "AP-CALCBC",
+      "paperId": "AP-CALCBC_s24_qp_1",
+      "page": 9,
+      "query": "5. The function f is twice differentiable for all x with f ( 0) = 0 . Values of f ¢, the derivative of f , are given in",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-calculus-bc.pdf",
+      "filters": {
+        "code": "AP-CALCBC",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-CALCBC_s24_qp_1-p9",
+      "passed": true
+    },
+    {
+      "code": "AP-CHEM",
+      "paperId": "AP-CHEM_s24_qp_1",
+      "page": 19,
+      "query": "A scientist measures the change in [ NO2 ] over the first 100. s of the reaction at 546° C . The scientist uses the data",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-chemistry.pdf",
+      "filters": {
+        "code": "AP-CHEM",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-CHEM_s24_qp_1-p19",
+      "passed": true
+    },
+    {
+      "code": "AP-CSA",
+      "paperId": "AP-CSA_s24_qp_1",
+      "page": 2,
+      "query": "in that question. Writing significant amounts of code that can be replaced by a call to one of these methods will not",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-comp-sci-a.pdf",
+      "filters": {
+        "code": "AP-CSA",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-CSA_s24_qp_1-p2",
+      "passed": true
+    },
+    {
+      "code": "AP-HUG",
+      "paperId": "AP-HUG_s24_qp_1",
+      "page": 2,
+      "query": "minutes of this time to plan and outline each answer. You may plan your answers in this orange booklet, but no credit",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-human-geography-set-1.pdf",
+      "filters": {
+        "code": "AP-HUG",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-HUG_s24_qp_1-p2",
+      "passed": true
+    },
+    {
+      "code": "AP-LANG",
+      "paperId": "AP-LANG_s24_qp_1",
+      "page": 3,
+      "query": "list not only of individual buildings and structures, but also of districts, objects, and archeological sites that are",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-english-language-set-1.pdf",
+      "filters": {
+        "code": "AP-LANG",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-LANG_s24_qp_1-p3",
+      "passed": true
+    },
+    {
+      "code": "AP-LIT",
+      "paperId": "AP-LIT_s24_qp_1",
+      "page": 6,
+      "query": "implications may include changes to a character’s relationships, social and/or financial stability, well-being, or any",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-english-lit-set-1.pdf",
+      "filters": {
+        "code": "AP-LIT",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-LIT_s24_qp_1-p6",
+      "passed": true
+    },
+    {
+      "code": "AP-MACRO",
+      "paperId": "AP-MACRO_s24_qp_1",
+      "page": 5,
+      "query": "for the ringgit relative to the yen. Show the effect of the change in the real interest rate identified in part (b) on",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-macroeconomics-set-1.pdf",
+      "filters": {
+        "code": "AP-MACRO",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-MACRO_s24_qp_1-p5",
+      "passed": true
+    },
+    {
+      "code": "AP-MICRO",
+      "paperId": "AP-MICRO_s24_qp_1",
+      "page": 2,
+      "query": "before the reading period is over. It is suggested that you spend approximately half your time on the first question",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-microeconomics-set-1.pdf",
+      "filters": {
+        "code": "AP-MICRO",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-MICRO_s24_qp_1-p2",
+      "passed": true
+    },
+    {
+      "code": "AP-MUSIC",
+      "paperId": "AP-MUSIC_s24_qp_1",
+      "page": 5,
+      "query": "Question 4. Before listening to the first playing, please look at the staff below. Notice that there are nine chords in",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-music-theory.pdf",
+      "filters": {
+        "code": "AP-MUSIC",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-MUSIC_s24_qp_1-p5",
+      "passed": true
+    },
+    {
+      "code": "AP-PHYSM",
+      "paperId": "AP-PHYSM_s24_qp_1",
+      "page": 3,
+      "query": "u uU a lowercaseq,point charge a U equals potential energy lq s, e rb Es uppercaseR,resistanceD e e l t q E ualsr v equals velocity or speed",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-physics-c-mech-set-1.pdf",
+      "filters": {
+        "code": "AP-PHYSM",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-PHYSM_s24_qp_1-p3",
+      "passed": true
+    },
+    {
+      "code": "AP-PSY",
+      "paperId": "AP-PSY_s24_qp_1",
+      "page": 2,
+      "query": "by merely listing facts. You should present a cogent argument based on your critical analysis of the questions posed,",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-psychology-set-1.pdf",
+      "filters": {
+        "code": "AP-PSY",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-PSY_s24_qp_1-p2",
+      "passed": true
+    },
+    {
+      "code": "AP-STAT",
+      "paperId": "AP-STAT_s24_qp_1",
+      "page": 3,
+      "query": "standard deviation of the statistic is assumed to be known, then the standard deviation should be used instead of the standard error.",
+      "source": "https://apcentral.collegeboard.org/media/pdf/ap24-frq-statistics.pdf",
+      "filters": {
+        "code": "AP-STAT",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AP-STAT_s24_qp_1-p3",
+      "passed": true
+    },
+    {
+      "code": "AQA-7582",
+      "paperId": "AQA-7582_s24_qp_1",
+      "page": 23,
+      "query": "1 8 . 2 Explain why the characteristics of real tennis prevented the lower class from playing it.",
+      "source": "https://cdn.sanity.io/files/p28bar15/green/8d94b8256ab1d89ea018b88c981ca566ec8faceb.pdf",
+      "filters": {
+        "code": "AQA-7582",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AQA-7582_s24_qp_1-p23",
+      "passed": true
+    },
+    {
+      "code": "AQA-8261",
+      "paperId": "AQA-8261_s24_qp_1",
+      "page": 10,
+      "query": "Captain Von Darius No! Out of the question – such a long journey with such a little boat? And at this",
+      "source": "https://cdn.sanity.io/files/p28bar15/green/fb70448b77c6fab3f83b11744cbf4735fec61611.pdf",
+      "filters": {
+        "code": "AQA-8261",
+        "year": 2024,
+        "session": "s",
+        "component": "1"
+      },
+      "rank": 1,
+      "first": "AQA-8261_s24_qp_1-p10",
+      "passed": true
+    }
+  ],
+  "unfilteredManualChecks": [
+    {
+      "paperId": "AP-PSY_s24_qp_1",
+      "page": 3,
+      "query": "Professor Gonzalez hypothesizes that students will remember more information from his detailed course description",
+      "rank": 1,
+      "first": "AP-PSY_s24_qp_1-p3",
+      "firstText": "AP® Psychology 2024 Free-Response Questions\n2. Professor Gonzalez hypothesizes that students will remember more information from his detailed course\ndescription if it is printed on yellow paper than if it is printed on standard white paper. To test this hypothesis,\nhe put the names of all his students into a bowl, then drew out names to assign them",
+      "passed": true
+    },
+    {
+      "paperId": "AQA-7582_s25_qp_2",
+      "page": 2,
+      "query": "Different types of data are collected from laboratory or field tests",
+      "rank": 1,
+      "first": "AQA-7582_s25_qp_2-p2",
+      "firstText": "2\nDo not write\noutside the\nSection A                                                                 box\nExercise physiology and biomechanics\nAnswer all questions in this section.\nOnly one answer per question is allowed.\nFor each question completely fill in the circle alongside the appropriate answer.\nCORRECT METHOD              WRONG METHODS\nIf yo",
+      "passed": true
+    },
+    {
+      "paperId": "0509_s20_qp_11",
+      "page": 4,
+      "query": "窗外的兩種聲音吸引了",
+      "rank": 1,
+      "first": "0509_s20_qp_11-p4",
+      "firstText": "4\nQUESTIONS IN TRADITIONAL CHARACTERS\n第一部分\n請閱讀插頁上的短文一，然後在試卷上回答問題1。\n1    (a) 窗外的兩種聲音吸引了「我」和爸爸的注意力，這兩種聲音有什麽不尋常之處？\n...................................................................................................................................................\n..........................................................................................",
+      "passed": true
+    },
+    {
+      "paperId": "0519_w20_qp_02",
+      "page": 3,
+      "query": "りんごを 五つ 買いました",
+      "rank": 1,
+      "first": "0519_w20_qp_02-p3",
+      "firstText": "3\nSection 1\nせつもん1\nExercise 1 Questions 1–5\nもんだい1 しつもん 1–5\nただしい　こたえを　一つ　えらんで、　の　中に　○を　書いてください。\n1 やさいが　好きです。　何が　好き　ですか。\nA\nB\nC\nA           B           C           D    D                                                                                                                       [1]\n2 ちずを　見てください。\n海\nどこに　行きますか。\nA\nB\nC\nA           B           C  ",
+      "passed": true
+    },
+    {
+      "paperId": "9482_s21_qp_11",
+      "page": 3,
+      "query": "How would you perform the role of BIFF in selected moments from the extract to reveal his changing feelings for his father",
+      "rank": 1,
+      "first": "9482_s21_qp_11-p3",
+      "firstText": "3\nQuestion 3\nDeath of a Salesman – Arthur Miller\nRead the specified extract:\nFrom: Act 2, towards the bottom of page 92\n[The knocking is heard again. He takes a few steps away from her, and she vanishes into the wing.\nThe light follows him, and now he is facing YOUNG BIFF, who carries a suitcase. BIFF steps toward\nhim. The music is gone.]\nUp to and",
+      "passed": true
+    }
+  ]
+}

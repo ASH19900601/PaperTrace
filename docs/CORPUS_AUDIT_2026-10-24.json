@@ -1,0 +1,513 @@
+{
+  "papers": 4442,
+  "records": 59892,
+  "subjects": 22,
+  "years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "msVerified": 4430,
+  "msPageLocated": 58922,
+  "pageLevelRecords": 0,
+  "unpairedPapers": [
+    "0417_s20_qp_11",
+    "0478_m18_qp_12",
+    "0478_s20_qp_23",
+    "0580_s19_qp_33",
+    "0606_s26_qp_23",
+    "0620_s20_qp_63",
+    "0653_m22_qp_52",
+    "9608_w18_qp_31",
+    "9609_s26_qp_43",
+    "9700_w21_qp_53",
+    "9702_s26_qp_21",
+    "9709_w18_qp_23"
+  ],
+  "requestedExpansionPapers": 2748,
+  "unindexedRequestedPapers": [
+    "0417_s20_qp_12",
+    "0417_s20_qp_13",
+    "0417_s20_qp_21",
+    "0417_s20_qp_22",
+    "0417_s20_qp_31",
+    "0417_s20_qp_32",
+    "0610_s21_qp_61",
+    "0654_s20_qp_11",
+    "0654_s20_qp_12",
+    "0654_s20_qp_13",
+    "0654_s20_qp_21",
+    "0654_s20_qp_22",
+    "0654_s20_qp_23",
+    "0654_s20_qp_31",
+    "0654_s20_qp_32",
+    "0654_s20_qp_33",
+    "0654_s20_qp_41",
+    "0654_s20_qp_42",
+    "0654_s20_qp_43",
+    "0654_s20_qp_51",
+    "0654_s20_qp_52",
+    "0654_s20_qp_53",
+    "0654_s20_qp_61",
+    "0654_s20_qp_62",
+    "0654_s20_qp_63",
+    "9608_s18_qp_23",
+    "9702_s19_qp_34",
+    "9706_w20_qp_12"
+  ],
+  "originalQPsChecked": 2726,
+  "originalMSsChecked": 2714,
+  "MCQCoverCountsChecked": 621,
+  "withdrawnQuestions": [
+    {
+      "paper": "0455_w21_qp_11",
+      "questions": [
+        22
+      ]
+    },
+    {
+      "paper": "0455_w21_qp_12",
+      "questions": [
+        22
+      ]
+    },
+    {
+      "paper": "0455_w21_qp_13",
+      "questions": [
+        22
+      ]
+    }
+  ],
+  "baselineRetention": {
+    "previousRecords": 22612,
+    "retainedRecords": 22596,
+    "lostRecords": [
+      "0478_m22_qp_22-q10",
+      "0478_m22_qp_22-q11",
+      "0478_m22_qp_22-q13",
+      "0478_m22_qp_22-q14",
+      "0478_m22_qp_22-q15",
+      "0478_m22_qp_22-q17",
+      "0478_m22_qp_22-q18",
+      "0478_m22_qp_22-q19",
+      "0478_m22_qp_22-q20",
+      "0478_m22_qp_22-q21",
+      "0478_m22_qp_22-q22",
+      "0478_m22_qp_22-q6",
+      "0478_m22_qp_22-q7",
+      "0478_m22_qp_22-q9",
+      "0620_s21_qp_61-q6",
+      "0620_s26_qp_63-q5"
+    ],
+    "correctedInvalidRecords": [
+      "0478_m22_qp_22-q10",
+      "0478_m22_qp_22-q11",
+      "0478_m22_qp_22-q13",
+      "0478_m22_qp_22-q14",
+      "0478_m22_qp_22-q15",
+      "0478_m22_qp_22-q17",
+      "0478_m22_qp_22-q18",
+      "0478_m22_qp_22-q19",
+      "0478_m22_qp_22-q20",
+      "0478_m22_qp_22-q21",
+      "0478_m22_qp_22-q22",
+      "0478_m22_qp_22-q6",
+      "0478_m22_qp_22-q7",
+      "0478_m22_qp_22-q9",
+      "0620_s21_qp_61-q6",
+      "0620_s26_qp_63-q5"
+    ],
+    "unexpectedLostRecords": []
+  },
+  "errors": [],
+  "coverage": [
+    {
+      "code": "0417",
+      "name": "Information and Communication Technology",
+      "nameZh": "信息与通信技术",
+      "level": "IGCSE",
+      "papers": 94,
+      "questions": 1867,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0450",
+      "name": "Business Studies",
+      "nameZh": "商业研究",
+      "level": "IGCSE",
+      "papers": 92,
+      "questions": 368,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0452",
+      "name": "Accounting",
+      "nameZh": "会计",
+      "level": "IGCSE",
+      "papers": 90,
+      "questions": 1800,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0455",
+      "name": "Economics",
+      "nameZh": "经济",
+      "level": "IGCSE",
+      "papers": 92,
+      "questions": 1607,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0478",
+      "name": "Computer Science",
+      "nameZh": "计算机科学",
+      "level": "IGCSE",
+      "papers": 114,
+      "questions": 959,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0580",
+      "name": "Mathematics",
+      "nameZh": "数学",
+      "level": "IGCSE",
+      "papers": 239,
+      "questions": 4388,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0606",
+      "name": "Additional Mathematics",
+      "nameZh": "附加数学",
+      "level": "IGCSE",
+      "papers": 92,
+      "questions": 1035,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0610",
+      "name": "Biology",
+      "nameZh": "生物",
+      "level": "IGCSE",
+      "papers": 255,
+      "questions": 4222,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0620",
+      "name": "Chemistry",
+      "nameZh": "化学",
+      "level": "IGCSE",
+      "papers": 356,
+      "questions": 6043,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0625",
+      "name": "Physics",
+      "nameZh": "物理",
+      "level": "IGCSE",
+      "papers": 359,
+      "questions": 6565,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0653",
+      "name": "Combined Science",
+      "nameZh": "综合科学",
+      "level": "IGCSE",
+      "papers": 258,
+      "questions": 4682,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "0654",
+      "name": "Co-ordinated Sciences",
+      "nameZh": "协调科学（双证）",
+      "level": "IGCSE",
+      "papers": 244,
+      "questions": 4826,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9231",
+      "name": "Further Mathematics",
+      "nameZh": "进阶数学",
+      "level": "AS & A Level",
+      "papers": 168,
+      "questions": 1178,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9608",
+      "name": "Computer Science (legacy)",
+      "nameZh": "计算机科学（旧大纲）",
+      "level": "AS & A Level",
+      "papers": 47,
+      "questions": 283,
+      "years": [
+        2018,
+        2019
+      ]
+    },
+    {
+      "code": "9609",
+      "name": "Business",
+      "nameZh": "商业",
+      "level": "AS & A Level",
+      "papers": 166,
+      "questions": 727,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9618",
+      "name": "Computer Science",
+      "nameZh": "计算机科学",
+      "level": "AS & A Level",
+      "papers": 118,
+      "questions": 886,
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9700",
+      "name": "Biology",
+      "nameZh": "生物",
+      "level": "AS & A Level",
+      "papers": 269,
+      "questions": 2945,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9701",
+      "name": "Chemistry",
+      "nameZh": "化学",
+      "level": "AS & A Level",
+      "papers": 334,
+      "questions": 3586,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9702",
+      "name": "Physics",
+      "nameZh": "物理",
+      "level": "AS & A Level",
+      "papers": 333,
+      "questions": 3773,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9706",
+      "name": "Accounting",
+      "nameZh": "会计",
+      "level": "AS & A Level",
+      "papers": 154,
+      "questions": 1671,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9708",
+      "name": "Economics",
+      "nameZh": "经济",
+      "level": "AS & A Level",
+      "papers": 196,
+      "questions": 3451,
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "9709",
+      "name": "Mathematics",
+      "nameZh": "数学",
+      "level": "AS & A Level",
+      "papers": 372,
+      "questions": 3030,
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    }
+  ]
+}

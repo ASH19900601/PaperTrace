@@ -1,0 +1,475 @@
+{
+  "runs": [
+    {
+      "samples": 30,
+      "subjects": 15,
+      "questions": 59892,
+      "top1": 25,
+      "top5": 30,
+      "equivalentSourceTop1": 27,
+      "noResults": 0,
+      "correctPage": 30,
+      "details": [
+        {
+          "id": "9700_s24_qp_11-q1",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9700_s24_qp_11-q1",
+          "identicalQuestion": true,
+          "candidates": 1250,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9700_s24_qp_11.pdf"
+        },
+        {
+          "id": "9700_s24_qp_11-q7",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "9700_s24_qp_11-q7",
+          "identicalQuestion": true,
+          "candidates": 4782,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9700_s24_qp_11.pdf"
+        },
+        {
+          "id": "0450_m20_qp_12-q1",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0450_m20_qp_12-q1",
+          "identicalQuestion": true,
+          "candidates": 646,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0450_m20_qp_12.pdf"
+        },
+        {
+          "id": "0450_m20_qp_12-q2",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "0450_m20_qp_12-q2",
+          "identicalQuestion": true,
+          "candidates": 332,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0450_m20_qp_12.pdf"
+        },
+        {
+          "id": "0452_m20_qp_12-q2",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0452_m20_qp_12-q2",
+          "identicalQuestion": true,
+          "candidates": 7713,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0452_m20_qp_12.pdf"
+        },
+        {
+          "id": "0452_m20_qp_12-q3",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0452_m20_qp_12-q3",
+          "identicalQuestion": true,
+          "candidates": 289,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0452_m20_qp_12.pdf"
+        },
+        {
+          "id": "0455_m20_qp_12-q2",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0455_m20_qp_12-q2",
+          "identicalQuestion": true,
+          "candidates": 1827,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0455_m20_qp_12.pdf"
+        },
+        {
+          "id": "0455_m20_qp_12-q3",
+          "rank": 2,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0455_s24_qp_13-q3",
+          "identicalQuestion": true,
+          "candidates": 210,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0455_m20_qp_12.pdf"
+        },
+        {
+          "id": "0606_m20_qp_12-q1",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0606_m20_qp_12-q1",
+          "identicalQuestion": true,
+          "candidates": 24261,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0606_m20_qp_12.pdf"
+        },
+        {
+          "id": "0606_m20_qp_12-q2",
+          "rank": 3,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "9709_s20_qp_12-q6",
+          "identicalQuestion": false,
+          "candidates": 8129,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0606_m20_qp_12.pdf"
+        },
+        {
+          "id": "0610_m20_qp_12-q2",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0610_m20_qp_12-q2",
+          "identicalQuestion": true,
+          "candidates": 59,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0610_m20_qp_12.pdf"
+        },
+        {
+          "id": "0610_m20_qp_12-q8",
+          "rank": 2,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0610_s25_qp_21-q4",
+          "identicalQuestion": false,
+          "candidates": 7183,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0610_m20_qp_12.pdf"
+        },
+        {
+          "id": "0653_m20_qp_12-q3",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0653_m20_qp_12-q3",
+          "identicalQuestion": true,
+          "candidates": 13194,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0653_m20_qp_12.pdf"
+        },
+        {
+          "id": "0653_m20_qp_12-q5",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0653_m20_qp_12-q5",
+          "identicalQuestion": true,
+          "candidates": 175,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0653_m20_qp_12.pdf"
+        },
+        {
+          "id": "0654_m21_qp_12-q5",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0654_m21_qp_12-q5",
+          "identicalQuestion": true,
+          "candidates": 4704,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0654_m21_qp_12.pdf"
+        },
+        {
+          "id": "0654_m21_qp_12-q8",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "0654_m21_qp_12-q8",
+          "identicalQuestion": true,
+          "candidates": 5224,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0654_m21_qp_12.pdf"
+        },
+        {
+          "id": "9231_s20_qp_11-q2",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "9231_s20_qp_11-q2",
+          "identicalQuestion": true,
+          "candidates": 20904,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9231_s20_qp_11.pdf"
+        },
+        {
+          "id": "9231_s20_qp_11-q5",
+          "rank": 1,
+          "page": 10,
+          "expectedPage": 10,
+          "first": "9231_s20_qp_11-q5",
+          "identicalQuestion": true,
+          "candidates": 5064,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9231_s20_qp_11.pdf"
+        },
+        {
+          "id": "9609_m20_qp_12-q5",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9609_m20_qp_12-q5",
+          "identicalQuestion": true,
+          "candidates": 2197,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9609_m20_qp_12.pdf"
+        },
+        {
+          "id": "9609_m20_qp_12-q6",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9609_m20_qp_12-q6",
+          "identicalQuestion": true,
+          "candidates": 2053,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9609_m20_qp_12.pdf"
+        },
+        {
+          "id": "9706_m20_qp_12-q1",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9706_m20_qp_12-q1",
+          "identicalQuestion": true,
+          "candidates": 2149,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9706_m20_qp_12.pdf"
+        },
+        {
+          "id": "9706_m20_qp_12-q4",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "9706_m20_qp_12-q4",
+          "identicalQuestion": true,
+          "candidates": 3894,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9706_m20_qp_12.pdf"
+        },
+        {
+          "id": "0417_m20_qp_12-q3",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0417_m20_qp_12-q3",
+          "identicalQuestion": true,
+          "candidates": 4307,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_qp_12.pdf"
+        },
+        {
+          "id": "0417_m20_qp_12-q4",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0417_m20_qp_12-q4",
+          "identicalQuestion": true,
+          "candidates": 417,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0417_m20_qp_12.pdf"
+        },
+        {
+          "id": "9708_m20_qp_12-q1",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9708_m20_qp_12-q1",
+          "identicalQuestion": true,
+          "candidates": 5313,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9708_m20_qp_12.pdf"
+        },
+        {
+          "id": "9708_m20_qp_12-q2",
+          "rank": 2,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9708_s24_qp_11-q1",
+          "identicalQuestion": false,
+          "candidates": 3194,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9708_m20_qp_12.pdf"
+        },
+        {
+          "id": "9608_s18_qp_11-q1",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "9608_s18_qp_11-q1",
+          "identicalQuestion": true,
+          "candidates": 1984,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9608_s18_qp_11.pdf"
+        },
+        {
+          "id": "9608_s18_qp_11-q2",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "9608_s18_qp_11-q2",
+          "identicalQuestion": true,
+          "candidates": 249,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/9608_s18_qp_11.pdf"
+        },
+        {
+          "id": "0580_s19_qp_22-q5",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0580_s19_qp_22-q5",
+          "identicalQuestion": true,
+          "candidates": 3162,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0580_s19_qp_22.pdf"
+        },
+        {
+          "id": "0455_w21_qp_12-q23",
+          "rank": 2,
+          "page": 9,
+          "expectedPage": 9,
+          "first": "0455_w21_qp_11-q23",
+          "identicalQuestion": true,
+          "candidates": 2651,
+          "source": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0455_w21_qp_12.pdf"
+        }
+      ]
+    },
+    {
+      "questions": 59892,
+      "samples": 16,
+      "top1": 15,
+      "top5": 16,
+      "absent": 0,
+      "exactSourcePage": 16,
+      "details": [
+        {
+          "id": "9701_m20_qp_52-q1",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "9701_m20_qp_52-q1",
+          "candidates": 188
+        },
+        {
+          "id": "9701_m20_qp_52-q2",
+          "rank": 1,
+          "page": 6,
+          "expectedPage": 6,
+          "first": "9701_m20_qp_52-q2",
+          "candidates": 7193
+        },
+        {
+          "id": "9702_s24_qp_22-q2",
+          "rank": 1,
+          "page": 6,
+          "expectedPage": 6,
+          "first": "9702_s24_qp_22-q2",
+          "candidates": 1245
+        },
+        {
+          "id": "9702_s24_qp_22-q3",
+          "rank": 1,
+          "page": 8,
+          "expectedPage": 8,
+          "first": "9702_s24_qp_22-q3",
+          "candidates": 967
+        },
+        {
+          "id": "9709_m24_qp_12-q2",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "9709_m24_qp_12-q2",
+          "candidates": 4113
+        },
+        {
+          "id": "9709_m24_qp_12-q3",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "9709_m24_qp_12-q3",
+          "candidates": 18263
+        },
+        {
+          "id": "9618_s24_qp_11-q2",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "9618_s24_qp_11-q2",
+          "candidates": 30
+        },
+        {
+          "id": "9618_s24_qp_11-q3",
+          "rank": 1,
+          "page": 6,
+          "expectedPage": 6,
+          "first": "9618_s24_qp_11-q3",
+          "candidates": 178
+        },
+        {
+          "id": "0620_s24_qp_21-q3",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0620_s24_qp_21-q3",
+          "candidates": 2512
+        },
+        {
+          "id": "0620_s24_qp_21-q10",
+          "rank": 1,
+          "page": 4,
+          "expectedPage": 4,
+          "first": "0620_s24_qp_21-q10",
+          "candidates": 2707
+        },
+        {
+          "id": "0625_s24_qp_12-q1",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0625_s24_qp_12-q1",
+          "candidates": 1109
+        },
+        {
+          "id": "0625_s24_qp_12-q2",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0625_s24_qp_12-q2",
+          "candidates": 437
+        },
+        {
+          "id": "0580_s24_qp_22-q2",
+          "rank": 2,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0580_s24_qp_12-q7",
+          "candidates": 1471
+        },
+        {
+          "id": "0580_s24_qp_22-q5",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0580_s24_qp_22-q5",
+          "candidates": 1515
+        },
+        {
+          "id": "0478_s24_qp_11-q2",
+          "rank": 1,
+          "page": 2,
+          "expectedPage": 2,
+          "first": "0478_s24_qp_11-q2",
+          "candidates": 235
+        },
+        {
+          "id": "0478_s24_qp_11-q3",
+          "rank": 1,
+          "page": 3,
+          "expectedPage": 3,
+          "first": "0478_s24_qp_11-q3",
+          "candidates": 815
+        }
+      ]
+    },
+    {
+      "id": "9702_s24_qp_22-q2",
+      "rank": 1,
+      "first": "9702_s24_qp_22-q2",
+      "candidates": 12025,
+      "knownChallenge": false
+    },
+    {
+      "id": "0620_s24_qp_21-q10",
+      "rank": 1,
+      "first": "0620_s24_qp_21-q10",
+      "candidates": 51673,
+      "knownChallenge": false
+    },
+    {
+      "id": "9709_m24_qp_12-q1",
+      "rank": 276,
+      "first": "9709_w20_qp_31-q6",
+      "candidates": 26730,
+      "knownChallenge": true
+    }
+  ]
+}

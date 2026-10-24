@@ -1,0 +1,130 @@
+{
+  "unindexedQP": [
+    {
+      "paper": "0417_s20_qp_12",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0417_s20_qp_13",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0417_s20_qp_21",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0417_s20_qp_22",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0417_s20_qp_31",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0417_s20_qp_32",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0610_s21_qp_61",
+      "lastRecordedError": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>"
+    },
+    {
+      "paper": "0654_s20_qp_11",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_12",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_13",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_21",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_22",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_23",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_31",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_32",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_33",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_41",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_42",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_43",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_51",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_52",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_53",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_61",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_62",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "0654_s20_qp_63",
+      "lastRecordedError": "not_pdf"
+    },
+    {
+      "paper": "9608_s18_qp_23",
+      "lastRecordedError": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>"
+    },
+    {
+      "paper": "9702_s19_qp_34",
+      "lastRecordedError": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>"
+    },
+    {
+      "paper": "9706_w20_qp_12",
+      "lastRecordedError": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>"
+    }
+  ],
+  "unpairedMS": [
+    "0417_s20_qp_11",
+    "0478_m18_qp_12",
+    "0478_s20_qp_23",
+    "0580_s19_qp_33",
+    "0606_s26_qp_23",
+    "0620_s20_qp_63",
+    "0653_m22_qp_52",
+    "9608_w18_qp_31",
+    "9609_s26_qp_43",
+    "9700_w21_qp_53",
+    "9702_s26_qp_21",
+    "9709_w18_qp_23"
+  ]
+}

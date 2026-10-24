@@ -1,0 +1,20 @@
+.venv/
+.cache/
+.backups/
+__pycache__/
+*.pyc
+node_modules/
+.env
+eng.traineddata
+*.zip
+
+# Local handover notes and original delivery metadata
+docs/HANDOVER.md
+docs/ORIGINAL_README.md
+docs/PACKAGE_VERIFICATION.md
+docs/deployment/
+PACKAGE_INFO.json
+FILE_MANIFEST.json
+SHA256SUMS
+*.log
+.env.*
