@@ -6,6 +6,9 @@
 | Tesseract.js Core | 7.0.0 | [Apache-2.0](../dist/vendor/TESSERACT_CORE_LICENSE.txt) |
 | PDF.js / pdfjs-dist | 5.6.205 | [Apache-2.0](../dist/vendor/PDFJS_LICENSE.txt) |
 | English OCR traineddata | Bundled snapshot | [Upstream data](https://github.com/naptha/tessdata/tree/gh-pages/4.0.0) |
+| RapidOCR | 3.10.0, optional server OCR | [Apache-2.0 and model attribution](https://rapidai.github.io/RapidOCRDocs/main/en/model_licenses/) |
+| PP-OCRv6 Tiny | Detection / recognition models downloaded by RapidOCR | [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR), copyright Baidu / PaddleOCR authors; retained in the server environment |
+| ONNX Runtime | Optional CPU inference, requirements-ocr.txt | [MIT](https://github.com/microsoft/onnxruntime/blob/main/LICENSE) |
 | PyMuPDF | Maintenance dependency and optional server PDF renderer; server version range in `requirements-server.txt` | [Upstream licensing](https://pymupdf.readthedocs.io/en/latest/about.html#license-and-copyright) |
 
 Additional browser and font notices are included in `dist/vendor/` and `dist/vendor/standard_fonts/`.

@@ -65,6 +65,43 @@ test('cancelling a preview aborts download, rendering and PDF worker together',(
   view.clear();assert.deepEqual(actions,['abort','cancel','destroy','clear']);assert.equal(root.hidden,true);
 });
 
+test('an older PDF cleanup does not detach the render task of the next preview',async()=>{
+  class Element {
+    constructor(){this.children=[];this.dataset={}}
+    append(...items){this.children.push(...items)}
+    replaceChildren(...items){this.children=items}
+    setAttribute(){}
+    getContext(){return {}}
+  }
+  const originalDocument=globalThis.document,originalLocation=globalThis.location;
+  globalThis.document={createElement:()=>new Element()};
+  globalThis.location={href:'https://example.test/'};
+  const firstRender=deferred(),secondRender=deferred(),firstDestroy=deferred();
+  let cancelledSecond=false;
+  const firstTask={promise:firstRender.promise,cancel:()=>firstRender.reject(new Error('cancelled'))};
+  const secondTask={promise:secondRender.promise,cancel:()=>{cancelledSecond=true;secondRender.reject(new Error('cancelled'))}};
+  const page=task=>({getViewport:()=>({width:600,height:800}),render:()=>task});
+  const loading=[
+    {promise:Promise.resolve({getPage:async()=>page(firstTask)}),destroy:()=>firstDestroy.promise},
+    {promise:Promise.resolve({getPage:async()=>page(secondTask)}),destroy:async()=>{}},
+  ];
+  const view=new PaperPreview(new Element(),{pdfjs:async()=>({getDocument:()=>loading.shift()}),getPaper:()=>({qp:'https://example.test/paper.pdf'}),getConfig:()=>({pdfPreview:false})});
+  const first=view.show({id:'paper-q1',paperId:'paper',page:2});
+  let second;
+  try{
+    await new Promise(resolve=>setImmediate(resolve));
+    second=view.show({id:'paper-q2',paperId:'paper',page:3});
+    await new Promise(resolve=>setImmediate(resolve));
+    firstDestroy.resolve();await first;
+    assert.equal(view.renderTask,secondTask);
+    view.clear();await second;
+    assert.equal(cancelledSecond,true);
+  }finally{
+    view.clear();firstDestroy.resolve();firstRender.reject(new Error('cancelled'));secondRender.reject(new Error('cancelled'));
+    await Promise.allSettled([first,second]);globalThis.document=originalDocument;globalThis.location=originalLocation;
+  }
+});
+
 test('Chat Completions stream requires a successful finish reason',async()=>{
  const response=reason=>new Response('data: '+JSON.stringify({choices:[{delta:{content:'A skydiver jumps.'},finish_reason:null}]})+'\n\ndata: '+JSON.stringify({choices:[{delta:{},finish_reason:reason}]})+'\n\ndata: [DONE]\n\n',{headers:{'Content-Type':'text/event-stream'}});
  assert.equal(await readExtraction(response('stop')),'A skydiver jumps.');await assert.rejects(readExtraction(response('length')),/完整题干/);

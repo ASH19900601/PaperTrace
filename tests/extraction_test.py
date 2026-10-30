@@ -1,9 +1,14 @@
 import os, sys, unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from build_corpus import extract_questions, ms_pages
-CACHE=Path(os.environ.get('PAPERTRACE_PDF_CACHE',str(Path(__file__).resolve().parents[1]/'.cache/pdfs')))
+from manage import prepare_ocr
+CACHE=Path(os.environ.get('PAPERTRACE_PDF_CACHE',str(Path(__file__).resolve().parent/'fixtures')))
 class ExtractionTests(unittest.TestCase):
+ @classmethod
+ def setUpClass(cls):
+  os.environ.setdefault('TESSDATA_PREFIX',str(prepare_ocr()))
  def test_structured_physics(self):
   records,_=extract_questions((CACHE/'9702_s24_qp_22.pdf').read_bytes())
   self.assertEqual([r['question'] for r in records],list(range(1,8)))

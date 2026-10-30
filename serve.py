@@ -8,11 +8,12 @@ import logging
 import sys
 import socket
 import re
-from urllib.parse import urlsplit, parse_qs
+from urllib.parse import urlsplit, parse_qs, quote, unquote
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from backend import Backend, APIError, MAX_BODY
+from download_backend import PaperDownloads
 
 ROOT = Path(__file__).resolve().parent
 PUBLIC = ROOT / 'dist'
@@ -24,6 +25,10 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
         parsed = urlsplit(self.path)
         versioned = parsed.path.startswith('/data/') and parsed.path.endswith('.json') and 'v' in parse_qs(parsed.query)
         self.send_header('Cache-Control', 'public, max-age=31536000, immutable' if versioned else 'no-cache')
+        if (parsed.path.startswith('/downloads/chapters/') and parse_qs(parsed.query).get('download') == ['1']
+                and Path(self.translate_path(parsed.path)).is_file()):
+            filename = quote(unquote(parsed.path.rsplit('/', 1)[-1]), safe='')
+            self.send_header('Content-Disposition', "attachment; filename*=UTF-8''" + filename)
         if urlsplit(self.path).path in ('/api/ocr-personal', '/api/paper-page', '/api/paper-preview'):
             origin = self.headers.get('Origin')
             if origin in self.server.backend.static_origins:
@@ -52,6 +57,25 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         path = urlsplit(self.path)
+        if path.path in ('/api/paper-file', '/api/paper-check'):
+            try:
+                query = parse_qs(path.query)
+                resource, body = self.server.downloads.fetch(query.get('id', [''])[0])
+                if path.path == '/api/paper-check':
+                    return self.json_response(200, {'ok': True, 'bytes': len(body), 'name': resource['name']})
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/pdf')
+                self.send_header('Content-Length', str(len(body)))
+                disposition = 'attachment' if query.get('download') == ['1'] else 'inline'
+                self.send_header('Content-Disposition', disposition + "; filename*=UTF-8''" + quote(resource['name'], safe=''))
+                self.send_header('X-Content-Type-Options', 'nosniff')
+                self.end_headers()
+                self.wfile.write(body)
+            except APIError as exc:
+                self.json_response(exc.status, {'error': str(exc)})
+            except (BrokenPipeError, ConnectionResetError):
+                pass
+            return
         if path.path == '/api/config':
             return self.json_response(200, self.server.backend.config())
         if path.path == '/api/paper-page':
@@ -79,6 +103,8 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         path = urlsplit(self.path).path
+        if path == '/api/vision-ocr':
+            return self.vision_ocr()
         if path == '/api/paper-preview':
             return self.question_preview()
         personal = path == '/api/ocr-personal'
@@ -131,6 +157,28 @@ class RevalidatingHandler(SimpleHTTPRequestHandler):
         finally:
             events.close()
 
+    def vision_ocr(self):
+        origin = self.headers.get('Origin')
+        if origin and urlsplit(origin).netloc != self.headers.get('Host'):
+            return self.json_response(403, {'error': '请在本站使用图片识别。'})
+        try:
+            if self.headers.get_content_type() != 'application/json':
+                raise APIError(415, '请发送 JSON 图片数据。')
+            size = int(self.headers.get('Content-Length', '0'))
+            if not 0 < size <= MAX_BODY:
+                raise APIError(413, '图片数据过大，请缩小后重试。')
+            self.connection.settimeout(30)
+            data = json.loads(self.rfile.read(size))
+            if not isinstance(data, dict) or set(data) != {'image'}:
+                raise APIError(400, '请求只支持题目图片。')
+            return self.json_response(200, self.server.backend.recognize_fast(data['image']))
+        except (ValueError, UnicodeError):
+            self.json_response(400, {'error': '图片数据无效。'})
+        except APIError as exc:
+            self.json_response(exc.status, {'error': str(exc)})
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+
     def question_preview(self):
         origin = self.headers.get('Origin')
         if origin and urlsplit(origin).netloc != self.headers.get('Host') and origin not in self.server.backend.static_origins:
@@ -160,7 +208,7 @@ def check_package():
     required = [
         'index.html', 'app.mjs', 'search.mjs', 'index-worker.mjs',
         'llm-ocr.mjs', 'paper-preview.mjs', 'corpus-loader.mjs',
-        'import-utils.mjs', 'style.css', 'data/manifest.json',
+        'import-utils.mjs', 'document-recognition.mjs', 'style.css', 'data/manifest.json',
         'vendor/tesseract.min.js', 'vendor/worker.min.js',
         'vendor/eng.traineddata.gz', 'vendor/tesseract-core-lstm.wasm.js',
         'vendor/tesseract-core-simd-lstm.wasm.js',
@@ -224,6 +272,7 @@ def main():
     try:
         server = ThreadingHTTPServer((args.host, args.port), handler)
         server.backend = Backend(PUBLIC)
+        server.downloads = PaperDownloads(PUBLIC)
     except OSError as exc:
         print('Cannot start server: {}. Try --port 8001.'.format(exc), file=sys.stderr)
         return 1

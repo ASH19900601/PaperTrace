@@ -60,7 +60,7 @@ export class PaperPreview{
           const viewport=pdfPage.getViewport({scale:Math.min(1.6,1400/pdfPage.getViewport({scale:1}).height)});
           const canvas=document.createElement('canvas');canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);canvas.setAttribute('aria-label',`${record.paperId} 第 ${page} 页`);
           this.renderTask=pdfPage.render({canvasContext:canvas.getContext('2d'),viewport});await this.renderTask.promise;if(!current())return;view.replaceChildren(canvas);
-        }finally{controller.signal.removeEventListener('abort',abort);await loading.destroy().catch(()=>{});if(this.loadingTask===loading)this.loadingTask=null;this.renderTask=null}
+        }finally{controller.signal.removeEventListener('abort',abort);await loading.destroy().catch(()=>{});if(this.loadingTask===loading){this.loadingTask=null;this.renderTask=null}}
       }
       status.textContent=plan.mode==='part'?'已定位小问 '+plan.label:plan.mode==='question'?'已定位题目 '+plan.label:full?'正在查看原卷整页':'未定位到明确小问，显示对应原卷整页';
     }catch(error){

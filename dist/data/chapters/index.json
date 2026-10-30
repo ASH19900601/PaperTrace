@@ -1,0 +1,1362 @@
+{
+  "edition": "2020–2026",
+  "level": "AS",
+  "paper": "2",
+  "subjects": [
+    {
+      "code": "9702",
+      "name": "物理",
+      "english": "Physics",
+      "units": [
+        {
+          "id": "01",
+          "number": 1,
+          "supplement": false,
+          "title": "物理量与单位",
+          "groups": 49,
+          "focusParts": 99,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_01_QP.pdf",
+              "bytes": 4706621,
+              "pages": 86,
+              "sourceStart": 3,
+              "sourceEnd": 88
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_01_MS.pdf",
+              "bytes": 5577493,
+              "pages": 57,
+              "sourceStart": 3,
+              "sourceEnd": 59
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_01_QP_MS.zip",
+              "bytes": 9720654
+            }
+          },
+          "english": "Physical quantities and units"
+        },
+        {
+          "id": "02",
+          "number": 2,
+          "supplement": false,
+          "title": "运动学",
+          "groups": 52,
+          "focusParts": 132,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_02_QP.pdf",
+              "bytes": 5779889,
+              "pages": 113,
+              "sourceStart": 89,
+              "sourceEnd": 201
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_02_MS.pdf",
+              "bytes": 5866170,
+              "pages": 74,
+              "sourceStart": 60,
+              "sourceEnd": 133
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_02_QP_MS.zip",
+              "bytes": 11019535
+            }
+          },
+          "english": "Kinematics"
+        },
+        {
+          "id": "03",
+          "number": 3,
+          "supplement": false,
+          "title": "动力学",
+          "groups": 75,
+          "focusParts": 173,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_03_QP.pdf",
+              "bytes": 6585441,
+              "pages": 156,
+              "sourceStart": 202,
+              "sourceEnd": 357
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_03_MS.pdf",
+              "bytes": 6551881,
+              "pages": 104,
+              "sourceStart": 134,
+              "sourceEnd": 237
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_03_QP_MS.zip",
+              "bytes": 12390537
+            }
+          },
+          "english": "Dynamics"
+        },
+        {
+          "id": "04",
+          "number": 4,
+          "supplement": false,
+          "title": "力、密度与压强",
+          "groups": 59,
+          "focusParts": 144,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_04_QP.pdf",
+              "bytes": 5746578,
+              "pages": 128,
+              "sourceStart": 358,
+              "sourceEnd": 485
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_04_MS.pdf",
+              "bytes": 6136120,
+              "pages": 82,
+              "sourceStart": 238,
+              "sourceEnd": 319
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_04_QP_MS.zip",
+              "bytes": 11223889
+            }
+          },
+          "english": "Forces, density and pressure"
+        },
+        {
+          "id": "05",
+          "number": 5,
+          "supplement": false,
+          "title": "功、能量与功率",
+          "groups": 66,
+          "focusParts": 138,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_05_QP.pdf",
+              "bytes": 5970533,
+              "pages": 139,
+              "sourceStart": 486,
+              "sourceEnd": 624
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_05_MS.pdf",
+              "bytes": 5928979,
+              "pages": 96,
+              "sourceStart": 320,
+              "sourceEnd": 415
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_05_QP_MS.zip",
+              "bytes": 11214838
+            }
+          },
+          "english": "Work, energy and power"
+        },
+        {
+          "id": "06",
+          "number": 6,
+          "supplement": false,
+          "title": "固体形变",
+          "groups": 46,
+          "focusParts": 130,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_06_QP.pdf",
+              "bytes": 5306882,
+              "pages": 102,
+              "sourceStart": 625,
+              "sourceEnd": 726
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_06_MS.pdf",
+              "bytes": 5859623,
+              "pages": 64,
+              "sourceStart": 416,
+              "sourceEnd": 479
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_06_QP_MS.zip",
+              "bytes": 10556751
+            }
+          },
+          "english": "Deformation of solids"
+        },
+        {
+          "id": "07",
+          "number": 7,
+          "supplement": false,
+          "title": "波",
+          "groups": 53,
+          "focusParts": 127,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_07_QP.pdf",
+              "bytes": 5420582,
+              "pages": 103,
+              "sourceStart": 727,
+              "sourceEnd": 829
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_07_MS.pdf",
+              "bytes": 5679233,
+              "pages": 63,
+              "sourceStart": 480,
+              "sourceEnd": 542
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_07_QP_MS.zip",
+              "bytes": 10471334
+            }
+          },
+          "english": "Waves"
+        },
+        {
+          "id": "08",
+          "number": 8,
+          "supplement": false,
+          "title": "叠加",
+          "groups": 47,
+          "focusParts": 152,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_08_QP.pdf",
+              "bytes": 5165600,
+              "pages": 96,
+              "sourceStart": 830,
+              "sourceEnd": 925
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_08_MS.pdf",
+              "bytes": 5968042,
+              "pages": 57,
+              "sourceStart": 543,
+              "sourceEnd": 599
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_08_QP_MS.zip",
+              "bytes": 10514354
+            }
+          },
+          "english": "Superposition"
+        },
+        {
+          "id": "09",
+          "number": 9,
+          "supplement": false,
+          "title": "电学",
+          "groups": 49,
+          "focusParts": 127,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_09_QP.pdf",
+              "bytes": 5114089,
+              "pages": 107,
+              "sourceStart": 926,
+              "sourceEnd": 1032
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_09_MS.pdf",
+              "bytes": 6002980,
+              "pages": 69,
+              "sourceStart": 600,
+              "sourceEnd": 668
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_09_QP_MS.zip",
+              "bytes": 10482879
+            }
+          },
+          "english": "Electricity"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "supplement": false,
+          "title": "直流电路",
+          "groups": 45,
+          "focusParts": 155,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_10_QP.pdf",
+              "bytes": 5539136,
+              "pages": 102,
+              "sourceStart": 1033,
+              "sourceEnd": 1134
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_10_MS.pdf",
+              "bytes": 6244846,
+              "pages": 65,
+              "sourceStart": 669,
+              "sourceEnd": 733
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_10_QP_MS.zip",
+              "bytes": 11132678
+            }
+          },
+          "english": "D.C. circuits"
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "supplement": false,
+          "title": "粒子物理",
+          "groups": 50,
+          "focusParts": 178,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_11_QP.pdf",
+              "bytes": 4068317,
+              "pages": 67,
+              "sourceStart": 1135,
+              "sourceEnd": 1201
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_11_MS.pdf",
+              "bytes": 5836193,
+              "pages": 55,
+              "sourceStart": 734,
+              "sourceEnd": 788
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_11_QP_MS.zip",
+              "bytes": 9397723
+            }
+          },
+          "english": "Particle physics"
+        },
+        {
+          "id": "appendix",
+          "number": 12,
+          "supplement": true,
+          "title": "旧 AS 考纲内容附录",
+          "groups": 12,
+          "focusParts": 30,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_appendix_QP.pdf",
+              "bytes": 2097604,
+              "pages": 21,
+              "sourceStart": 1202,
+              "sourceEnd": 1222
+            },
+            "ms": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_appendix_MS.pdf",
+              "bytes": 2004584,
+              "pages": 15,
+              "sourceStart": 789,
+              "sourceEnd": 803
+            },
+            "zip": {
+              "url": "downloads/chapters/9702/9702_AS_P2_2020-2026_Unit_appendix_QP_MS.zip",
+              "bytes": 3882212
+            }
+          },
+          "english": "Appendix A | Legacy AS content"
+        }
+      ]
+    },
+    {
+      "code": "9701",
+      "name": "化学",
+      "english": "Chemistry",
+      "units": [
+        {
+          "id": "01",
+          "number": 1,
+          "supplement": false,
+          "title": "原子结构",
+          "groups": 40,
+          "focusParts": 121,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_01_QP.pdf",
+              "bytes": 4054829,
+              "pages": 97,
+              "sourceStart": 3,
+              "sourceEnd": 99
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_01_MS.pdf",
+              "bytes": 5027347,
+              "pages": 79,
+              "sourceStart": 3,
+              "sourceEnd": 81
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_01_QP_MS.zip",
+              "bytes": 8529091
+            }
+          },
+          "english": "Atomic structure"
+        },
+        {
+          "id": "02",
+          "number": 2,
+          "supplement": false,
+          "title": "原子、分子与化学计量",
+          "groups": 52,
+          "focusParts": 78,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_02_QP.pdf",
+              "bytes": 4847159,
+              "pages": 130,
+              "sourceStart": 100,
+              "sourceEnd": 229
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_02_MS.pdf",
+              "bytes": 5332340,
+              "pages": 96,
+              "sourceStart": 82,
+              "sourceEnd": 177
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_02_QP_MS.zip",
+              "bytes": 9487020
+            }
+          },
+          "english": "Atoms, molecules and stoichiometry"
+        },
+        {
+          "id": "03",
+          "number": 3,
+          "supplement": false,
+          "title": "化学键",
+          "groups": 79,
+          "focusParts": 125,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_03_QP.pdf",
+              "bytes": 6633075,
+              "pages": 207,
+              "sourceStart": 230,
+              "sourceEnd": 436
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_03_MS.pdf",
+              "bytes": 7094122,
+              "pages": 158,
+              "sourceStart": 178,
+              "sourceEnd": 335
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_03_QP_MS.zip",
+              "bytes": 12648600
+            }
+          },
+          "english": "Chemical bonding"
+        },
+        {
+          "id": "04",
+          "number": 4,
+          "supplement": false,
+          "title": "物质状态",
+          "groups": 37,
+          "focusParts": 52,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_04_QP.pdf",
+              "bytes": 4391625,
+              "pages": 103,
+              "sourceStart": 437,
+              "sourceEnd": 539
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_04_MS.pdf",
+              "bytes": 4375435,
+              "pages": 73,
+              "sourceStart": 336,
+              "sourceEnd": 408
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_04_QP_MS.zip",
+              "bytes": 8175711
+            }
+          },
+          "english": "States of matter"
+        },
+        {
+          "id": "05",
+          "number": 5,
+          "supplement": false,
+          "title": "化学能量学",
+          "groups": 34,
+          "focusParts": 54,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_05_QP.pdf",
+              "bytes": 4701317,
+              "pages": 103,
+              "sourceStart": 540,
+              "sourceEnd": 642
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_05_MS.pdf",
+              "bytes": 4620065,
+              "pages": 67,
+              "sourceStart": 409,
+              "sourceEnd": 475
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_05_QP_MS.zip",
+              "bytes": 8621922
+            }
+          },
+          "english": "Chemical energetics"
+        },
+        {
+          "id": "06",
+          "number": 6,
+          "supplement": false,
+          "title": "电化学",
+          "groups": 43,
+          "focusParts": 59,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_06_QP.pdf",
+              "bytes": 5069131,
+              "pages": 122,
+              "sourceStart": 643,
+              "sourceEnd": 764
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_06_MS.pdf",
+              "bytes": 4967220,
+              "pages": 76,
+              "sourceStart": 476,
+              "sourceEnd": 551
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_06_QP_MS.zip",
+              "bytes": 9389896
+            }
+          },
+          "english": "Electrochemistry"
+        },
+        {
+          "id": "07",
+          "number": 7,
+          "supplement": false,
+          "title": "平衡",
+          "groups": 40,
+          "focusParts": 92,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_07_QP.pdf",
+              "bytes": 4665620,
+              "pages": 115,
+              "sourceStart": 765,
+              "sourceEnd": 879
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_07_MS.pdf",
+              "bytes": 5481849,
+              "pages": 87,
+              "sourceStart": 552,
+              "sourceEnd": 638
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_07_QP_MS.zip",
+              "bytes": 9426487
+            }
+          },
+          "english": "Equilibria"
+        },
+        {
+          "id": "08",
+          "number": 8,
+          "supplement": false,
+          "title": "反应动力学",
+          "groups": 26,
+          "focusParts": 46,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_08_QP.pdf",
+              "bytes": 3468753,
+              "pages": 71,
+              "sourceStart": 880,
+              "sourceEnd": 950
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_08_MS.pdf",
+              "bytes": 3584258,
+              "pages": 58,
+              "sourceStart": 639,
+              "sourceEnd": 696
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_08_QP_MS.zip",
+              "bytes": 6555694
+            }
+          },
+          "english": "Reaction kinetics"
+        },
+        {
+          "id": "09",
+          "number": 9,
+          "supplement": false,
+          "title": "元素周期表与化学周期性",
+          "groups": 51,
+          "focusParts": 165,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_09_QP.pdf",
+              "bytes": 5080591,
+              "pages": 140,
+              "sourceStart": 951,
+              "sourceEnd": 1090
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_09_MS.pdf",
+              "bytes": 5763234,
+              "pages": 97,
+              "sourceStart": 697,
+              "sourceEnd": 793
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_09_QP_MS.zip",
+              "bytes": 10112070
+            }
+          },
+          "english": "The Periodic Table: chemical periodicity"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "supplement": false,
+          "title": "第2族",
+          "groups": 23,
+          "focusParts": 59,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_10_QP.pdf",
+              "bytes": 2754392,
+              "pages": 57,
+              "sourceStart": 1091,
+              "sourceEnd": 1147
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_10_MS.pdf",
+              "bytes": 2989625,
+              "pages": 38,
+              "sourceStart": 794,
+              "sourceEnd": 831
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_10_QP_MS.zip",
+              "bytes": 5356590
+            }
+          },
+          "english": "Group 2"
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "supplement": false,
+          "title": "第17族",
+          "groups": 32,
+          "focusParts": 100,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_11_QP.pdf",
+              "bytes": 3860666,
+              "pages": 78,
+              "sourceStart": 1148,
+              "sourceEnd": 1225
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_11_MS.pdf",
+              "bytes": 4593524,
+              "pages": 64,
+              "sourceStart": 832,
+              "sourceEnd": 895
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_11_QP_MS.zip",
+              "bytes": 7991939
+            }
+          },
+          "english": "Group 17"
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "supplement": false,
+          "title": "氮与硫",
+          "groups": 22,
+          "focusParts": 42,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_12_QP.pdf",
+              "bytes": 2986813,
+              "pages": 61,
+              "sourceStart": 1226,
+              "sourceEnd": 1286
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_12_MS.pdf",
+              "bytes": 2815512,
+              "pages": 44,
+              "sourceStart": 896,
+              "sourceEnd": 939
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_12_QP_MS.zip",
+              "bytes": 5390107
+            }
+          },
+          "english": "Nitrogen and sulfur"
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "supplement": false,
+          "title": "AS有机化学导论",
+          "groups": 72,
+          "focusParts": 146,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_13_QP.pdf",
+              "bytes": 7085040,
+              "pages": 204,
+              "sourceStart": 1287,
+              "sourceEnd": 1490
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_13_MS.pdf",
+              "bytes": 6678698,
+              "pages": 150,
+              "sourceStart": 940,
+              "sourceEnd": 1089
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_13_QP_MS.zip",
+              "bytes": 12737003
+            }
+          },
+          "english": "An introduction to AS Level organic chemistry"
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "supplement": false,
+          "title": "烃",
+          "groups": 48,
+          "focusParts": 111,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_14_QP.pdf",
+              "bytes": 5522122,
+              "pages": 139,
+              "sourceStart": 1491,
+              "sourceEnd": 1629
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_14_MS.pdf",
+              "bytes": 5406370,
+              "pages": 102,
+              "sourceStart": 1090,
+              "sourceEnd": 1191
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_14_QP_MS.zip",
+              "bytes": 10183864
+            }
+          },
+          "english": "Hydrocarbons"
+        },
+        {
+          "id": "15",
+          "number": 15,
+          "supplement": false,
+          "title": "卤代化合物",
+          "groups": 32,
+          "focusParts": 59,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_15_QP.pdf",
+              "bytes": 3669082,
+              "pages": 88,
+              "sourceStart": 1630,
+              "sourceEnd": 1717
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_15_MS.pdf",
+              "bytes": 3831392,
+              "pages": 64,
+              "sourceStart": 1192,
+              "sourceEnd": 1255
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_15_QP_MS.zip",
+              "bytes": 7023445
+            }
+          },
+          "english": "Halogen compounds"
+        },
+        {
+          "id": "16",
+          "number": 16,
+          "supplement": false,
+          "title": "羟基化合物",
+          "groups": 37,
+          "focusParts": 68,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_16_QP.pdf",
+              "bytes": 4507621,
+              "pages": 103,
+              "sourceStart": 1718,
+              "sourceEnd": 1820
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_16_MS.pdf",
+              "bytes": 4061813,
+              "pages": 69,
+              "sourceStart": 1256,
+              "sourceEnd": 1324
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_16_QP_MS.zip",
+              "bytes": 8023889
+            }
+          },
+          "english": "Hydroxy compounds"
+        },
+        {
+          "id": "17",
+          "number": 17,
+          "supplement": false,
+          "title": "羰基化合物",
+          "groups": 27,
+          "focusParts": 43,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_17_QP.pdf",
+              "bytes": 3846123,
+              "pages": 87,
+              "sourceStart": 1821,
+              "sourceEnd": 1907
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_17_MS.pdf",
+              "bytes": 3178128,
+              "pages": 58,
+              "sourceStart": 1325,
+              "sourceEnd": 1382
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_17_QP_MS.zip",
+              "bytes": 6559570
+            }
+          },
+          "english": "Carbonyl compounds"
+        },
+        {
+          "id": "18",
+          "number": 18,
+          "supplement": false,
+          "title": "羧酸及其衍生物",
+          "groups": 30,
+          "focusParts": 46,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_18_QP.pdf",
+              "bytes": 3929660,
+              "pages": 83,
+              "sourceStart": 1908,
+              "sourceEnd": 1990
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_18_MS.pdf",
+              "bytes": 3534198,
+              "pages": 55,
+              "sourceStart": 1383,
+              "sourceEnd": 1437
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_18_QP_MS.zip",
+              "bytes": 7027344
+            }
+          },
+          "english": "Carboxylic acids and derivatives"
+        },
+        {
+          "id": "19",
+          "number": 19,
+          "supplement": false,
+          "title": "含氮化合物",
+          "groups": 16,
+          "focusParts": 18,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_19_QP.pdf",
+              "bytes": 2010671,
+              "pages": 46,
+              "sourceStart": 1991,
+              "sourceEnd": 2036
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_19_MS.pdf",
+              "bytes": 2165088,
+              "pages": 32,
+              "sourceStart": 1438,
+              "sourceEnd": 1469
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_19_QP_MS.zip",
+              "bytes": 3892451
+            }
+          },
+          "english": "Nitrogen compounds"
+        },
+        {
+          "id": "20",
+          "number": 20,
+          "supplement": false,
+          "title": "聚合",
+          "groups": 18,
+          "focusParts": 28,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_20_QP.pdf",
+              "bytes": 2947670,
+              "pages": 62,
+              "sourceStart": 2037,
+              "sourceEnd": 2098
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_20_MS.pdf",
+              "bytes": 2649413,
+              "pages": 44,
+              "sourceStart": 1470,
+              "sourceEnd": 1513
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_20_QP_MS.zip",
+              "bytes": 5203895
+            }
+          },
+          "english": "Polymerisation"
+        },
+        {
+          "id": "21",
+          "number": 21,
+          "supplement": false,
+          "title": "有机合成",
+          "groups": 31,
+          "focusParts": 41,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_21_QP.pdf",
+              "bytes": 4251409,
+              "pages": 93,
+              "sourceStart": 2099,
+              "sourceEnd": 2191
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_21_MS.pdf",
+              "bytes": 3861158,
+              "pages": 67,
+              "sourceStart": 1514,
+              "sourceEnd": 1580
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_21_QP_MS.zip",
+              "bytes": 7608538
+            }
+          },
+          "english": "Organic synthesis"
+        },
+        {
+          "id": "22",
+          "number": 22,
+          "supplement": false,
+          "title": "分析技术",
+          "groups": 40,
+          "focusParts": 63,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_22_QP.pdf",
+              "bytes": 5774810,
+              "pages": 133,
+              "sourceStart": 2192,
+              "sourceEnd": 2324
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_22_MS.pdf",
+              "bytes": 5148107,
+              "pages": 84,
+              "sourceStart": 1581,
+              "sourceEnd": 1664
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_22_QP_MS.zip",
+              "bytes": 10225237
+            }
+          },
+          "english": "Analytical techniques"
+        },
+        {
+          "id": "appendix",
+          "number": 0,
+          "supplement": true,
+          "title": "旧考纲补充",
+          "groups": 5,
+          "focusParts": 9,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_appendix_QP.pdf",
+              "bytes": 767725,
+              "pages": 11,
+              "sourceStart": 2325,
+              "sourceEnd": 2335
+            },
+            "ms": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_appendix_MS.pdf",
+              "bytes": 555791,
+              "pages": 8,
+              "sourceStart": 1665,
+              "sourceEnd": 1672
+            },
+            "zip": {
+              "url": "downloads/chapters/9701/9701_AS_P2_2020-2026_Unit_appendix_QP_MS.zip",
+              "bytes": 1240357
+            }
+          },
+          "english": "Historical supplement - Historical syllabus supplement"
+        }
+      ]
+    },
+    {
+      "code": "9700",
+      "name": "生物",
+      "english": "Biology",
+      "units": [
+        {
+          "id": "01",
+          "number": 1,
+          "supplement": false,
+          "title": "细胞结构",
+          "groups": 77,
+          "focusParts": 142,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_01_QP.pdf",
+              "bytes": 34779717,
+              "pages": 204,
+              "sourceStart": 3,
+              "sourceEnd": 206
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_01_MS.pdf",
+              "bytes": 9373989,
+              "pages": 188,
+              "sourceStart": 3,
+              "sourceEnd": 190
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_01_QP_MS.zip",
+              "bytes": 42970241
+            }
+          },
+          "english": "Cell structure"
+        },
+        {
+          "id": "02",
+          "number": 2,
+          "supplement": false,
+          "title": "生物分子",
+          "groups": 79,
+          "focusParts": 152,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_02_QP.pdf",
+              "bytes": 18974658,
+              "pages": 228,
+              "sourceStart": 207,
+              "sourceEnd": 434
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_02_MS.pdf",
+              "bytes": 9504466,
+              "pages": 192,
+              "sourceStart": 191,
+              "sourceEnd": 382
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_02_QP_MS.zip",
+              "bytes": 27396396
+            }
+          },
+          "english": "Biological molecules"
+        },
+        {
+          "id": "03",
+          "number": 3,
+          "supplement": false,
+          "title": "酶",
+          "groups": 50,
+          "focusParts": 110,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_03_QP.pdf",
+              "bytes": 9743361,
+              "pages": 147,
+              "sourceStart": 435,
+              "sourceEnd": 581
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_03_MS.pdf",
+              "bytes": 8233789,
+              "pages": 127,
+              "sourceStart": 383,
+              "sourceEnd": 509
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_03_QP_MS.zip",
+              "bytes": 17206563
+            }
+          },
+          "english": "Enzymes"
+        },
+        {
+          "id": "04",
+          "number": 4,
+          "supplement": false,
+          "title": "细胞膜与物质运输",
+          "groups": 75,
+          "focusParts": 112,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_04_QP.pdf",
+              "bytes": 28186431,
+              "pages": 208,
+              "sourceStart": 582,
+              "sourceEnd": 789
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_04_MS.pdf",
+              "bytes": 9253939,
+              "pages": 179,
+              "sourceStart": 510,
+              "sourceEnd": 688
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_04_QP_MS.zip",
+              "bytes": 36301856
+            }
+          },
+          "english": "Cell membranes and transport"
+        },
+        {
+          "id": "05",
+          "number": 5,
+          "supplement": false,
+          "title": "有丝分裂细胞周期",
+          "groups": 51,
+          "focusParts": 111,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_05_QP.pdf",
+              "bytes": 22032492,
+              "pages": 120,
+              "sourceStart": 790,
+              "sourceEnd": 909
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_05_MS.pdf",
+              "bytes": 8111897,
+              "pages": 115,
+              "sourceStart": 689,
+              "sourceEnd": 803
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_05_QP_MS.zip",
+              "bytes": 29292572
+            }
+          },
+          "english": "The mitotic cell cycle"
+        },
+        {
+          "id": "06",
+          "number": 6,
+          "supplement": false,
+          "title": "核酸与蛋白质合成",
+          "groups": 61,
+          "focusParts": 130,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_06_QP.pdf",
+              "bytes": 13628681,
+              "pages": 167,
+              "sourceStart": 910,
+              "sourceEnd": 1076
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_06_MS.pdf",
+              "bytes": 8537066,
+              "pages": 157,
+              "sourceStart": 804,
+              "sourceEnd": 960
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_06_QP_MS.zip",
+              "bytes": 21290105
+            }
+          },
+          "english": "Nucleic acids and protein synthesis"
+        },
+        {
+          "id": "07",
+          "number": 7,
+          "supplement": false,
+          "title": "植物体内的运输",
+          "groups": 48,
+          "focusParts": 104,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_07_QP.pdf",
+              "bytes": 13532359,
+              "pages": 122,
+              "sourceStart": 1077,
+              "sourceEnd": 1198
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_07_MS.pdf",
+              "bytes": 7787447,
+              "pages": 104,
+              "sourceStart": 961,
+              "sourceEnd": 1064
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_07_QP_MS.zip",
+              "bytes": 20619109
+            }
+          },
+          "english": "Transport in plants"
+        },
+        {
+          "id": "08",
+          "number": 8,
+          "supplement": false,
+          "title": "哺乳动物体内的运输",
+          "groups": 66,
+          "focusParts": 159,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_08_QP.pdf",
+              "bytes": 25668232,
+              "pages": 173,
+              "sourceStart": 1199,
+              "sourceEnd": 1371
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_08_MS.pdf",
+              "bytes": 8833792,
+              "pages": 156,
+              "sourceStart": 1065,
+              "sourceEnd": 1220
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_08_QP_MS.zip",
+              "bytes": 33481671
+            }
+          },
+          "english": "Transport in mammals"
+        },
+        {
+          "id": "09",
+          "number": 9,
+          "supplement": false,
+          "title": "气体交换",
+          "groups": 41,
+          "focusParts": 82,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_09_QP.pdf",
+              "bytes": 26026015,
+              "pages": 117,
+              "sourceStart": 1372,
+              "sourceEnd": 1488
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_09_MS.pdf",
+              "bytes": 7205325,
+              "pages": 96,
+              "sourceStart": 1221,
+              "sourceEnd": 1316
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_09_QP_MS.zip",
+              "bytes": 32583079
+            }
+          },
+          "english": "Gas exchange"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "supplement": false,
+          "title": "传染病",
+          "groups": 55,
+          "focusParts": 119,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_10_QP.pdf",
+              "bytes": 19011886,
+              "pages": 156,
+              "sourceStart": 1489,
+              "sourceEnd": 1644
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_10_MS.pdf",
+              "bytes": 8773650,
+              "pages": 155,
+              "sourceStart": 1317,
+              "sourceEnd": 1471
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_10_QP_MS.zip",
+              "bytes": 26937515
+            }
+          },
+          "english": "Infectious diseases"
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "supplement": false,
+          "title": "免疫",
+          "groups": 58,
+          "focusParts": 111,
+          "files": {
+            "qp": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_11_QP.pdf",
+              "bytes": 17130741,
+              "pages": 166,
+              "sourceStart": 1645,
+              "sourceEnd": 1810
+            },
+            "ms": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_11_MS.pdf",
+              "bytes": 8751545,
+              "pages": 156,
+              "sourceStart": 1472,
+              "sourceEnd": 1627
+            },
+            "zip": {
+              "url": "downloads/chapters/9700/9700_AS_P2_2020-2026_Unit_11_QP_MS.zip",
+              "bytes": 25040472
+            }
+          },
+          "english": "Immunity"
+        }
+      ]
+    }
+  ]
+}

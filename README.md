@@ -16,6 +16,8 @@ PaperTrace 是面向国际课程学习者的搜题工具，支持 CAIE、Pearson
 - **清晰阅读**：界面展示可读题干，完整识别内容用于搜索；可编辑展示文字，也可切换 OCR 与 LLM 结果。
 - **来源定位**：打开 QP 原卷和 MS 评分标准，复制来源编号，收藏题目。
 - **范围筛选**：按科目、资格类别、年份、考季和卷别筛选，按相关度或年份排序。
+- **真题下载**：[独立下载页](https://trace.siphot.com/papers.html)按考试局、科目、年份、考季和分卷选择原卷、评分标准及配套资料，支持 PDF 预览、批量 ZIP、可用性检查、失败重试和 CSV 链接导出。
+- **分章练习**：[AS 分章下载](https://trace.siphot.com/chapters.html)提供物理、化学、生物共 44 个单元及 2 份旧纲补充，每个单元可下载题目、答案或配套 ZIP。
 - **本机题库**：批量导入 QP/MS PDF，配对评分标准，导入和导出索引 JSON。
 
 ![题库总览与科目范围](docs/screenshots/scie-default-scope-2026-10-24.png)
@@ -97,6 +99,8 @@ python3 serve.py
 访问 **http://localhost:8000/**。保持终端运行，按 `Ctrl+C` 停止。更换端口可以添加 `--port 8001`。
 
 前端、搜索索引、OCR 引擎和英文模型均包含在 `dist/` 中。Python 标准库提供本机 HTTP 服务，浏览器执行搜索、OCR 和 PDF 导入。打开远程原卷和评分标准时需要联网。
+
+GitHub Pages 的分章文件直接从公开的 VPS 下载。本机和自有服务器的资料放在 `dist/downloads/chapters/`；使用原始分章资料包时，可运行 `python scripts/prepare_chapter_downloads.py --source <资料包目录>` 生成单元文件。
 
 安装 PDF 页面图片预览依赖：
 

@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import sys
 import threading
+import tempfile
 import unittest
 import urllib.request
 import urllib.error
@@ -38,6 +39,52 @@ class BackendTests(unittest.TestCase):
                 data = r.read().decode()
             self.assertNotIn('secret-test-value', data)
             self.assertTrue(json.loads(data)['llm']['available'])
+
+    def test_chapter_download_is_attachment_while_preview_stays_inline(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / 'downloads/chapters/9702/9702_AS_Unit_01_QP.pdf'
+            target.parent.mkdir(parents=True)
+            target.write_bytes(b'%PDF-1.7\nfixture')
+            server = ThreadingHTTPServer(('127.0.0.1', 0), partial(RevalidatingHandler, directory=directory))
+            server.backend = self.backend
+            worker = threading.Thread(target=server.serve_forever, daemon=True)
+            worker.start()
+            url = f'http://127.0.0.1:{server.server_port}/downloads/chapters/9702/{target.name}'
+            try:
+                with urllib.request.urlopen(url + '?download=1') as response:
+                    self.assertEqual(response.headers['Content-Disposition'], "attachment; filename*=UTF-8''" + target.name)
+                    self.assertEqual(response.read(), target.read_bytes())
+                with urllib.request.urlopen(url) as response:
+                    self.assertIsNone(response.headers['Content-Disposition'])
+                    self.assertEqual(response.headers['Content-Type'], 'application/pdf')
+            finally:
+                server.shutdown()
+                server.server_close()
+
+    def test_fast_ocr_route_preserves_boxes_and_requires_image_schema(self):
+        image = 'data:image/png;base64,' + base64.b64encode(b'\x89PNG\r\n\x1a\n').decode()
+        result = {'text': '1 A gas is heated.', 'lines': [{'text': '1 A gas is heated.', 'confidence': .99, 'box': [[0, 0], [100, 0], [100, 20], [0, 20]]}]}
+        with patch.object(self.backend.vision, 'recognize', return_value=result) as recognize:
+            request = urllib.request.Request(self.base + '/api/vision-ocr', data=json.dumps({'image': image}).encode(), headers={'Content-Type': 'application/json'})
+            with urllib.request.urlopen(request) as response:
+                self.assertEqual(json.load(response), result)
+            recognize.assert_called_once()
+        for body, origin, code in [({'image': 'invalid'}, None, 400), ({'image': image, 'prompt': 'x'}, None, 400), ({'image': image}, 'https://unrelated.example', 403)]:
+            headers = {'Content-Type': 'application/json'}
+            if origin:
+                headers['Origin'] = origin
+            with self.assertRaises(urllib.error.HTTPError) as error:
+                urllib.request.urlopen(urllib.request.Request(self.base + '/api/vision-ocr', data=json.dumps(body).encode(), headers=headers))
+            self.assertEqual(error.exception.code, code)
+
+    def test_fast_ocr_unavailable_leaves_browser_app_available(self):
+        image = 'data:image/png;base64,' + base64.b64encode(b'\x89PNG\r\n\x1a\n').decode()
+        with patch.object(self.backend.vision, 'recognize', side_effect=RuntimeError('busy')), patch('backend.logger.exception'):
+            with self.assertRaises(urllib.error.HTTPError) as error:
+                urllib.request.urlopen(urllib.request.Request(self.base + '/api/vision-ocr', data=json.dumps({'image': image}).encode(), headers={'Content-Type': 'application/json'}))
+            self.assertEqual(error.exception.code, 503)
+        with urllib.request.urlopen(self.base + '/document-recognition.mjs') as response:
+            self.assertEqual(response.status, 200)
 
     def test_invalid_requests_do_not_break_static_search(self):
         for body, origin, expected in [({'prompt': 'anything'}, None, 400),
