@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#F9F9F5">
+<title>样张 · 图片搜题 + 空状态 · PaperTrace Viewfinder</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="reference.css">
+<!-- 样张：图片 / PDF 模式（#photoArea 展开）+ 尚未搜索时的 #emptyState。 -->
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#search"><span class="brand-word">PaperTrace</span><small>国际课程试题溯源</small></a>
+  <nav>
+    <button class="nav active" data-view="search"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-search"/></svg></i>试题搜索<span class="key">/</span></button>
+    <button class="nav" data-view="library"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-library"/></svg></i>题库总览</button>
+    <a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-download"/></svg></i>真题下载</a>
+    <a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-chapters"/></svg></i>分章练习</a>
+    <a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-tools"/></svg></i>学习工具</a>
+    <button class="nav" data-view="saved"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-star"/></svg></i>我的收藏<span class="count">0</span></button>
+    <button class="nav" data-view="import"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-plus"/></svg></i>导入试卷</button>
+  </nav>
+  <span class="masthead-tag">完全非营利</span>
+</aside>
+<div class="shell">
+<header class="topbar">
+  <div class="crumb">工作空间 <span>/</span> <strong>试题搜索</strong></div>
+  <div class="top-actions"><span class="badge">CAIE · EDEXCEL · AQA · AP</span><button class="icon-btn" aria-label="使用说明">?</button></div>
+</header>
+<main>
+<section class="view">
+  <section class="search-box">
+    <div class="search-tabs" role="tablist">
+      <button class="search-tab" role="tab" aria-selected="false"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-search"/></svg>文字搜题 <span>Text search</span></button>
+      <button class="search-tab active" role="tab" aria-selected="true"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-camera"/></svg>图片 / PDF <span>Image / PDF</span></button>
+      <span class="local-badge">本机 OCR · 可并行 LLM</span>
+    </div>
+    <div id="photoArea">
+      <section class="llm-options" aria-label="图片识别设置">
+        <label class="llm-toggle"><input type="checkbox" checked>同时使用 LLM 提取文字 <span>gpt-6.1-sol · 快速</span></label>
+        <p>OCR 始终可用。可同时启用 LLM，先完成的结果会自动用于搜题。</p>
+        <details><summary>设置自己的 API Key</summary></details>
+      </section>
+      <div class="upload-area pt-vf" tabindex="0" role="button" aria-label="选择题目图片或 PDF">
+        <span class="upload-icon"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-camera"/></svg></span>
+        <strong>拖入图片或 PDF，支持一张图片多道题</strong>
+        <span>支持 JPG / PNG / WebP / PDF，也可以直接粘贴截图</span>
+        <div><button class="btn primary small">选择图片 / PDF</button><button class="btn small">拍照搜题</button><button class="btn small">试用题目截图</button></div>
+      </div>
+      <div style="height:24px"></div>
+    </div>
+  </section>
+
+  <div class="filter-bar" style="margin-top:48px">
+    <div class="level-tabs"><button class="level active">全部</button><button class="level">AS &amp; A Level</button><button class="level">IGCSE</button></div>
+    <div class="filters"><select aria-label="科目"><option>当前范围全部科目</option></select><select aria-label="年份"><option>全部年份</option></select><button class="text-btn">重置</button></div>
+  </div>
+  <div class="results-heading"><h2>从一道没有出处的题开始</h2></div>
+
+  <div id="emptyState" class="empty-state">
+    <div class="empty-diagram" aria-hidden="true">
+      <div class="ed-shot pt-vf"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-paper"/></svg><b>拍<br>题</b></div>
+      <div class="ed-arrow"><span>识别</span><svg class="pt-icon" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12h116M106 4l10 8-10 8"/></svg></div>
+      <dl class="ed-out"><div><dt>QP</dt><dd>查找原卷</dd></div><div><dt class="ms">MS</dt><dd>评分标准</dd></div></dl>
+    </div>
+    <h3>把“这道题是哪年的？”交给这里。</h3>
+    <p>输入题目中有辨识度的一句话，或上传一张清晰截图。匹配后即可查看年份、考季、卷别、题号与 MS。</p>
+    <small id="corpusNote">当前可搜 13,334 条索引 · 6,033 份 QP · 其余 63 个科目按需加载</small>
+    <ol class="process-steps" style="margin-top:40px">
+      <li><strong>拍照上传</strong><svg class="pt-icon" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12h116M106 4l10 8-10 8"/></svg></li>
+      <li><strong>识别题目</strong><svg class="pt-icon" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12h116M106 4l10 8-10 8"/></svg></li>
+      <li><strong>查找原卷与 MS</strong></li>
+    </ol>
+  </div>
+</section>
+</main>
+<div class="site-band"><div class="pt-band">永久免费 · 永久开源 · 永久无广告</div></div>
+<div class="foot-claims"><span>全部功能免费不限次，含 LLM 图片识别</span><span>免注册 / 登录</span></div>
+<footer>
+  <span class="foot-word">PaperTrace</span>
+  <span class="foot-tagline">拍一下，找出处。</span>
+  <div class="foot-line"><span>Made for independent learners. · 非 Cambridge 官方产品</span><b>PAPERTRACE / 01</b></div>
+</footer>
+</div>
+</body></html>

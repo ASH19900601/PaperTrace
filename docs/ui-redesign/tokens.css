@@ -1,0 +1,196 @@
+/*
+ * PaperTrace · Viewfinder design tokens
+ * ------------------------------------------------------------
+ * 视觉来源：docs/ui-redesign/reference/ 下的两张海报。
+ * 颜色由海报像素取样：纸白 #F9F9F5 · 墨黑 #101113 · 电光蓝 #204FFF。
+ *
+ * 用法：执行者把本文件复制为 dist/tokens.css，并在四个页面
+ * （index / papers / chapters / tools）的 <head> 中，于 style.css 之前引入：
+ *   <link rel="stylesheet" href="tokens.css?v=YYYYMMDD">
+ * 之后所有 CSS 只引用 var(--*)，禁止再写死十六进制颜色（语义例外见 DESIGN_SPEC §2.3）。
+ */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- 2.1 色彩 · 基础 ---------- */
+  --pt-paper:        #F9F9F5;  /* 页面底色（海报纸面）*/
+  --pt-paper-2:      #F1F1EA;  /* 次级底：悬停、条带、表头 */
+  --pt-paper-3:      #E7E7DE;  /* 更深的纸：按下、分组背景 */
+  --pt-surface:      #FFFFFF;  /* 输入框、卡片、对话框内容 */
+
+  --pt-ink:          #101113;  /* 正文 / 标题 / 粗分割线 / 黑色条带 */
+  --pt-ink-2:        #3A3B40;  /* 次级正文 */
+  --pt-muted:        #66686E;  /* 说明文字，纸白底对比度 ≈ 5.3:1 */
+  --pt-faint:        #8E9096;  /* 仅用于禁用态与占位符，不用于需要阅读的信息 */
+
+  --pt-line:         #DADAD2;  /* 发丝分割线（1px）*/
+  --pt-line-strong:  #B9BAB2;  /* 输入框默认描边 */
+  --pt-rule:         var(--pt-ink); /* 海报式粗分割线（2px）*/
+
+  /* ---------- 2.2 色彩 · 品牌蓝（唯一强调色）---------- */
+  --pt-blue:         #204FFF;  /* 主行动、答案、链接、命中 */
+  --pt-blue-press:   #163CD9;  /* 按下 / 悬停加深 */
+  --pt-blue-soft:    #E3E9FF;  /* 命中高亮底、选中浅底 */
+  --pt-blue-tint:    #F2F5FF;  /* 极浅蓝底：信息条 */
+  --pt-on-blue:      #FFFFFF;
+  --pt-on-ink:       #F9F9F5;
+
+  /* ---------- 2.3 色彩 · 语义（克制使用）---------- */
+  --pt-ok:           #157A45;  /* 链接检查通过等状态文字 */
+  --pt-warn:         #B45A12;  /* 未验证 / 注意 */
+  --pt-danger:       #C42F17;  /* 删除、错误 */
+  --pt-danger-soft:  #FCEDE9;
+  /* 分章练习 PDF 内部真实使用的标记颜色，说明文字必须与 PDF 一致，不能改成蓝色 */
+  --pt-pdf-focus:    #2E7D52;  /* “绿色标记” */
+  --pt-pdf-extra:    #C26A1A;  /* “橙色 EXTRA” */
+
+  /* ---------- 3. 字体 ---------- */
+  --pt-font-sans: "Inter", "Helvetica Neue", Helvetica, Arial,
+                  "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Source Han Sans SC",
+                  "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
+  /* 展示字体（标题、动态大字）：系统字体，配合 900 字重 */
+  --pt-font-display: "Inter", "Helvetica Neue", Arial,
+                  "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  /* 海报字体：仅用于“静态文字”（见 DESIGN_SPEC §3.3 的选择器白名单）。
+     可选自托管 Noto Sans SC Black 子集 "PT Display"；未提供时等同 --pt-font-display。 */
+  --pt-font-hero: "PT Display", var(--pt-font-display);
+  --pt-font-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, "Microsoft YaHei", monospace;
+
+  /* 字号阶梯（桌面）。移动端在 760px 断点下覆盖 --pt-fs-display / --pt-fs-h1 / --pt-fs-stat */
+  --pt-fs-display: 76px;  /* 搜题首页主标语 */
+  --pt-fs-h1:      52px;  /* 其余页面主标题 */
+  --pt-fs-stat:    64px;  /* 大数字 */
+  --pt-fs-h2:      26px;
+  --pt-fs-h3:      19px;
+  --pt-fs-lead:    18px;  /* 引导句、搜索框输入 */
+  --pt-fs-body:    15px;
+  --pt-fs-small:   13px;
+  --pt-fs-label:   12px;  /* 大写字母标签，最小可读字号 */
+
+  --pt-fw-regular: 400;
+  --pt-fw-medium:  500;
+  --pt-fw-bold:    700;
+  --pt-fw-heavy:   900;   /* 中文展示标题（系统字体可能只到 600/700，属于预期回落）*/
+
+  --pt-lh-tight:   1.08;
+  --pt-lh-heading: 1.25;
+  --pt-lh-body:    1.7;
+  --pt-track-label: .14em; /* PHOTO / SCREENSHOT 式字距 */
+  --pt-track-tight: -.02em;
+
+  /* ---------- 4. 空间 / 网格 ---------- */
+  --pt-s1: 4px;  --pt-s2: 8px;  --pt-s3: 12px; --pt-s4: 16px;
+  --pt-s5: 24px; --pt-s6: 32px; --pt-s7: 48px; --pt-s8: 64px; --pt-s9: 96px;
+
+  --pt-page-max:   1280px;
+  --pt-gutter:     48px;   /* ≤1100px: 28px；≤760px: 16px */
+  --pt-header-h:   72px;
+  --pt-tabbar-h:   64px;   /* 移动端底部导航 */
+
+  /* ---------- 5. 形状 / 线 ---------- */
+  --pt-radius:     0;      /* 海报风格：全部直角 */
+  --pt-radius-pill: 0;
+  --pt-border:     1px solid var(--pt-line);
+  --pt-border-strong: 1px solid var(--pt-line-strong);
+  --pt-border-ink: 2px solid var(--pt-ink);
+  --pt-rule-w:     2px;
+
+  /* 取景框角标 */
+  --pt-vf-len:     22px;   /* 角标臂长 */
+  --pt-vf-w:       3px;    /* 角标线宽 */
+  --pt-vf-color:   var(--pt-ink);
+
+  /* ---------- 6. 阴影 / 层级 ---------- */
+  --pt-shadow-none: none;
+  --pt-shadow-pop:  8px 8px 0 var(--pt-ink);     /* 对话框：海报式硬阴影 */
+  --pt-shadow-lift: 4px 4px 0 var(--pt-blue);    /* 卡片聚焦/悬停：蓝色硬阴影 */
+  --pt-backdrop:    rgba(16, 17, 19, .55);
+  --pt-z-header: 20; --pt-z-tabbar: 30; --pt-z-toast: 100;
+
+  /* ---------- 7. 动效 ---------- */
+  --pt-ease:       cubic-bezier(.2, .7, .2, 1);
+  --pt-dur-fast:   120ms;
+  --pt-dur:        180ms;
+
+  /* ---------- 焦点 ---------- */
+  --pt-focus:      0 0 0 2px var(--pt-paper), 0 0 0 4px var(--pt-blue);
+}
+
+@media (max-width: 1100px) {
+  :root { --pt-gutter: 28px; --pt-fs-display: 60px; --pt-fs-h1: 42px; --pt-fs-stat: 52px; }
+}
+@media (max-width: 760px) {
+  :root {
+    --pt-gutter: 16px;
+    --pt-fs-display: 44px;
+    --pt-fs-h1: 34px;
+    --pt-fs-stat: 40px;
+    --pt-fs-h2: 22px;
+    --pt-fs-h3: 17px;
+    --pt-fs-lead: 16px;   /* iOS 输入框 ≥16px，避免缩放 */
+    --pt-vf-len: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --pt-dur-fast: 0ms; --pt-dur: 0ms; }
+}
+
+/* ============================================================
+ * 共享工具类（签名元素）。执行者可把下面这段一并放入 tokens.css，
+ * 也可移入 style.css 的 “Signature” 区块。
+ * ============================================================ */
+
+/* 取景框：四个 L 形角标。需要元素为 position:relative（或用 .pt-vf 自带）。*/
+.pt-vf { position: relative; }
+.pt-vf::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  --l: var(--pt-vf-len);
+  --w: var(--pt-vf-w);
+  --c: var(--pt-vf-color);
+  background:
+    linear-gradient(var(--c) 0 0) top left    / var(--l) var(--w) no-repeat,
+    linear-gradient(var(--c) 0 0) top left    / var(--w) var(--l) no-repeat,
+    linear-gradient(var(--c) 0 0) top right   / var(--l) var(--w) no-repeat,
+    linear-gradient(var(--c) 0 0) top right   / var(--w) var(--l) no-repeat,
+    linear-gradient(var(--c) 0 0) bottom left / var(--l) var(--w) no-repeat,
+    linear-gradient(var(--c) 0 0) bottom left / var(--w) var(--l) no-repeat,
+    linear-gradient(var(--c) 0 0) bottom right/ var(--l) var(--w) no-repeat,
+    linear-gradient(var(--c) 0 0) bottom right/ var(--w) var(--l) no-repeat;
+}
+.pt-vf--blue { --pt-vf-color: var(--pt-blue); }
+.pt-vf--out::before { inset: -10px; } /* 角标外扩，框住内容而不压线 */
+
+/* 海报式小标签：PHOTO / SCREENSHOT */
+.pt-kicker {
+  font: var(--pt-fw-bold) var(--pt-fs-label)/1.2 var(--pt-font-sans);
+  letter-spacing: var(--pt-track-label);
+  text-transform: uppercase;
+  color: var(--pt-blue);
+}
+.pt-kicker--ink { color: var(--pt-ink); }
+
+/* 粗分割线 */
+.pt-rule { border: 0; border-top: var(--pt-rule-w) solid var(--pt-rule); margin: 0; }
+
+/* 黑色口号条带 */
+.pt-band {
+  background: var(--pt-ink);
+  color: var(--pt-on-ink);
+  font: var(--pt-fw-heavy) clamp(18px, 2.4vw, 30px)/1.3 var(--pt-font-hero);
+  letter-spacing: .02em;
+  text-align: center;
+  padding: var(--pt-s5) var(--pt-gutter);
+}
+
+/* 图标：继承文字颜色的线性 SVG */
+.pt-icon {
+  width: 1.25em; height: 1.25em;
+  flex: none;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter;
+  vertical-align: -.2em;
+}

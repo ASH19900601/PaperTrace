@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#F9F9F5">
+<title>样张 · 试题搜索（结果态）· PaperTrace Viewfinder</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="reference.css">
+<!--
+  高保真样张：dist/index.html 搜题视图的“有结果”状态。
+  结构与类名对齐真实页面；标注 NEW 的元素是 DESIGN_SPEC 中规定新增的静态标记。
+  所有 id / data-* 必须与 dist/index.html 保持一致，这里只保留了与视觉相关的部分。
+-->
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#search"><span class="brand-word">PaperTrace</span><small>国际课程试题溯源</small></a>
+  <nav>
+    <button class="nav active" data-view="search"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-search"/></svg></i>试题搜索<span class="key">/</span></button>
+    <button class="nav" data-view="library"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-library"/></svg></i>题库总览</button>
+    <a class="nav" href="papers.html"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-download"/></svg></i>真题下载</a>
+    <a class="nav" href="chapters.html"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-chapters"/></svg></i>分章练习</a>
+    <a class="nav" href="tools.html"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-tools"/></svg></i>学习工具</a>
+    <button class="nav" data-view="saved"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-star"/></svg></i>我的收藏<span id="savedCount" class="count">3</span></button>
+    <button class="nav" data-view="import"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-plus"/></svg></i>导入试卷</button>
+  </nav>
+  <span class="masthead-tag">完全非营利</span>
+</aside>
+
+<div class="shell">
+<header class="topbar">
+  <div class="crumb">工作空间 <span>/</span> <strong id="viewTitle">试题搜索</strong></div>
+  <div class="top-actions"><span class="badge">CAIE · EDEXCEL · AQA · AP</span><button class="icon-btn" id="helpButton" title="使用说明" aria-label="使用说明">?</button></div>
+</header>
+
+<main>
+<section id="subjectScope" class="subject-scope" aria-label="题库与搜题范围">
+  <div class="scope-heading"><div><strong id="scopeTitle">深国交科目</strong><p id="scopeSummary" role="status">题库总览与搜题共用 · 67 个科目 / 考试版本 · 6,033 份 QP · 选择保存在本机</p></div>
+  <div class="scope-actions"><button id="scopeAll" class="btn small">扩展到全部科目</button></div></div>
+  <details id="scopeOptions"><summary>选择额外科目</summary></details>
+</section>
+
+<section id="searchView" class="view">
+  <div class="intro pt-vf">
+    <svg class="pt-icon hero-arrow" aria-hidden="true"><use href="../icons.svg#i-arrow-up-right"/></svg>
+    <div>
+      <div class="eyebrow">Photo / Screenshot / Text</div>
+      <h1>拍一下，<br><span class="accent">找出处。</span></h1>
+      <p>拍照 / 截图 / 粘贴题干 → 查找原卷与 MS 评分标准<span class="sub">一段题干，一张截图。找到原卷，直接查看答案。</span></p>
+    </div>
+    <div class="index-stat"><b id="questionCount">13,334</b><span>条题目 / 页面在当前范围内</span><small id="rangeLabel">2018–2026 · 已加载 4 / 67 个科目</small></div>
+  </div>
+
+  <section class="search-box">
+    <div class="search-tabs" role="tablist">
+      <button class="search-tab active" data-mode="text" role="tab" aria-selected="true"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-search"/></svg>文字搜题 <span>Text search</span></button>
+      <button class="search-tab" data-mode="photo" role="tab" aria-selected="false"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-camera"/></svg>图片 / PDF <span>Image / PDF</span></button>
+      <span class="local-badge" id="recognitionBadge">本机 OCR · 可并行 LLM</span>
+    </div>
+    <div class="text-input-wrap" id="queryWrap">
+      <label for="query" class="sr-only">输入题干、关键词或试卷编号</label>
+      <textarea id="query" rows="3" placeholder="粘贴一道题的文字，或输入关键词，例如：diffraction grating">A diffraction grating is illuminated normally with monochromatic light of wavelength 590 nm.</textarea>
+      <div class="search-bottom"><span id="queryHint">英文原句更准确 · 支持试卷编号，如 9702_s24_qp_22</span><button id="searchButton" class="btn primary">查找试题 <svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-arrow-up-right"/></svg></button></div>
+    </div>
+  </section>
+
+  <div class="examples"><span>试试搜索</span><button>diffraction grating ↗</button><button>enthalpy change ↗</button><button>linked list ↗</button><button>9702_s24_qp_22 Q2 ↗</button></div>
+
+  <div class="filter-bar">
+    <div class="level-tabs" id="levelTabs"><button class="level active">全部</button><button class="level">A Level</button><button class="level">AP</button><button class="level">AS &amp; A Level</button><button class="level">GCSE</button><button class="level">IGCSE</button></div>
+    <div class="filters"><select aria-label="科目"><option>当前范围全部科目</option></select><select aria-label="年份"><option>全部年份</option></select><select aria-label="考季"><option>全部考季</option></select><select aria-label="卷别"><option>全部卷别</option></select><button class="text-btn">重置</button></div>
+  </div>
+
+  <div class="results-heading"><h2 id="resultsTitle">找到 12 道候选试题</h2><div><span id="searchTiming">38 ms</span><select id="sortSelect" aria-label="结果排序"><option>按相关度</option></select></div></div>
+
+  <div id="resultsList" class="results-list">
+    <article class="result-card">
+      <div class="card-top"><div class="card-labels"><span class="tag">CAIE · AS &amp; A Level</span><span class="code">9702 · 物理</span><span class="match-label">原句 / 编号命中</span></div><button class="save-btn saved" aria-label="取消收藏">★</button></div>
+      <h3>2024 May / Jun <span class="muted">/</span> Paper 22 <span class="muted">/</span> Question 5</h3>
+      <p class="snippet">(a) A <mark>diffraction</mark> <mark>grating</mark> is illuminated normally with monochromatic light of <mark>wavelength</mark> 590 nm. The second-order maxima are observed at an angle of 42° to the direction of the incident light. Calculate the number of lines per metre of the grating.</p>
+      <div class="card-bottom">
+        <span class="card-meta">9702_s24_qp_22.pdf · 原卷 p.8<br>MS 已检查 · 答案 p.6</span>
+        <div class="card-actions"><button class="preview-btn" aria-expanded="true">收起原卷小问</button><button class="preview-btn">题目详情</button><a class="btn small" href="#">原卷 ↗</a><a class="btn primary small" href="#">查看 MS ↗</a></div>
+      </div>
+      <section class="paper-preview result-preview">
+        <div class="preview-heading"><div><strong>9702_s24_qp_22 · Question 5(a)</strong><span class="preview-source">原卷 p.8 · 自动裁剪匹配小问</span></div><div class="preview-controls"><button class="btn small">整页</button><button class="btn small">打开 PDF ↗</button></div></div>
+        <div class="preview-page"><div class="mock-page"></div></div>
+      </section>
+    </article>
+
+    <article class="result-card">
+      <div class="card-top"><div class="card-labels"><span class="tag">CAIE · AS &amp; A Level</span><span class="code">9702 · 物理</span><span class="match-label">命中 3 个关键词</span></div><button class="save-btn" aria-label="收藏题目">☆</button></div>
+      <h3>2021 Oct / Nov <span class="muted">/</span> Paper 23 <span class="muted">/</span> Question 4</h3>
+      <p class="snippet">Light of <mark>wavelength</mark> 630 nm is incident normally on a <mark>diffraction</mark> <mark>grating</mark>. The angle between the two second-order diffracted beams is 74°…</p>
+      <div class="card-bottom">
+        <span class="card-meta">9702_w21_qp_23.pdf · 原卷 p.7<br>MS 链接未验证 · 请核对来源</span>
+        <div class="card-actions"><button class="preview-btn" aria-expanded="false">展开原卷小问</button><button class="preview-btn">题目详情</button><a class="btn small" href="#">原卷 ↗</a><a class="btn primary small" href="#">打开 MS（未验证）↗</a></div>
+      </div>
+    </article>
+  </div>
+  <button id="loadMore" class="btn more">显示更多结果</button>
+  <div class="bottom-note"><span class="status-dot"></span> 基于真实 QP 文本检索，结果请结合原卷确认。图片、公式和纯图表题可能需要补充关键词。</div>
+</section>
+</main>
+
+<div class="site-band"><div class="pt-band">永久免费 · 永久开源 · 永久无广告</div></div>
+<div class="foot-claims"><span>全部功能免费不限次，含 LLM 图片识别</span><span>免注册 / 登录</span></div>
+<footer>
+  <span class="foot-word">PaperTrace</span>
+  <span class="foot-tagline">拍一下，找出处。</span>
+  <div class="foot-line"><span>Made for independent learners. · 非 Cambridge 官方产品 · 结果请结合原卷确认</span><b>PAPERTRACE / 01</b></div>
+</footer>
+</div>
+<div id="toast" role="status"></div>
+</body></html>
