@@ -17,6 +17,7 @@ PaperTrace helps international curriculum students find questions from CAIE, Pea
 - **Source links**: Open question papers (QP) and mark schemes (MS), copy source references and bookmark questions.
 - **Filters**: Narrow results by subject, qualification, year, session and component. Sort by relevance or year.
 - **Local library**: Import QP/MS PDFs in batches, pair mark schemes, and import or export JSON indexes.
+- **Learning toolbox**: Open the integrated PaperTrace pages and related public GitHub tools, including Pseudocode Ultra, QueryPath SQL, AI graders and chemistry lab projects, from one toolbox page.
 
 ![Library overview and subject scope](docs/screenshots/scie-default-scope-2026-10-24.png)
 

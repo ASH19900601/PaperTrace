@@ -18,6 +18,7 @@ PaperTrace 是面向国际课程学习者的搜题工具，支持 CAIE、Pearson
 - **范围筛选**：按科目、资格类别、年份、考季和卷别筛选，按相关度或年份排序。
 - **真题下载**：[独立下载页](https://trace.siphot.com/papers.html)按考试局、科目、年份、考季和分卷选择原卷、评分标准及配套资料，支持 PDF 预览、批量 ZIP、可用性检查、失败重试和 CSV 链接导出。
 - **分章练习**：[AS 分章下载](https://trace.siphot.com/chapters.html)提供物理、化学、生物共 44 个单元及 2 份旧纲补充，每个单元可下载题目、答案或配套 ZIP。
+- **学习工具**：[统一工具入口](https://trace.siphot.com/tools.html)收纳 GitHub 上的 Pseudocode Ultra、QueryPath SQL、AI SQ Grader、AI MCQ Checker、Autodoc AI Answer 及化学实验项目，并保留各项目源码入口。
 - **本机题库**：批量导入 QP/MS PDF，配对评分标准，导入和导出索引 JSON。
 
 ![题库总览与科目范围](docs/screenshots/scie-default-scope-2026-10-24.png)
