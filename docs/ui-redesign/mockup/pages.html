@@ -32,7 +32,7 @@
 
 <!-- ========== 题库总览 #libraryView ========== -->
 <section class="mock-section" style="padding-top:24px">
-  <div class="page-intro"><div class="eyebrow">The source library</div><h1>题库总览<span class="accent">。</span></h1><p>查看已收录的年份、考季和卷别，以及 MS 可用状态。</p></div>
+  <div class="page-intro"><h1>题库总览</h1><p>查看已收录的年份、考季和卷别，以及 MS 可用状态。</p></div>
   <div class="stat-grid">
     <div class="stat-cell"><b>72,055</b><span>范围内题目 / 页面索引</span></div>
     <div class="stat-cell"><b>6,033</b><span>范围内 QP</span></div>
@@ -40,12 +40,8 @@
     <div class="stat-cell"><b>67</b><span>范围内科目代码</span></div>
   </div>
   <div class="section-title"><h2>科目覆盖</h2><button class="btn small">＋ 导入更多试卷</button></div>
-  <div class="subject-grid">
-    <button type="button" class="subject-card"><span class="tag">AS &amp; A Level · 9702</span><h3>物理 <small>Physics</small></h3><p>2018–2026 · 214 份 QP</p><strong>4,812</strong> <small>道题</small><p class="muted">已可搜索 · CAIE</p></button>
-    <button type="button" class="subject-card"><span class="tag">AS &amp; A Level · 9701</span><h3>化学 <small>Chemistry</small></h3><p>2018–2026 · 228 份 QP</p><strong>5,106</strong> <small>道题</small><p class="muted">已可搜索 · CAIE</p></button>
-    <button type="button" class="subject-card"><span class="tag">IGCSE · 0620</span><h3>化学 <small>Chemistry</small></h3><p>2018–2026 · 301 份 QP</p><strong>9,880</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button>
-    <button type="button" class="subject-card"><span class="tag">AP · AP-PSY</span><h3>心理学 <small>Psychology</small></h3><p>2019–2025 · 7 份 QP</p><strong>42</strong> <small>条题目 / 页面索引</small><p class="muted">搜索时自动加载 · College Board</p></button>
-  </div>
+  <div class="subject-grid-head" aria-hidden="true"><span>课程 · 代码</span><span>科目</span><span>年份 · QP</span><span class="num">题目</span><span class="status">状态</span></div>
+  <div class="subject-grid"><p class="subject-group">AS &amp; A Level</p><button type="button" class="subject-card" data-subject-code="9702" aria-label="按 物理（9702）搜题"><span class="tag">AS &amp; A Level · 9702</span><h3>物理 <small>Physics</small></h3><p>2018–2026 · 214 份 QP</p><strong>4,812</strong> <small>道题</small><p class="muted">已可搜索 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9701" aria-label="按 化学（9701）搜题"><span class="tag">AS &amp; A Level · 9701</span><h3>化学 <small>Chemistry</small></h3><p>2018–2026 · 228 份 QP</p><strong>5,106</strong> <small>道题</small><p class="muted">已可搜索 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9700" aria-label="按 生物（9700）搜题"><span class="tag">AS &amp; A Level · 9700</span><h3>生物 <small>Biology</small></h3><p>2018–2026 · 236 份 QP</p><strong>4,977</strong> <small>道题</small><p class="muted">已可搜索 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9709" aria-label="按 数学（9709）搜题"><span class="tag">AS &amp; A Level · 9709</span><h3>数学 <small>Mathematics</small></h3><p>2018–2026 · 402 份 QP</p><strong>6,214</strong> <small>道题</small><p class="muted">已可搜索 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9618" aria-label="按 计算机科学（9618）搜题"><span class="tag">AS &amp; A Level · 9618</span><h3>计算机科学 <small>Computer Science</small></h3><p>2021–2026 · 96 份 QP</p><strong>1,532</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9708" aria-label="按 经济（9708）搜题"><span class="tag">AS &amp; A Level · 9708</span><h3>经济 <small>Economics</small></h3><p>2018–2026 · 188 份 QP</p><strong>2,940</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9231" aria-label="按 进阶数学（9231）搜题"><span class="tag">AS &amp; A Level · 9231</span><h3>进阶数学 <small>Further Mathematics</small></h3><p>2018–2026 · 160 份 QP</p><strong>1,880</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="9489" aria-label="按 历史（9489）搜题"><span class="tag">AS &amp; A Level · 9489</span><h3>历史 <small>History</small></h3><p>2021–2026 · 84 份 QP</p><strong>612</strong> <small>条题目 / 页面索引</small><p class="muted">搜索时自动加载 · CAIE</p></button><p class="subject-group">IGCSE</p><button type="button" class="subject-card" data-subject-code="0620" aria-label="按 化学（0620）搜题"><span class="tag">IGCSE · 0620</span><h3>化学 <small>Chemistry</small></h3><p>2018–2026 · 301 份 QP</p><strong>9,880</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="0625" aria-label="按 物理（0625）搜题"><span class="tag">IGCSE · 0625</span><h3>物理 <small>Physics</small></h3><p>2018–2026 · 298 份 QP</p><strong>9,402</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="0610" aria-label="按 生物（0610）搜题"><span class="tag">IGCSE · 0610</span><h3>生物 <small>Biology</small></h3><p>2018–2026 · 296 份 QP</p><strong>9,115</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="0580" aria-label="按 数学（0580）搜题"><span class="tag">IGCSE · 0580</span><h3>数学 <small>Mathematics</small></h3><p>2018–2026 · 330 份 QP</p><strong>8,640</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><button type="button" class="subject-card" data-subject-code="0478" aria-label="按 计算机科学（0478）搜题"><span class="tag">IGCSE · 0478</span><h3>计算机科学 <small>Computer Science</small></h3><p>2018–2026 · 120 份 QP</p><strong>2,210</strong> <small>道题</small><p class="muted">搜索时自动加载 · CAIE</p></button><p class="subject-group">AP</p><button type="button" class="subject-card" data-subject-code="AP-PSY" aria-label="按 心理学（AP-PSY）搜题"><span class="tag">AP · AP-PSY</span><h3>心理学 <small>Psychology</small></h3><p>2019–2025 · 7 份 QP</p><strong>42</strong> <small>条题目 / 页面索引</small><p class="muted">搜索时自动加载 · College Board · FRQ</p></button><button type="button" class="subject-card" data-subject-code="AP-CALCBC" aria-label="按 微积分 BC（AP-CALCBC）搜题"><span class="tag">AP · AP-CALCBC</span><h3>微积分 BC <small>Calculus BC</small></h3><p>2019–2025 · 7 份 QP</p><strong>48</strong> <small>道题</small><p class="muted">搜索时自动加载 · College Board · FRQ</p></button></div>
   <div class="section-title"><h2>已索引试卷</h2><input class="input" placeholder="筛选试卷编号，如 9701_s24" aria-label="筛选试卷"></div>
   <div class="table-wrap"><table><thead><tr><th>试卷</th><th>年份</th><th>考季</th><th>题目</th><th>MS</th></tr></thead>
   <tbody><tr><td>9702_s24_qp_22</td><td>2024</td><td>May / Jun</td><td>7</td><td><a href="#">已检查 ↗</a></td></tr><tr><td>9702_s24_qp_21</td><td>2024</td><td>May / Jun</td><td>6</td><td><a href="#">已检查 ↗</a></td></tr></tbody></table></div>
@@ -56,10 +52,10 @@
   <span class="pt-kicker pt-kicker--ink">#importView · 导入试卷</span>
   <div class="import-grid">
     <div class="panel"><h2>导入试卷 PDF</h2><p class="muted">按 Cambridge 文件名自动识别年份、考季、科目和卷别。建议同时选择 QP 与 MS。</p>
-      <label class="file-label pt-vf"><span class="upload-icon"><svg class="pt-icon" style="width:40px;height:40px" aria-hidden="true"><use href="../icons.svg#i-upload"/></svg></span><strong>选择 PDF 文件</strong><span class="muted">支持批量选择 · 每个文件最大 30 MB</span><code>9702_s24_qp_22.pdf + 9702_s24_ms_22.pdf</code></label>
+      <label class="file-label pt-vf"><span class="upload-icon"><svg class="pt-icon" style="width:28px;height:28px" aria-hidden="true"><use href="../icons.svg#i-upload"/></svg></span><strong>选择 PDF 文件</strong><span class="muted">支持批量选择 · 每个文件最大 30 MB</span><code>9702_s24_qp_22.pdf + 9702_s24_ms_22.pdf</code></label>
       <div class="mock-row"><button class="btn small">试用示例 QP + MS</button><button class="btn small">导出本机索引 JSON</button><button class="btn small">导入索引 JSON</button></div>
     </div>
-    <div class="panel import-guide"><span class="tag">How it works</span><h3>一次导入，<br>以后直接搜。</h3>
+    <div class="panel import-guide"><h3>一次导入，以后直接搜</h3>
       <ol><li><strong>识别文件名</strong><span>支持四位 CAIE 科目代码；已收录科目和年份以「题库总览」为准。</span></li><li><strong>按题号提取文本</strong><span>保留原卷页码。无法可靠分题时按页建立索引。</span></li><li><strong>配对 Mark Scheme</strong><span>导入本地 MS 后可以直接打开。</span></li></ol>
     </div>
   </div>
@@ -127,11 +123,7 @@
 </section>
 
 </main>
-<div class="site-band"><div class="pt-band">永久免费 · 永久开源 · 永久无广告</div></div>
-<footer>
-  <span class="foot-word">PaperTrace</span>
-  <span class="foot-tagline">拍一下，找出处。</span>
-  <div class="foot-line"><span>Made for independent learners. · 非 Cambridge 官方产品</span><b>PAPERTRACE / 02</b></div>
-</footer>
+<div class="pt-band">永久免费 · 永久开源 · 永久无广告 · 全部功能免费不限次，含 LLM 图片识别 · 免注册</div>
+<footer><span><b>PaperTrace</b>国际课程试题溯源</span><span>Made for independent learners. · 非 Cambridge 官方产品 · 结果请结合原卷确认</span></footer>
 </div>
 </body></html>

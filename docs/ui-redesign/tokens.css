@@ -58,10 +58,10 @@
   --pt-font-mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, "Microsoft YaHei", monospace;
 
   /* 字号阶梯（桌面）。移动端在 760px 断点下覆盖 --pt-fs-display / --pt-fs-h1 / --pt-fs-stat */
-  --pt-fs-display: 76px;  /* 搜题首页主标语 */
-  --pt-fs-h1:      52px;  /* 其余页面主标题 */
-  --pt-fs-stat:    64px;  /* 大数字 */
-  --pt-fs-h2:      26px;
+  --pt-fs-display: 40px;  /* 搜题首页标语：一行，不做海报式巨字 */
+  --pt-fs-h1:      32px;  /* 其余页面主标题 */
+  --pt-fs-stat:    32px;  /* 页头统计数字 */
+  --pt-fs-h2:      22px;
   --pt-fs-h3:      19px;
   --pt-fs-lead:    18px;  /* 引导句、搜索框输入 */
   --pt-fs-body:    15px;
@@ -118,15 +118,15 @@
 }
 
 @media (max-width: 1100px) {
-  :root { --pt-gutter: 28px; --pt-fs-display: 60px; --pt-fs-h1: 42px; --pt-fs-stat: 52px; }
+  :root { --pt-gutter: 28px; --pt-fs-display: 36px; --pt-fs-h1: 30px; --pt-fs-stat: 28px; }
 }
 @media (max-width: 760px) {
   :root {
     --pt-gutter: 16px;
-    --pt-fs-display: 44px;
-    --pt-fs-h1: 34px;
-    --pt-fs-stat: 40px;
-    --pt-fs-h2: 22px;
+    --pt-fs-display: 30px;
+    --pt-fs-h1: 26px;
+    --pt-fs-stat: 22px;
+    --pt-fs-h2: 20px;
     --pt-fs-h3: 17px;
     --pt-fs-lead: 16px;   /* iOS 输入框 ≥16px，避免缩放 */
     --pt-vf-len: 16px;
@@ -141,7 +141,8 @@
  * 也可移入 style.css 的 “Signature” 区块。
  * ============================================================ */
 
-/* 取景框：四个 L 形角标。需要元素为 position:relative（或用 .pt-vf 自带）。*/
+/* 取景框：四个 L 形角标。只用于“可拖入文件的区域”（.upload-area、.file-label），
+   它在这里是功能性的投放边界，替代虚线框；不得用于标题、插画或纯装饰。*/
 .pt-vf { position: relative; }
 .pt-vf::before {
   content: "";
@@ -161,8 +162,6 @@
     linear-gradient(var(--c) 0 0) bottom right/ var(--l) var(--w) no-repeat,
     linear-gradient(var(--c) 0 0) bottom right/ var(--w) var(--l) no-repeat;
 }
-.pt-vf--blue { --pt-vf-color: var(--pt-blue); }
-.pt-vf--out::before { inset: -10px; } /* 角标外扩，框住内容而不压线 */
 
 /* 海报式小标签：PHOTO / SCREENSHOT */
 .pt-kicker {
@@ -176,14 +175,14 @@
 /* 粗分割线 */
 .pt-rule { border: 0; border-top: var(--pt-rule-w) solid var(--pt-rule); margin: 0; }
 
-/* 黑色口号条带 */
+/* 黑色口号条带：页脚上方一行，不做大字海报条 */
 .pt-band {
   background: var(--pt-ink);
   color: var(--pt-on-ink);
-  font: var(--pt-fw-heavy) clamp(18px, 2.4vw, 30px)/1.3 var(--pt-font-hero);
-  letter-spacing: .02em;
+  font: var(--pt-fw-bold) var(--pt-fs-small)/1.5 var(--pt-font-sans);
+  letter-spacing: .06em;
   text-align: center;
-  padding: var(--pt-s5) var(--pt-gutter);
+  padding: 12px var(--pt-gutter);   /* 一行，约 44px 高 */
 }
 
 /* 图标：继承文字颜色的线性 SVG */

@@ -23,6 +23,10 @@ for (const p of pages) {
   if (!/href="favicon\.svg"/.test(html)) warn(`${p}: 未引入 favicon.svg`);
   if (/class="(?:[^"]*\s)?(?:brandmark|sidebar-bottom|sidebar-note|nav-label)(?:\s[^"]*)?"/.test(html)) warn(`${p}: 仍包含应退役的侧栏装饰元素`);
   if (/<i>[⌕▤↓▥◈☆＋]<\/i>/.test(html)) fail(`${p}: 导航仍使用 Unicode 字符图标，应换成 icons.svg`);
+  if (/class="[^"]*\b(?:hero-arrow|empty-diagram|process-steps|paper-illustration)\b/.test(html)) fail(`${p}: 存在纯装饰图形元素（规范 P6 禁止）`);
+  if (/class="[^"]*\bintro\b[^"]*\bpt-vf\b|class="[^"]*\bpt-vf\b[^"]*\bintro\b/.test(html)) fail(`${p}: 页头不能使用取景框角标`);
+  for (const slogan of ['YOUR SHORTCUT TO THE MARK SCHEME', 'YOUR NEXT PRACTICE STARTS HERE', 'ONE HOME FOR YOUR STUDY TOOLS', 'ONE TOPIC AT A TIME', 'THE SOURCE LIBRARY', 'YOUR QUESTION SHELF', 'GROW YOUR LIBRARY', 'THE PAPER SHELF', 'CHOOSE YOUR UNIT', 'HOW IT WORKS'])
+    if (html.includes(slogan)) warn(`${p}: 仍有英文装饰标签 “${slogan}”`);
 }
 
 const css = {};
@@ -49,6 +53,7 @@ for (const [f, s] of Object.entries(css)) {
   for (const m of s.matchAll(/border-radius:\s*([^;}]+)/g)) if (!/^(0|0px|var\(--pt-radius[^)]*\)|50%)\s*$/.test(m[1].trim())) warn(`${f}: border-radius ${m[1].trim()}（规范为直角）`);
   // 6. 模糊背景
   if (/backdrop-filter/.test(s)) warn(`${f}: 仍有 backdrop-filter（规范要求去掉 blur）`);
+  if (/\.tool-card\s*\{[^}]*min-height/.test(s)) fail(`${f}: .tool-card 不应设置最小高度`);
 }
 
 // 7. 选择器覆盖：旧 CSS 中的类、JS/HTML 使用的类，仍应被某个 CSS 规则覆盖

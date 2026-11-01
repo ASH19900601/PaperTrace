@@ -1,6 +1,6 @@
 # PaperTrace UI 改版设计包 · Viewfinder
 
-把 PaperTrace 从“浅绿 SaaS 模板”改成与宣传海报一致的**黑白蓝瑞士海报风格**：纸白底、墨黑字、唯一的电光蓝，取景框角标、超粗中文标题、粗细两级分割线、直角。
+把 PaperTrace 从“浅绿 SaaS 模板”改成与宣传海报一致的**黑白蓝瑞士海报风格**：纸白底、墨黑字、唯一的电光蓝，粗黑中文标题、粗细两级分割线、直角、等宽数据字。海报风格只通过颜色、字体、线条进入产品，**不搬海报插画，信息密度优先**（v2，2026-11-01）。
 
 | 当前线上（2026-10-31） | 改版样张 |
 | --- | --- |
@@ -20,7 +20,7 @@
 | `DESIGN_SPEC.md` | 视觉规范：诊断、原则、色彩、字体、间距、签名元素、组件、逐页方案、响应式、无障碍、文案 |
 | `CLASS_MAP.md` | 不能改的东西、允许的 HTML 改动、旧 → 新映射、线上与仓库差异 |
 | `TASKS.md` | 分阶段任务清单与验收标准 |
-| `tokens.css` | 设计 Token + 签名工具类（`.pt-vf` 取景框、`.pt-kicker`、`.pt-band`、`.pt-icon`），复制为 `dist/tokens.css` |
+| `tokens.css` | 设计 Token + 工具类（`.pt-vf` 投放区角标、`.pt-kicker`、`.pt-band`、`.pt-icon`），复制为 `dist/tokens.css` |
 | `icons.svg` | 24 个线性图标的 SVG sprite，复制为 `dist/icons.svg` |
 | `favicon.svg` | 站点图标 |
 | `display-glyphs.txt` | 可选展示字体子集的字符清单 |
@@ -36,7 +36,7 @@
 
 ```sh
 node docs/ui-redesign/scripts/render-mockups.cjs          # 重新渲染样张
-node docs/ui-redesign/scripts/check-css.mjs               # 改版前：135 FAIL；目标：0 FAIL
+node docs/ui-redesign/scripts/check-css.mjs               # 改版前：137 FAIL；目标：0 FAIL
 node docs/ui-redesign/scripts/shoot-dist.cjs .cache/ui-redesign/before   # 基线截图
 npm test                                                   # 基线 115/115
 ```
@@ -44,6 +44,8 @@ npm test                                                   # 基线 115/115
 ## 核心规则速记
 
 - **蓝 = 行动与答案**（查找、下载、MS、链接、命中）；**选中 = 墨黑**。
+- 零纯装饰：不放插画、装饰箭头、流程示意图、英文口号；取景框只用于文件投放区。
+- 信息密度优先：科目等列表一科一行（≈44px），1440×900 一屏 ≥14 行。
 - 线代替盒子；全部直角；只用硬阴影（蓝 4px / 墨 8px）。
 - 可读文字 ≥ 12px，对比度 ≥ 4.5 : 1。
 - 只改 HTML 静态标记与 CSS，不改 id、data-*、JS 类名和 `.mjs`。

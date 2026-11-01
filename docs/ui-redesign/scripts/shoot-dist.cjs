@@ -4,6 +4,7 @@
 // 不传基地址时自动启动 `python3 serve.py --port 8765` 并在结束后关闭。
 // 改版前先跑一次输出到 .cache/ui-redesign/before 作对照。
 // 本机地址访问 trace.siphot.com 预览接口时的 CORS 报错属于环境限制，已忽略。
+// 1440×900 下额外检查信息密度指标（DESIGN_SPEC §1.2）。
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
@@ -31,6 +32,33 @@ const shots = [
   ['tools', 'tools.html', null],
 ];
 
+// 信息密度指标（DESIGN_SPEC §1.2），只在 1440×900 下检查
+function density(name) {
+  const out = [], $ = s => document.querySelector(s), h = el => el ? el.getBoundingClientRect().height : 0;
+  if (name === 'search') {
+    const btn = $('#searchButton');
+    if (btn && btn.getBoundingClientRect().bottom > innerHeight) out.push('“查找试题”按钮不在首屏内');
+    if ($('.hero-arrow, .empty-diagram, .process-steps, .paper-illustration')) out.push('存在纯装饰图形元素');
+  }
+  if (name === 'library') {
+    const stat = $('.stat-grid'); if (h(stat) > 72) out.push(`统计条高 ${Math.round(h(stat))}px > 72px`);
+    const card = $('.subject-card'); if (h(card) > 48) out.push(`科目行高 ${Math.round(h(card))}px > 48px`);
+  }
+  if (name === 'tools') {
+    const lefts = new Set([...document.querySelectorAll('.tool-card')].map(c => Math.round(c.getBoundingClientRect().left)));
+    if (lefts.size && lefts.size < 4) out.push(`工具卡只有 ${lefts.size} 列 < 4`);
+  }
+  if (name === 'papers') {
+    const row = $('.dl-file'); if (h(row) > 64) out.push(`文件行高 ${Math.round(h(row))}px > 64px`);
+  }
+  if (name === 'chapters') {
+    const subj = $('.chapter-subjects'); if (h(subj) > 80) out.push(`科目选择区高 ${Math.round(h(subj))}px > 80px`);
+  }
+  const band = $('.pt-band'), foot = $('footer');
+  if (band && h(band) + h(foot) > 110) out.push(`口号条 + 页脚高 ${Math.round(h(band) + h(foot))}px > 110px`);
+  return out;
+}
+
 (async () => {
   let server;
   if (!base) {
@@ -55,6 +83,7 @@ const shots = [
         await page.waitForTimeout(600);
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
         if (overflow > 0) problems.push(`${w}px ${name}: 横向溢出 ${overflow}px`);
+        if (w === 1440) for (const msg of await page.evaluate(density, name)) problems.push(`1440px ${name}: ${msg}`);
         await page.screenshot({ path: path.join(out, `${name}-${w}.png`), fullPage: true });
       } catch (e) { problems.push(`${w}px ${name}: ${e.message.split('\n')[0]}`); }
       errors.forEach(e => problems.push(`${w}px ${name}: console ${e}`));

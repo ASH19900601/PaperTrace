@@ -45,39 +45,28 @@
         <span>支持 JPG / PNG / WebP / PDF，也可以直接粘贴截图</span>
         <div><button class="btn primary small">选择图片 / PDF</button><button class="btn small">拍照搜题</button><button class="btn small">试用题目截图</button></div>
       </div>
-      <div style="height:24px"></div>
+      <div style="height:16px"></div>
     </div>
   </section>
 
-  <div class="filter-bar" style="margin-top:48px">
+  <div class="filter-bar" style="margin-top:32px">
     <div class="level-tabs"><button class="level active">全部</button><button class="level">AS &amp; A Level</button><button class="level">IGCSE</button></div>
     <div class="filters"><select aria-label="科目"><option>当前范围全部科目</option></select><select aria-label="年份"><option>全部年份</option></select><button class="text-btn">重置</button></div>
   </div>
   <div class="results-heading"><h2>从一道没有出处的题开始</h2></div>
 
   <div id="emptyState" class="empty-state">
-    <div class="empty-diagram" aria-hidden="true">
-      <div class="ed-shot pt-vf"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-paper"/></svg><b>拍<br>题</b></div>
-      <div class="ed-arrow"><span>识别</span><svg class="pt-icon" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12h116M106 4l10 8-10 8"/></svg></div>
-      <dl class="ed-out"><div><dt>QP</dt><dd>查找原卷</dd></div><div><dt class="ms">MS</dt><dd>评分标准</dd></div></dl>
-    </div>
-    <h3>把“这道题是哪年的？”交给这里。</h3>
-    <p>输入题目中有辨识度的一句话，或上传一张清晰截图。匹配后即可查看年份、考季、卷别、题号与 MS。</p>
+    <h3>输入题干或上传截图开始查找</h3>
+    <ul class="search-tips">
+      <li><strong>粘贴英文原句</strong><span>6–15 个有辨识度的单词，比 “calculate the value” 更准确。</span></li>
+      <li><strong>输入试卷编号</strong><span><code>9702_s24_qp_22 Q2</code> 可直接定位到题。</span></li>
+      <li><strong>上传截图或 PDF</strong><span>切换到「图片 / PDF」，框选题干后识别，公式请核对。</span></li>
+    </ul>
     <small id="corpusNote">当前可搜 13,334 条索引 · 6,033 份 QP · 其余 63 个科目按需加载</small>
-    <ol class="process-steps" style="margin-top:40px">
-      <li><strong>拍照上传</strong><svg class="pt-icon" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12h116M106 4l10 8-10 8"/></svg></li>
-      <li><strong>识别题目</strong><svg class="pt-icon" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12h116M106 4l10 8-10 8"/></svg></li>
-      <li><strong>查找原卷与 MS</strong></li>
-    </ol>
   </div>
 </section>
 </main>
-<div class="site-band"><div class="pt-band">永久免费 · 永久开源 · 永久无广告</div></div>
-<div class="foot-claims"><span>全部功能免费不限次，含 LLM 图片识别</span><span>免注册 / 登录</span></div>
-<footer>
-  <span class="foot-word">PaperTrace</span>
-  <span class="foot-tagline">拍一下，找出处。</span>
-  <div class="foot-line"><span>Made for independent learners. · 非 Cambridge 官方产品</span><b>PAPERTRACE / 01</b></div>
-</footer>
+<div class="pt-band">永久免费 · 永久开源 · 永久无广告 · 全部功能免费不限次，含 LLM 图片识别 · 免注册</div>
+<footer><span><b>PaperTrace</b>国际课程试题溯源</span><span>Made for independent learners. · 非 Cambridge 官方产品 · 结果请结合原卷确认</span></footer>
 </div>
 </body></html>
