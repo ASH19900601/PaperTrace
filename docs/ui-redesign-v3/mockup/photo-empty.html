@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FFFFFF">
+<title>v3 样张 · 图片搜题与空状态</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="reference.css">
+<!-- v3 样张：图片 / PDF 模式展开，尚未搜索。 类名与 id 对齐 dist/ 真实页面。 -->
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#search"><span class="brand-word">Paper<span>Trace</span></span><small>国际课程试题溯源</small></a>
+  <nav><a class="nav active" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-search"/></svg></i>试题搜索<span class="key">/</span></a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-library"/></svg></i>题库总览</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-download"/></svg></i>真题下载</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-chapters"/></svg></i>分章练习</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-tools"/></svg></i>学习工具</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-star"/></svg></i>我的收藏<span class="count">0</span></a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-plus"/></svg></i>导入试卷</a></nav>
+  <div class="sidebar-links"><a href="https://github.com/ASH19900601/PaperTrace" target="_blank" rel="noopener">GitHub 源码</a></div>
+</aside><div class="shell">
+<header class="topbar"><div class="crumb">工作空间 <span>/</span> <strong id="viewTitle">试题搜索</strong></div><div class="top-actions"><button class="icon-btn" id="helpButton" aria-label="使用说明">使用说明</button></div></header>
+<main>
+<section id="subjectScope" class="subject-scope" aria-label="题库与搜题范围">
+  <div class="scope-heading"><div><strong id="scopeTitle">深国交科目</strong><p id="scopeSummary" role="status">67 个科目 / 考试版本 · 6,033 份 QP · 选择保存在本机</p></div>
+  <div class="scope-actions"><button id="scopeAll" class="btn small">扩展到全部科目</button></div></div>
+  <details id="scopeOptions"><summary>选择额外科目</summary></details>
+</section>
+<section class="view">
+  <div class="intro">
+    <h1>查找试题出处</h1>
+    <div class="index-stat"><b id="questionCount">13,334</b><span>条题目 / 页面可搜索</span><small id="rangeLabel">2018–2026 · 已加载 4 / 67 个科目</small></div>
+  </div>
+  <section class="search-box">
+    <div class="search-tabs" role="tablist">
+      <button class="search-tab" data-mode="text" role="tab"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-text"/></svg>文字搜题</button>
+      <button class="search-tab active" data-mode="photo" role="tab"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-camera"/></svg>图片 / PDF</button>
+      <span class="local-badge" id="recognitionBadge">本机 OCR · 可并行 LLM</span>
+    </div>
+    <div id="photoArea">
+      <section class="llm-options" aria-label="图片识别设置">
+        <label class="llm-toggle"><input type="checkbox" checked>同时用 LLM 提取文字 <span>gpt-6.1-sol，较快；图片会发送到识别服务</span></label>
+        <p>本机 OCR 始终运行，两者谁先完成就先用谁的结果搜题。</p>
+        <details><summary>使用自己的 API Key</summary></details>
+      </section>
+      <div class="upload-area" tabindex="0" role="button" aria-label="选择题目图片或 PDF">
+        <span class="upload-icon">▧</span>
+        <strong>拖入图片或 PDF，也可以直接粘贴截图</strong>
+        <span>支持 JPG、PNG、WebP、PDF；一张图里有多道题会自动分开</span>
+        <div><button class="btn primary small">选择文件</button><button class="btn small">拍照</button><button class="btn small">用示例截图试试</button></div>
+      </div>
+    </div>
+  </section>
+  <div style="height:24px"></div>
+  <div class="filter-bar">
+    <div class="level-tabs" id="levelTabs"><button class="level active">全部</button><button class="level">A Level</button><button class="level">AP</button><button class="level">AS &amp; A Level</button><button class="level">GCSE</button><button class="level">IGCSE</button></div>
+    <div class="filters"><select aria-label="科目"><option>当前范围全部科目</option></select><select aria-label="年份"><option>全部年份</option></select><select aria-label="考季"><option>全部考季</option></select><select aria-label="卷别"><option>全部卷别</option></select><button class="text-btn">重置</button></div>
+  </div>
+  <div class="results-heading"><h2>还没有搜索</h2></div>
+  <div id="emptyState" class="empty-state">
+    <h3>几种搜法</h3>
+    <ul class="search-tips">
+      <li>粘贴英文题干中 6–15 个有辨识度的词，比 “calculate the value” 这类通用说法更准。</li>
+      <li>知道卷号时直接输入，例如 <code>9702_s24_qp_22 Q2</code>。</li>
+      <li>只有纸质题目时，切到「图片 / PDF」，框选题干后识别；公式和数字请对照图片核对。</li>
+    </ul>
+    <small id="corpusNote">当前可搜 13,334 条索引，来自 6,033 份 QP；其余 63 个科目在搜索时按需加载。</small>
+  </div>
+</section>
+</main>
+<footer><span>PaperTrace 免费、开源、无广告 · <a href="https://github.com/ASH19900601/PaperTrace">GitHub</a></span><span>收录 CAIE、Edexcel、AQA、AP 公开试题 · 非 Cambridge 官方产品，请以原卷为准</span></footer>
+</div>
+</body></html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FFFFFF">
+<title>v3 样张 · 试题搜索（结果）</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="reference.css">
+<!-- v3 样张：dist/index.html 搜题视图，有结果状态。 类名与 id 对齐 dist/ 真实页面。 -->
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#search"><span class="brand-word">Paper<span>Trace</span></span><small>国际课程试题溯源</small></a>
+  <nav><a class="nav active" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-search"/></svg></i>试题搜索<span class="key">/</span></a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-library"/></svg></i>题库总览</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-download"/></svg></i>真题下载</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-chapters"/></svg></i>分章练习</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-tools"/></svg></i>学习工具</a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-star"/></svg></i>我的收藏<span class="count">3</span></a><a class="nav" href="#"><i><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-plus"/></svg></i>导入试卷</a></nav>
+  <div class="sidebar-links"><a href="https://github.com/ASH19900601/PaperTrace" target="_blank" rel="noopener">GitHub 源码</a></div>
+</aside><div class="shell">
+<header class="topbar"><div class="crumb">工作空间 <span>/</span> <strong id="viewTitle">试题搜索</strong></div><div class="top-actions"><button class="icon-btn" id="helpButton" aria-label="使用说明">使用说明</button></div></header>
+<main>
+<section id="subjectScope" class="subject-scope" aria-label="题库与搜题范围">
+  <div class="scope-heading"><div><strong id="scopeTitle">深国交科目</strong><p id="scopeSummary" role="status">67 个科目 / 考试版本 · 6,033 份 QP · 选择保存在本机</p></div>
+  <div class="scope-actions"><button id="scopeAll" class="btn small">扩展到全部科目</button></div></div>
+  <details id="scopeOptions"><summary>选择额外科目</summary></details>
+</section>
+<section id="searchView" class="view">
+  <div class="intro">
+    <h1>查找试题出处</h1>
+    <div class="index-stat"><b id="questionCount">13,334</b><span>条题目 / 页面可搜索</span><small id="rangeLabel">2018–2026 · 已加载 4 / 67 个科目</small></div>
+  </div>
+  <section class="search-box">
+    <div class="search-tabs" role="tablist">
+      <button class="search-tab active" data-mode="text" role="tab"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-text"/></svg>文字搜题</button>
+      <button class="search-tab" data-mode="photo" role="tab"><svg class="pt-icon" aria-hidden="true"><use href="../icons.svg#i-camera"/></svg>图片 / PDF</button>
+      <span class="local-badge" id="recognitionBadge">本机 OCR · 可并行 LLM</span>
+    </div>
+    <div class="text-input-wrap" id="queryWrap">
+      <label for="query" class="sr-only">输入题干、关键词或试卷编号</label>
+      <textarea id="query" rows="3" placeholder="粘贴题干，或输入关键词、试卷编号，例如 9702_s24_qp_22 Q2">A diffraction grating is illuminated normally with monochromatic light of wavelength 590 nm.</textarea>
+      <div class="search-bottom"><span id="queryHint">英文原句最准确，公式和上下标可省略</span><button id="searchButton" class="btn primary">查找试题</button></div>
+    </div>
+  </section>
+  <div class="examples"><span>试试：</span><button>diffraction grating</button><button>enthalpy change</button><button>linked list</button><button>9702_s24_qp_22 Q2</button></div>
+  <div class="filter-bar">
+    <div class="level-tabs" id="levelTabs"><button class="level active">全部</button><button class="level">A Level</button><button class="level">AP</button><button class="level">AS &amp; A Level</button><button class="level">GCSE</button><button class="level">IGCSE</button></div>
+    <div class="filters"><select aria-label="科目"><option>当前范围全部科目</option></select><select aria-label="年份"><option>全部年份</option></select><select aria-label="考季"><option>全部考季</option></select><select aria-label="卷别"><option>全部卷别</option></select><button class="text-btn">重置</button></div>
+  </div>
+  <div class="results-heading"><h2 id="resultsTitle">找到 12 道候选试题</h2><div><span id="searchTiming">38 ms</span><select id="sortSelect" aria-label="结果排序"><option>按相关度</option></select></div></div>
+  <div id="resultsList" class="results-list">
+    <article class="result-card">
+      <div class="card-top"><div class="card-labels"><span class="tag">CAIE · AS &amp; A Level</span><span class="code">9702 · 物理</span><span class="match-label">原句 / 编号命中</span></div><button class="save-btn saved" aria-label="取消收藏">★</button></div>
+      <h3>2024 May / Jun <span class="muted">/</span> Paper 22 <span class="muted">/</span> Question 5</h3>
+      <p class="snippet">(a) A <mark>diffraction grating</mark> is illuminated normally with monochromatic light of <mark>wavelength</mark> 590 nm. The second-order maxima are observed at an angle of 42° to the direction of the incident light. Calculate the number of lines per metre of the grating.</p>
+      <div class="card-bottom"><span class="card-meta">9702_s24_qp_22.pdf · 原卷 p.8 · MS 已检查 · 答案 p.6</span><div class="card-actions"><button class="preview-btn" aria-expanded="true">收起原卷小问</button><button class="preview-btn">题目详情</button><a class="btn small" href="#">原卷 ↗</a><a class="btn primary small" href="#">查看 MS ↗</a></div></div>
+      <section class="paper-preview result-preview">
+        <div class="preview-heading"><div><strong>9702_s24_qp_22 · Question 5(a)</strong><span class="preview-source">原卷第 8 页 · 已自动裁剪到匹配的小问</span></div><div class="preview-controls"><button class="btn small">查看整页</button><button class="btn small">打开 PDF ↗</button></div></div>
+        <div class="preview-page"><div class="mock-page"><b>5</b>&nbsp;&nbsp;(a)&nbsp; A diffraction grating is illuminated normally with monochromatic light of wavelength 590&nbsp;nm. The second-order maxima are observed at an angle of 42° to the direction of the incident light.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calculate the number of lines per metre of the grating.<span style="float:right">[3]</span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.......................................................................................................</div></div>
+      </section>
+    </article><article class="result-card">
+      <div class="card-top"><div class="card-labels"><span class="tag">CAIE · AS &amp; A Level</span><span class="code">9702 · 物理</span><span class="match-label">命中 3 个关键词</span></div><button class="save-btn" aria-label="收藏题目">☆</button></div>
+      <h3>2021 Oct / Nov <span class="muted">/</span> Paper 23 <span class="muted">/</span> Question 4</h3>
+      <p class="snippet">Light of <mark>wavelength</mark> 630 nm is incident normally on a <mark>diffraction grating</mark>. The angle between the two second-order diffracted beams is 74°. Determine the separation of adjacent lines…</p>
+      <div class="card-bottom"><span class="card-meta">9702_w21_qp_23.pdf · 原卷 p.7 · MS 链接未验证，请核对来源</span><div class="card-actions"><button class="preview-btn" aria-expanded="false">展开原卷小问</button><button class="preview-btn">题目详情</button><a class="btn small" href="#">原卷 ↗</a><a class="btn primary small" href="#">打开 MS（未验证）↗</a></div></div>
+    </article><article class="result-card">
+      <div class="card-top"><div class="card-labels"><span class="tag">CAIE · IGCSE</span><span class="code">0625 · 物理</span><span class="match-label">命中 2 个关键词</span></div><button class="save-btn" aria-label="收藏题目">☆</button></div>
+      <h3>2023 May / Jun <span class="muted">/</span> Paper 42 <span class="muted">/</span> Question 7</h3>
+      <p class="snippet">A student uses a <mark>diffraction grating</mark> to measure the wavelength of light from a laser. State one safety precaution…</p>
+      <div class="card-bottom"><span class="card-meta">0625_s23_qp_42.pdf · 原卷 p.12 · MS 已检查 · 答案 p.9</span><div class="card-actions"><button class="preview-btn" aria-expanded="false">展开原卷小问</button><button class="preview-btn">题目详情</button><a class="btn small" href="#">原卷 ↗</a><a class="btn primary small" href="#">查看 MS ↗</a></div></div>
+    </article>
+  </div>
+  <button id="loadMore" class="btn more">显示更多结果</button>
+  <p class="bottom-note">结果按 QP 原文匹配，请打开原卷确认。纯图表题可补充图旁文字再搜。</p>
+</section>
+</main>
+<footer><span>PaperTrace 免费、开源、无广告 · <a href="https://github.com/ASH19900601/PaperTrace">GitHub</a></span><span>收录 CAIE、Edexcel、AQA、AP 公开试题 · 非 Cambridge 官方产品，请以原卷为准</span></footer>
+</div>
+<div id="toast" role="status"></div>
+</body></html>
